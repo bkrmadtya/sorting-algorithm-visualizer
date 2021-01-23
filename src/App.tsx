@@ -68,6 +68,18 @@ const App: React.FC = () => {
 		setState({ ...state, timeouts: timeouts })
 	}
 
+	const reset = () => {
+		cancel()
+		const newArray = randomArrayGenerator(10)
+		const newSteps = bubbleSort(newArray)
+		setState({
+			steps: [...newSteps],
+			currentStep: 0,
+			timeouts: [],
+			delay: 0
+		})
+	}
+
 	return (
 		<div className='app'>
 			<h1>Sorting algorithm visualizer</h1>
@@ -80,6 +92,7 @@ const App: React.FC = () => {
 
 			<button onClick={sort}>Sort</button>
 			<button onClick={cancel}>Cancel</button>
+			<button onClick={reset}>Reset</button>
 		</div>
 	)
 }
