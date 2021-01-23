@@ -80,6 +80,23 @@ const App: React.FC = () => {
 		})
 	}
 
+	const previousStep = () => {
+		cancel()
+
+		if (state.currentStep <= 0) {
+			return
+		}
+
+		setState(prevState => {
+			const currentStep = prevState.currentStep
+
+			return {
+				...prevState,
+				currentStep: currentStep - 1
+			}
+		})
+	}
+
 	return (
 		<div className='app'>
 			<h1>Sorting algorithm visualizer</h1>
@@ -93,6 +110,7 @@ const App: React.FC = () => {
 			<button onClick={sort}>Sort</button>
 			<button onClick={cancel}>Cancel</button>
 			<button onClick={reset}>Reset</button>
+			<button onClick={previousStep}>Previous Step</button>
 		</div>
 	)
 }
