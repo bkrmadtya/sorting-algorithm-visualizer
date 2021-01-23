@@ -12,7 +12,7 @@ const generateRandomSetOfNumbers = (sizeOfArray: number): Set<number> => {
 	return set
 }
 
-const randomArrayGenerator = (sizeOfArray: 10): Array<Bar> => {
+const randomArrayGenerator = (sizeOfArray: number): Array<Bar> => {
 	const randomArray = Array.from(generateRandomSetOfNumbers(sizeOfArray))
 	return randomArray.map(height => new Bar(height, BarStatus.UNSORTED))
 }
