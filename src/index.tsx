@@ -7,8 +7,6 @@ import './index.scss'
 // components
 import App from 'src/App'
 
-const unused = 'something'
-
 ReactDOM.render(
 	<React.StrictMode>
 		<App />
