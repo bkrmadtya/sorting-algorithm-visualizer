@@ -1,11 +1,24 @@
 import React from 'react'
 
+import 'src/app.scss'
+
+import Bar from 'src/components/Bar'
+
 const App: React.FC = () => {
 	return (
-		<div>
-			<h1>
-				Welcome to the React boilerplate with webpack, eslint and typescript
-			</h1>
+		<div className='app'>
+			<h1>Sorting algorithm visualizer</h1>
+
+			<div className='bar__container'>
+				<Bar />
+				<Bar />
+				<Bar />
+				<Bar />
+				<Bar />
+				<Bar />
+				<Bar />
+				<Bar />
+			</div>
 		</div>
 	)
 }
