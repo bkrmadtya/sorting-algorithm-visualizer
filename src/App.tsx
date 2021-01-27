@@ -8,7 +8,7 @@ import BarComponent from 'src/components/Bar'
 // utils
 import randomArrayGenerator from 'src/utils/randomArrayGenerator'
 import Bar from 'src/utils/Bar'
-import BubbleSort from 'src/algorithms/bubbleSort'
+import BubbleSort from 'src/algorithms/BubbleSorts'
 
 interface IInitialState {
 	steps: Bar[][]
