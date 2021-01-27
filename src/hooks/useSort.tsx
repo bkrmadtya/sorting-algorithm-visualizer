@@ -1,14 +1,7 @@
 import { useEffect, useState } from 'react'
 import Bar from 'src/utils/Bar'
 import randomArrayGenerator from 'src/utils/randomArrayGenerator'
-import { ISortingAlgorithm } from 'src/utils/interface'
-
-interface IState {
-	steps: Bar[][]
-	currentStep: number
-	timeouts: NodeJS.Timeout[]
-	delay: number
-}
+import { ISortingAlgorithm, IState } from 'src/utils/interface'
 
 const initailArray = randomArrayGenerator(10)
 
@@ -33,13 +26,12 @@ const useSort = (
 	const [sortingAlgorithm] = useState(new sortingAlgo())
 
 	useEffect(() => {
-		console.log('INSIDE USE EFFECT :: ', initialState)
 		const sortingSteps = sortingAlgorithm.sort(state.steps[0])
 		setState({
 			...state,
 			steps: [...sortingSteps]
 		})
-	}, [])
+	}, [sortingAlgorithm])
 
 	const cancel = (): void => {
 		state.timeouts.forEach(t => clearTimeout(t))
