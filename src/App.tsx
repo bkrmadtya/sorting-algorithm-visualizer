@@ -8,7 +8,7 @@ import BarComponent from 'src/components/Bar'
 // utils
 import randomArrayGenerator from 'src/utils/randomArrayGenerator'
 import Bar from 'src/utils/Bar'
-import bubbleSort from './algorithms/bubbleSort'
+import BubbleSort from 'src/algorithms/bubbleSort'
 
 interface IInitialState {
 	steps: Bar[][]
@@ -28,9 +28,10 @@ const initialState: IInitialState = {
 
 const App: React.FC = () => {
 	const [state, setState] = useState(initialState)
+	const [sortingAlgorithm, setSortingAlgorithm] = useState(new BubbleSort())
 
 	useEffect(() => {
-		const sortedSteps = bubbleSort(state.steps[0])
+		const sortedSteps = sortingAlgorithm.sort(state.steps[0])
 		setState({ ...state, steps: [...sortedSteps] })
 	}, [])
 
@@ -71,7 +72,7 @@ const App: React.FC = () => {
 	const reset = () => {
 		cancel()
 		const newArray = randomArrayGenerator(10)
-		const newSteps = bubbleSort(newArray)
+		const newSteps = sortingAlgorithm.sort(newArray)
 		setState({
 			steps: [...newSteps],
 			currentStep: 0,
@@ -116,7 +117,7 @@ const App: React.FC = () => {
 
 	return (
 		<div className='app'>
-			<h1>Sorting algorithm visualizer</h1>
+			<h1>Sorting algorithms visualizer</h1>
 
 			<div className='bar__container'>
 				{state.steps[state.currentStep].map(a => (
