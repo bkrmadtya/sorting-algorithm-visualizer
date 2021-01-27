@@ -1,119 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 // style
 import 'src/app.scss'
+
+// hooks
+import useSort from './hooks/useSort'
 
 // components
 import BarComponent from 'src/components/Bar'
 
 // utils
-import randomArrayGenerator from 'src/utils/randomArrayGenerator'
-import Bar from 'src/utils/Bar'
 import BubbleSort from 'src/algorithms/BubbleSort'
 
-interface IInitialState {
-	steps: Bar[][]
-	currentStep: number
-	timeouts: NodeJS.Timeout[]
-	delay: number
-}
-
-const initailArray = randomArrayGenerator(10)
-
-const initialState: IInitialState = {
-	steps: [[...initailArray]],
-	currentStep: 0,
-	timeouts: [],
-	delay: 0
-}
-
 const App: React.FC = () => {
-	const [state, setState] = useState(initialState)
-	const [sortingAlgorithm, setSortingAlgorithm] = useState(new BubbleSort())
-
-	useEffect(() => {
-		const sortedSteps = sortingAlgorithm.sort(state.steps[0])
-		setState({ ...state, steps: [...sortedSteps] })
-	}, [])
-
-	const cancel = () => {
-		state.timeouts.forEach(t => clearTimeout(t))
-		setState({ ...state, timeouts: [] })
-	}
-
-	const sort = () => {
-		let i = 0
-		const timeouts = []
-
-		cancel()
-
-		if (state.currentStep >= state.steps.length - 1) {
-			return
-		}
-
-		while (i < state.steps.length - 1 - state.currentStep) {
-			const timeout = setTimeout(() => {
-				setState(prevState => {
-					const currentStep = prevState.currentStep
-
-					return {
-						...prevState,
-						currentStep: currentStep + 1
-					}
-				})
-			}, state.delay * i)
-
-			timeouts.push(timeout)
-			i++
-		}
-
-		setState({ ...state, timeouts: timeouts })
-	}
-
-	const reset = () => {
-		cancel()
-		const newArray = randomArrayGenerator(10)
-		const newSteps = sortingAlgorithm.sort(newArray)
-		setState({
-			steps: [...newSteps],
-			currentStep: 0,
-			timeouts: [],
-			delay: 0
-		})
-	}
-
-	const previousStep = () => {
-		cancel()
-
-		if (state.currentStep <= 0) {
-			return
-		}
-
-		setState(prevState => {
-			const currentStep = prevState.currentStep
-
-			return {
-				...prevState,
-				currentStep: currentStep - 1
-			}
-		})
-	}
-
-	const nextStep = () => {
-		cancel()
-
-		if (state.currentStep >= state.steps.length - 1) {
-			return
-		}
-
-		setState(prevState => {
-			const currentStep = prevState.currentStep
-
-			return {
-				...prevState,
-				currentStep: currentStep + 1
-			}
-		})
-	}
+	const { state, sort, reset, cancel, previousStep, nextStep } = useSort(
+		BubbleSort
+	)
 
 	return (
 		<div className='app'>
