@@ -4,13 +4,13 @@ import changeStatusOfElement from 'src/utils/changeStatusOfElement'
 import swapElements from 'src/utils/swapElements'
 import { BarStatus } from 'src/utils/enum'
 
-const { ACTIVE, LESSER, GREATER, SORTED, UNSORTED } = BarStatus
+const { ACTIVE, SORTED, UNSORTED } = BarStatus
 
 export default class BubbleSort implements IAlgorithm {
 	private steps: Bar[][] = []
 
 	public sort(arr: Bar[]): Bar[][] {
-		this.steps.push([...arr], [...arr])
+		this.steps = [[...arr], [...arr]]
 
 		let length = arr.length
 
