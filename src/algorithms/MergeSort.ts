@@ -2,7 +2,6 @@ import Bar from 'src/utils/Bar'
 import changeStatusOfElement from 'src/utils/changeStatusOfElement'
 import { BarStatus } from 'src/utils/enum'
 import { IAlgorithm } from 'src/utils/interface'
-
 const { ACTIVE, UNSORTED, SORTED } = BarStatus
 
 export default class MergeSort implements IAlgorithm {
@@ -48,6 +47,8 @@ export default class MergeSort implements IAlgorithm {
 				? this.removeFirstElementAndReturn(rightArr)
 				: this.removeFirstElementAndReturn(leftArr)
 
+			const greaterEle = isLeftEleGreater ? leftArr[0] : rightArr[0]
+
 			sortedArr.push(lesserEle)
 
 			// move lesser element to the least position
@@ -67,7 +68,6 @@ export default class MergeSort implements IAlgorithm {
 				changeStatusOfElement(this.steps, lesserEle, SORTED)
 			} else {
 				changeStatusOfElement(this.steps, lesserEle, UNSORTED)
-				const greaterEle = isLeftEleGreater ? leftArr[0] : rightArr[0]
 				changeStatusOfElement(this.steps, greaterEle, UNSORTED)
 			}
 		}
@@ -131,17 +131,17 @@ export default class MergeSort implements IAlgorithm {
 		currentIndex: number,
 		leastIndex: number
 	): Bar[] => {
-		const lastStep = [...steps[steps.length - 1]]
-		const indexOfLesserEle = lastStep.findIndex(
+		const modifiedStep = [...steps[steps.length - 1]]
+		const indexOfLesserEle = modifiedStep.findIndex(
 			ele => ele.value === eleToMove.value
 		)
 
-		lastStep.splice(
+		modifiedStep.splice(
 			leastIndex + currentIndex,
 			0,
-			lastStep.splice(indexOfLesserEle, 1)[0]
+			modifiedStep.splice(indexOfLesserEle, 1)[0]
 		)
 
-		return lastStep
+		return modifiedStep
 	}
 }
