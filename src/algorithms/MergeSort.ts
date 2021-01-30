@@ -49,17 +49,17 @@ export default class MergeSort implements IAlgorithm {
 
 			const greaterEle = isRightSmaller ? leftArr[0] : rightArr[0]
 
-			this.steps.push([...this.steps[this.steps.length - 1]])
-			changeStatusOfElement(
-				this.steps,
-				smallerEle,
-				isRightSmaller ? LESSER : GREATER
-			)
-			changeStatusOfElement(
-				this.steps,
-				greaterEle,
-				isRightSmaller ? LESSER : GREATER
-			)
+			// this.steps.push([...this.steps[this.steps.length - 1]])
+			// changeStatusOfElement(
+			// 	this.steps,
+			// 	smallerEle,
+			// 	isRightSmaller ? LESSER : GREATER
+			// )
+			// changeStatusOfElement(
+			// 	this.steps,
+			// 	greaterEle,
+			// 	isRightSmaller ? LESSER : GREATER
+			// )
 
 			sortedArr.push(smallerEle)
 
