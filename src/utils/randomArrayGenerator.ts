@@ -5,14 +5,14 @@ const generateRandomSetOfNumbers = (sizeOfArray: number): Set<number> => {
 	const set = new Set<number>()
 
 	while (set.size < sizeOfArray) {
-		const randomNumber = Math.floor(Math.random() * (sizeOfArray * 5)) + 10
+		const randomNumber = Math.floor(Math.random() * (sizeOfArray * 20)) + 10
 		set.add(randomNumber)
 	}
 
 	return set
 }
 
-const randomArrayGenerator = (sizeOfArray: number): Array<Bar> => {
+const randomArrayGenerator = (sizeOfArray?: number | 15): Array<Bar> => {
 	const randomArray = Array.from(generateRandomSetOfNumbers(sizeOfArray))
 	return randomArray.map(height => new Bar(height, BarStatus.UNSORTED))
 }

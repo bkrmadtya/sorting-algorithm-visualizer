@@ -2,7 +2,7 @@ import Bar from 'src/utils/Bar'
 import changeStatusOfElement from 'src/utils/changeStatusOfElement'
 import { BarStatus } from 'src/utils/enum'
 import { IAlgorithm } from 'src/utils/interface'
-const { ACTIVE, UNSORTED, SORTED } = BarStatus
+const { ACTIVE, UNSORTED, SORTED, GREATER, LESSER, UNSWAPPED } = BarStatus
 
 export default class MergeSort implements IAlgorithm {
 	private steps: Bar[][] = []
@@ -37,27 +37,41 @@ export default class MergeSort implements IAlgorithm {
 		const leastIndex = this.getLeastIndex(this.steps, leftArr[0], rightArr[0])
 
 		while (leftArr.length && rightArr.length) {
-			const isLeftEleGreater = leftArr[0].value > rightArr[0].value
+			const isRightSmaller = leftArr[0].value > rightArr[0].value
 			const currentIndex = sortedArr.length
 
 			changeStatusOfElement(this.steps, leftArr[0], ACTIVE)
 			changeStatusOfElement(this.steps, rightArr[0], ACTIVE)
 
-			const lesserEle = isLeftEleGreater
+			const smallerEle = isRightSmaller
 				? this.removeFirstElementAndReturn(rightArr)
 				: this.removeFirstElementAndReturn(leftArr)
 
-			const greaterEle = isLeftEleGreater ? leftArr[0] : rightArr[0]
+			const greaterEle = isRightSmaller ? leftArr[0] : rightArr[0]
 
-			sortedArr.push(lesserEle)
+			this.steps.push([...this.steps[this.steps.length - 1]])
+			changeStatusOfElement(
+				this.steps,
+				smallerEle,
+				isRightSmaller ? LESSER : GREATER
+			)
+			changeStatusOfElement(
+				this.steps,
+				greaterEle,
+				isRightSmaller ? LESSER : GREATER
+			)
+
+			sortedArr.push(smallerEle)
 
 			// move lesser element to the least position
 			const modifiedStep = this.changeElementPosition(
 				this.steps,
-				lesserEle,
+				smallerEle,
 				leastIndex,
 				currentIndex
 			)
+
+			this.steps.push(modifiedStep)
 
 			this.steps.push(modifiedStep)
 
@@ -65,10 +79,16 @@ export default class MergeSort implements IAlgorithm {
 				leftArr.length + rightArr.length + sortedArr.length ===
 				this.steps[0].length
 			) {
-				changeStatusOfElement(this.steps, lesserEle, SORTED)
+				changeStatusOfElement(this.steps, smallerEle, SORTED)
 			} else {
-				changeStatusOfElement(this.steps, lesserEle, UNSORTED)
+				// incase right is smaller
 				changeStatusOfElement(this.steps, greaterEle, UNSORTED)
+				if (!isRightSmaller) {
+					changeStatusOfElement(this.steps, smallerEle, UNSORTED)
+				} else {
+					this.steps.push([...this.steps[this.steps.length - 1]])
+					changeStatusOfElement(this.steps, smallerEle, UNSORTED)
+				}
 			}
 		}
 
@@ -131,6 +151,8 @@ export default class MergeSort implements IAlgorithm {
 		currentIndex: number,
 		leastIndex: number
 	): Bar[] => {
+		console.log()
+		eleToMove.status = LESSER
 		const modifiedStep = [...steps[steps.length - 1]]
 		const indexOfLesserEle = modifiedStep.findIndex(
 			ele => ele.value === eleToMove.value

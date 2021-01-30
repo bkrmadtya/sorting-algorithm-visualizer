@@ -4,5 +4,6 @@ export enum BarStatus {
 	GREATER = 'GREATER',
 	SORTED = 'SORTED',
 	UNSORTED = 'UNSORTED',
-	PIVOT = 'PIVOT'
+	PIVOT = 'PIVOT',
+	UNSWAPPED = 'UNSWAPPED'
 }
