@@ -10,10 +10,11 @@ import BarComponent from 'src/components/Bar'
 
 // utils
 import BubbleSort from 'src/algorithms/BubbleSort'
+import MergeSort from 'src/algorithms/MergeSort'
 
 const App: React.FC = () => {
 	const { state, sort, reset, cancel, previousStep, nextStep } = useSort(
-		BubbleSort
+		MergeSort
 	)
 
 	return (
