@@ -17,7 +17,7 @@ const swapElements = (
 	arr[indexOfFirstEle] = tempSecond
 	arr[indexOfSecondEle] = tempFrist
 
-	return arr
+	return [...arr]
 }
 
 export default swapElements
