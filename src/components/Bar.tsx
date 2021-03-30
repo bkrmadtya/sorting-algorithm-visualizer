@@ -9,12 +9,15 @@ interface IProps {
 
 const Bar: React.FC<IProps> = ({ value, status }: IProps) => {
 	const barStyle = {
-		height: value,
-		width: 5,
-		margin: 2.5,
+		height: value * 5,
+		width: 15,
+		margin: 5,
+		padding: 5,
 		backgroundColor: BarColors[status]
 	}
-	return <div style={barStyle}></div>
+	return <div style={barStyle}>
+		{value}
+	</div>
 }
 
 export default Bar
