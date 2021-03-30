@@ -16,7 +16,7 @@ export default class Steps {
     }
 
     public getLastStep(): Bar[] {
-        return this.steps[this.steps.length - 1]
+        return [...this.steps[this.steps.length - 1]]
     }
 
     public getLength(): number {
