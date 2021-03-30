@@ -14,11 +14,9 @@ import MergeSort from 'src/algorithms/MergeSort'
 import randomArrayGenerator from './utils/randomArrayGenerator'
 import QuickSort from './algorithms/QuickSort'
 
-const arr = randomArrayGenerator(10)
-
-const sorted = new QuickSort().sort(arr)
-
-console.log(sorted)
+// const arr = randomArrayGenerator(10)
+// const sorted = new QuickSort().sort(arr)
+// console.log(sorted)
 
 const App: React.FC = () => {
 	// const { state, sort, reset, cancel, previousStep, nextStep } = useSort(

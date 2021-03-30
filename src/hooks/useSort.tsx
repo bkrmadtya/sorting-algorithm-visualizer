@@ -5,11 +5,13 @@ import { ISortingAlgorithm, IState } from 'src/utils/interface'
 
 const initailArray = randomArrayGenerator(10)
 
+console.log(initailArray.map(i => i.value))
+
 const initialState: IState = {
 	steps: [[...initailArray]],
 	currentStep: 0,
 	timeouts: [],
-	delay: 50
+	delay: 200
 }
 
 const useSort = (
@@ -27,6 +29,9 @@ const useSort = (
 
 	useEffect(() => {
 		const sortingSteps = sortingAlgorithm.sort(state.steps[0])
+
+		console.log(sortingSteps)
+		console.log(sortingSteps[sortingSteps.length - 1].map(i => i.value))
 		setState({
 			...state,
 			steps: [...sortingSteps]
@@ -75,7 +80,7 @@ const useSort = (
 			steps: [...newSteps],
 			currentStep: 0,
 			timeouts: [],
-			delay: 50
+			delay: 200
 		})
 	}
 
