@@ -59,7 +59,8 @@ export default class QuickSort implements IAlgorithm {
                 changeStatusOfElement(this.steps.getSteps(), items[left], ACTIVE)
                 changeStatusOfElement(this.steps.getSteps(), items[right], ACTIVE)
 
-                items = swapElements([...this.steps.getLastStep()], items[left], items[right])
+                items = this.steps.getLastStep()
+                items = swapElements([...this.steps.getLastStep()], this.steps.getLastStep()[left], this.steps.getLastStep()[right])
                 this.steps.addStep(items)
                 this.steps.addStep()
 
@@ -79,6 +80,9 @@ export default class QuickSort implements IAlgorithm {
             if (initialRight - initialLeft <= 2 && this.ifIndicesAreOutOfBound(left, right) && left > right) {
                 changeStatusOfElement(this.steps.getSteps(), items[left], SORTED)
                 changeStatusOfElement(this.steps.getSteps(), items[right], SORTED)
+            } else {
+                this.makePreviousEleUnsorted(items[left - 1], initialLeft, left)
+                this.makePreviousEleUnsorted(items[right + 1], initialRight, right)
             }
         }
 
@@ -87,12 +91,14 @@ export default class QuickSort implements IAlgorithm {
          * @condition
          * - If the sub array under partition has length 2 or less then the pivot after the loop will be sorted
          */
+        this.steps.addStep()
         if ((initialRight - initialLeft) <= 3) {
-            this.steps.addStep()
             changeStatusOfElement(this.steps.getSteps(), pivot, SORTED)
+        } else {
+            changeStatusOfElement(this.steps.getSteps(), pivot, UNSORTED)
         }
-        return left
-        // return Math.max(left, right)
+        // return left
+        return Math.max(left, right)
     }
 
     private makePreviousEleUnsorted(ele: Bar, initialIndex: number, currentIndex: number): void {
