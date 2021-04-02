@@ -30,7 +30,7 @@ export default class QuickSort implements IAlgorithm {
         const initialLeft = left;
         const initialRight = right;
         const pivot = items[Math.floor((right + left) / 2)]
-        changeStatusOfElement(this.steps.getSteps(), pivot, BarStatus.PIVOT)
+        changeStatusOfElement(this.steps.getSteps(), pivot, PIVOT)
 
         while (left <= right) {
             changeStatusOfElement(this.steps.getSteps(), items[left], ACTIVE)
@@ -76,7 +76,7 @@ export default class QuickSort implements IAlgorithm {
              * 
              */
 
-            if ((initialRight - initialLeft) <= 2 && this.ifIndicesAreOutOfBound(left, right) && left > right) {
+            if (initialRight - initialLeft <= 2 && this.ifIndicesAreOutOfBound(left, right) && left > right) {
                 changeStatusOfElement(this.steps.getSteps(), items[left], SORTED)
                 changeStatusOfElement(this.steps.getSteps(), items[right], SORTED)
             }
@@ -87,11 +87,12 @@ export default class QuickSort implements IAlgorithm {
          * @condition
          * - If the sub array under partition has length 2 or less then the pivot after the loop will be sorted
          */
-        if ((initialRight - initialLeft) <= 2) {
+        if ((initialRight - initialLeft) <= 3) {
             this.steps.addStep()
             changeStatusOfElement(this.steps.getSteps(), pivot, SORTED)
         }
-        return Math.max(left, right)
+        return left
+        // return Math.max(left, right)
     }
 
     private makePreviousEleUnsorted(ele: Bar, initialIndex: number, currentIndex: number): void {
@@ -102,6 +103,6 @@ export default class QuickSort implements IAlgorithm {
     }
 
     private ifIndicesAreOutOfBound(left: number, right: number): boolean {
-        return (0 <= left && left < this.steps.getLastStep().length) && (0 <= right && right < this.steps.getLastStep().length)
+        return (left >= 0 && left < this.steps.getLastStep().length) && (right >= 0 && right < this.steps.getLastStep().length)
     }
 }
