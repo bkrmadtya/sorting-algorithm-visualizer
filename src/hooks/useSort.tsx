@@ -11,7 +11,7 @@ const initialState: IState = {
 	steps: [[...initailArray]],
 	currentStep: 0,
 	timeouts: [],
-	delay: 200
+	delay: 300
 }
 
 const useSort = (
@@ -75,13 +75,24 @@ const useSort = (
 	const reset = (): void => {
 		cancel()
 		const newArray = randomArrayGenerator(10)
+		console.clear()
+		console.log(newArray.map(i => i.value))
 		const newSteps = sortingAlgorithm.sort(newArray)
+		console.log(newSteps[newSteps.length - 1].map(i => i.value))
+		console.log(isSorted(newSteps[newSteps.length - 1]))
+		console.log({ newSteps })
 		setState({
 			steps: [...newSteps],
 			currentStep: 0,
 			timeouts: [],
-			delay: 200
+			delay: 300
 		})
+	}
+
+	const isSorted = (arr: Bar[]) => {
+		const copyArr = [...arr].sort((a, b) => a.value - b.value)
+
+		return copyArr.every((i, idx) => arr[idx].value === i.value)
 	}
 
 	const previousStep = (): void => {
