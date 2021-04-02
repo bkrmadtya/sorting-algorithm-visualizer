@@ -67,12 +67,26 @@ export default class QuickSort implements IAlgorithm {
                 right--;
             }
 
+            /**
+             * Make element status 'SORTED'
+             * @conditions
+             * - If the sub array under partition has length 2 or less
+             * - And the left and right pointer is not out of array index bound
+             * - And left pointer is greater than right pointer then the element is SORTED
+             * 
+             */
+
             if ((initialRight - initialLeft) <= 2 && this.ifIndicesAreOutOfBound(left, right) && left > right) {
                 changeStatusOfElement(this.steps.getSteps(), items[left], SORTED)
                 changeStatusOfElement(this.steps.getSteps(), items[right], SORTED)
             }
         }
 
+        /**
+         * Make pivot status SORTED
+         * @condition
+         * - If the sub array under partition has length 2 or less then the pivot after the loop will be sorted
+         */
         if ((initialRight - initialLeft) <= 2) {
             this.steps.addStep()
             changeStatusOfElement(this.steps.getSteps(), pivot, SORTED)
