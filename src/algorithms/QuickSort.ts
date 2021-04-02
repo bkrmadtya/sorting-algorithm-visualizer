@@ -32,65 +32,62 @@ export default class QuickSort implements IAlgorithm {
         const pivot = items[Math.floor((right + left) / 2)]
         changeStatusOfElement(this.steps.getSteps(), pivot, BarStatus.PIVOT)
 
-        // this.printUpToThirdStep(left, right, "AFTER PIVOT")
-
         while (left <= right) {
-            // changeStatusOfElement(this.steps.getSteps(), items[left], ACTIVE)
-            // changeStatusOfElement(this.steps.getSteps(), items[right], ACTIVE)
+            changeStatusOfElement(this.steps.getSteps(), items[left], ACTIVE)
+            changeStatusOfElement(this.steps.getSteps(), items[right], ACTIVE)
 
             while (items[left].value < pivot.value) {
-                if (initialLeft !== left) {
-                    changeStatusOfElement(this.steps.getSteps(), items[left - 1], UNSORTED)
-                }
+                this.makePreviousEleUnsorted(items[left - 1], initialLeft, left)
+
                 changeStatusOfElement(this.steps.getSteps(), items[left], ACTIVE)
                 this.steps.addStep()
                 left++;
             }
 
             while (items[right].value > pivot.value) {
-                if (initialRight !== right) {
-                    changeStatusOfElement(this.steps.getSteps(), items[right + 1], UNSORTED)
-                }
+                this.makePreviousEleUnsorted(items[right + 1], initialRight, right)
+
                 changeStatusOfElement(this.steps.getSteps(), items[right], ACTIVE)
                 this.steps.addStep()
                 right--;
             }
 
             if (left <= right) {
-                if (initialLeft !== left) {
-                    changeStatusOfElement(this.steps.getSteps(), items[left - 1], UNSORTED)
-                }
-                if (initialRight !== right) {
-                    changeStatusOfElement(this.steps.getSteps(), items[right + 1], UNSORTED)
-                }
+                this.makePreviousEleUnsorted(items[left - 1], initialLeft, left)
+                this.makePreviousEleUnsorted(items[right + 1], initialRight, right)
+
                 changeStatusOfElement(this.steps.getSteps(), items[left], ACTIVE)
                 changeStatusOfElement(this.steps.getSteps(), items[right], ACTIVE)
+
                 items = swapElements([...this.steps.getLastStep()], items[left], items[right])
                 this.steps.addStep(items)
                 this.steps.addStep()
-                if (Math.abs(initialRight - initialLeft) <= 2) {
-                    changeStatusOfElement(this.steps.getSteps(), items[left], SORTED)
-                    changeStatusOfElement(this.steps.getSteps(), items[right], SORTED)
-                    changeStatusOfElement(this.steps.getSteps(), pivot, SORTED)
-                }
 
                 left++;
                 right--;
             }
+
+            if ((initialRight - initialLeft) <= 2 && this.ifIndicesAreOutOfBound(left, right) && left > right) {
+                changeStatusOfElement(this.steps.getSteps(), items[left], SORTED)
+                changeStatusOfElement(this.steps.getSteps(), items[right], SORTED)
+            }
         }
 
+        if ((initialRight - initialLeft) <= 2) {
+            this.steps.addStep()
+            changeStatusOfElement(this.steps.getSteps(), pivot, SORTED)
+        }
         return Math.max(left, right)
     }
 
-
-    private printUpToThirdStep(left: number, right: number, message: string) {
-        if (left <= 3 && right <= 9) {
-            console.log({ message, left, right, steps: this.steps.getLastStep() })
+    private makePreviousEleUnsorted(ele: Bar, initialIndex: number, currentIndex: number): void {
+        // if the element is the first element there is no previous element
+        if (initialIndex !== currentIndex) {
+            changeStatusOfElement(this.steps.getSteps(), ele, UNSORTED)
         }
     }
 
-    // private getPreviousRight(pivot: Bar){
-    //     this.steps.getLastStep().find()
-    // }
-
+    private ifIndicesAreOutOfBound(left: number, right: number): boolean {
+        return (0 <= left && left < this.steps.getLastStep().length) && (0 <= right && right < this.steps.getLastStep().length)
+    }
 }
