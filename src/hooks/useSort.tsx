@@ -5,11 +5,13 @@ import { ISortingAlgorithm, IState } from 'src/utils/interface'
 
 const initailArray = randomArrayGenerator(10)
 
+console.log(initailArray.map(i => i.value))
+
 const initialState: IState = {
 	steps: [[...initailArray]],
 	currentStep: 0,
 	timeouts: [],
-	delay: 50
+	delay: 300
 }
 
 const useSort = (
@@ -27,6 +29,9 @@ const useSort = (
 
 	useEffect(() => {
 		const sortingSteps = sortingAlgorithm.sort(state.steps[0])
+
+		console.log(sortingSteps)
+		console.log(sortingSteps[sortingSteps.length - 1].map(i => i.value))
 		setState({
 			...state,
 			steps: [...sortingSteps]
@@ -70,13 +75,24 @@ const useSort = (
 	const reset = (): void => {
 		cancel()
 		const newArray = randomArrayGenerator(10)
+		console.clear()
+		console.log(newArray.map(i => i.value))
 		const newSteps = sortingAlgorithm.sort(newArray)
+		console.log(newSteps[newSteps.length - 1].map(i => i.value))
+		console.log(isSorted(newSteps[newSteps.length - 1]))
+		console.log({ newSteps })
 		setState({
 			steps: [...newSteps],
 			currentStep: 0,
 			timeouts: [],
-			delay: 50
+			delay: 300
 		})
+	}
+
+	const isSorted = (arr: Bar[]) => {
+		const copyArr = [...arr].sort((a, b) => a.value - b.value)
+
+		return copyArr.every((i, idx) => arr[idx].value === i.value)
 	}
 
 	const previousStep = (): void => {
