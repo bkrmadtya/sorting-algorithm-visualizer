@@ -21,7 +21,7 @@
 	background: linear-gradient(
 		109.62deg,
 		rgba(255, 255, 255, 0.65) 0.02%,
-		rgba(151, 151, 151, 0.3) 0.1%,
+		rgba(255, 255, 255, 0.3) 0.1%,
 		rgba(255, 255, 255, 0) 0.5%
 	);
 }
@@ -57,12 +57,14 @@
 			}
 		}
 	}
+
 	.sidePanel {
 		grid-area: side;
 		background: rgba(255, 255, 255, 0.44);
 		border: 1.5px solid rgba(255, 255, 255, 0.71);
 		border-radius: 15px 0px 0px 0px;
 	}
+
 	.bottomPanel {
 		grid-area: bottom;
 		background: linear-gradient(
@@ -75,6 +77,7 @@
 	}
 
 	display: grid;
+	grid-template-columns: repeat(4, 1fr);
 	grid-template-areas:
 		'side main main main'
 		'side main main main'
