@@ -20,9 +20,8 @@
 	align-items: center;
 	background: linear-gradient(
 		109.62deg,
-		rgba(255, 255, 255, 0.65) 0.02%,
-		rgba(255, 255, 255, 0.3) 0.1%,
-		rgba(255, 255, 255, 0) 0.5%
+		rgba(255, 255, 255, 0.15) 0.5%,
+		rgba(255, 255, 255, 0) 100%
 	);
 }
 
@@ -52,7 +51,7 @@
 		);
 		border: 1.5px solid rgba(255, 255, 255, 0.67);
 		border-radius: 0px 15px 0px 0px;
-		padding: 20px;
+		padding: 40px;
 
 		& > .barContainer {
 			height: 300px;
@@ -79,10 +78,10 @@
 
 	.sidePanel {
 		grid-area: side;
-		background: rgba(255, 255, 255, 0.44);
+		background: rgba(255, 255, 255, 0.363);
 		border: 1.5px solid rgba(255, 255, 255, 0.71);
 		border-radius: 15px 0px 0px 0px;
-		padding: 20px;
+		padding: 40px;
 	}
 
 	.bottomPanel {
@@ -94,6 +93,6 @@
 		);
 		border: 1.5px solid rgba(255, 255, 255, 0.67);
 		border-radius: 0px 0px 15px 15px;
-		padding: 20px;
+		padding: 40px;
 	}
 }
