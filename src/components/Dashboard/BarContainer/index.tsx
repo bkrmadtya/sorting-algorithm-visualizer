@@ -1,5 +1,5 @@
 import React from 'react'
-import BarComponent from '../Bar'
+import BarComponent from './Bar'
 import Bar from 'src/utils/Bar'
 
 interface IProps {
@@ -8,7 +8,7 @@ interface IProps {
 
 const BarContainer: React.FC<IProps> = ({ steps }: IProps) => {
 	return (
-		<div className='bar__container'>
+		<div className='barContainer'>
 			{steps.map(a => (
 				<BarComponent key={a.value} value={a.value} status={a.status} />
 			))}
