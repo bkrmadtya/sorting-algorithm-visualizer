@@ -9,20 +9,16 @@ import useSort from '../../hooks/useSort'
 import BarContainer from 'src/components/BarContainer'
 
 // utils
-import BubbleSort from 'src/algorithms/BubbleSort'
-import MergeSort from 'src/algorithms/MergeSort'
-import QuickSort from '../../algorithms/QuickSort'
+import { ISortingAlgorithm } from 'src/utils/interface'
+import { BubbleSort, MergeSort, QuickSort } from 'src/algorithms'
 
-// const arr = randomArrayGenerator(10)
-// const sorted = new QuickSort().sort(arr)
-// console.log(sorted)
+let selectedAlgorithm: ISortingAlgorithm = BubbleSort
+selectedAlgorithm = MergeSort
+selectedAlgorithm = QuickSort
 
 const DashBoard: React.FC = () => {
-	// const { state, sort, reset, cancel, previousStep, nextStep } = useSort(
-	// 	MergeSort
-	// )
 	const { state, sort, reset, cancel, previousStep, nextStep } = useSort(
-		QuickSort
+		selectedAlgorithm
 	)
 
 	return (
