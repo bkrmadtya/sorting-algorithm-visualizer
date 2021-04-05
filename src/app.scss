@@ -27,8 +27,24 @@
 }
 
 .dashboard {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-areas:
+		'side main main main'
+		'side main main main'
+		'side main main main'
+		'bottom bottom bottom bottom';
+	min-width: 500px;
+	max-width: 80%;
+	min-height: 800px;
+	max-height: 80%;
+	backdrop-filter: blur(20px);
+
 	.mainPanel {
 		grid-area: main;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		background: linear-gradient(
 			108.41deg,
 			rgba(255, 255, 255, 0.44) 0%,
@@ -36,8 +52,11 @@
 		);
 		border: 1.5px solid rgba(255, 255, 255, 0.67);
 		border-radius: 0px 15px 0px 0px;
+		padding: 20px;
 
 		& > .barContainer {
+			height: 300px;
+			position: relative;
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
@@ -63,6 +82,7 @@
 		background: rgba(255, 255, 255, 0.44);
 		border: 1.5px solid rgba(255, 255, 255, 0.71);
 		border-radius: 15px 0px 0px 0px;
+		padding: 20px;
 	}
 
 	.bottomPanel {
@@ -74,18 +94,6 @@
 		);
 		border: 1.5px solid rgba(255, 255, 255, 0.67);
 		border-radius: 0px 0px 15px 15px;
+		padding: 20px;
 	}
-
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-template-areas:
-		'side main main main'
-		'side main main main'
-		'side main main main'
-		'bottom bottom bottom bottom';
-	min-width: 500px;
-	max-width: 80%;
-	min-height: 700px;
-	max-height: 80%;
-	backdrop-filter: blur(20px);
 }
