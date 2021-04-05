@@ -11,6 +11,7 @@ import BarContainer from 'src/components/BarContainer'
 // utils
 import { ISortingAlgorithm } from 'src/utils/interface'
 import { BubbleSort, MergeSort, QuickSort } from 'src/algorithms'
+import Controls from '../Controls'
 
 let selectedAlgorithm: ISortingAlgorithm = BubbleSort
 selectedAlgorithm = MergeSort
@@ -20,16 +21,10 @@ const DashBoard: React.FC = () => {
 	const { state, sort, reset, cancel, previousStep, nextStep } = useSort(
 		selectedAlgorithm
 	)
-
 	return (
 		<div className='dashboard'>
 			<BarContainer steps={state.steps[state.currentStep]} />
-
-			<button onClick={sort}>Sort</button>
-			<button onClick={cancel}>Cancel</button>
-			<button onClick={reset}>Reset</button>
-			<button onClick={previousStep}>Previous Step</button>
-			<button onClick={nextStep}>Next Step</button>
+			<Controls {...{ sort, cancel, reset, previousStep, nextStep }} />
 		</div>
 	)
 }
