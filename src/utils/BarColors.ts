@@ -1,12 +1,12 @@
 import { BarStatus } from 'src/utils/enum'
 
 const BarColors = {
-	[BarStatus.ACTIVE]: 'orange',
-	[BarStatus.LESSER]: 'red',
-	[BarStatus.GREATER]: 'green',
-	[BarStatus.SORTED]: 'green',
-	[BarStatus.UNSORTED]: 'grey',
-	[BarStatus.PIVOT]: 'yellow'
+	[BarStatus.ACTIVE]: '#ff9e2c', 	// orange
+	[BarStatus.LESSER]: '#ff6b6b', 	// red
+	[BarStatus.GREATER]: '#4ecd9d', // green
+	[BarStatus.SORTED]: '#4e97cd', 	// purple
+	[BarStatus.UNSORTED]: 'black',
+	[BarStatus.PIVOT]: '#eeee78' 	// yellow
 }
 
 export default BarColors
