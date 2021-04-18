@@ -5,6 +5,10 @@
 	font-family: sans-serif;
 }
 
+:root {
+	font-size: 62.5%; // 1rem = 10px, 10px / 16px => 62.5%
+}
+
 #root {
 	width: 100vw;
 	height: 100vh;
@@ -28,7 +32,7 @@
 .navbar {
 	width: 100%;
 	background-color: #1ce0ed;
-	padding: 40px;
+	padding: 4rem;
 	position: absolute;
 	top: 0;
 	background: linear-gradient(
@@ -36,13 +40,13 @@
 		rgba(255, 255, 255, 0.1802) 0%,
 		rgba(255, 255, 255, 0.34) 100%
 	);
-	border-bottom: 1px solid #ffffff;
+	border-bottom: 0.1rem solid #ffffff;
 
 	&__header {
 		font-style: normal;
 		font-weight: bold;
-		font-size: 14px;
-		line-height: 16px;
+		font-size: 1.4rem;
+		line-height: 1.6rem;
 		letter-spacing: 0.3em;
 	}
 }
@@ -50,9 +54,9 @@
 .panelHeader {
 	font-style: normal;
 	font-weight: bold;
-	font-size: 16px;
-	line-height: 16px;
-	margin-bottom: 20px;
+	font-size: 1.6rem;
+	line-height: 1.6rem;
+	margin-bottom: 2rem;
 }
 
 .dashboard {
@@ -65,11 +69,11 @@
 		'side main main main'
 		'side main main main'
 		'bottom bottom bottom bottom';
-	min-width: 500px;
+	min-width: 150rem;
 	max-width: 80%;
-	min-height: 800px;
+	min-height: 80rem;
 	max-height: 80%;
-	backdrop-filter: blur(20px);
+	backdrop-filter: blur(2rem);
 
 	.mainPanel {
 		grid-area: main;
@@ -81,13 +85,13 @@
 			rgba(255, 255, 255, 0.44) 0%,
 			rgba(238, 238, 238, 0.04) 100%
 		);
-		border: 1.5px solid rgba(255, 255, 255, 0.67);
-		border-radius: 0px 15px 0px 0px;
-		padding: 40px;
+		border: 0.15rem solid rgba(255, 255, 255, 0.67);
+		border-radius: 0rem 1.5rem 0rem 0rem;
+		padding: 4rem;
 		text-align: justify;
 
 		& > .barContainer {
-			height: 300px;
+			height: 30rem;
 			position: relative;
 			display: flex;
 			flex-direction: row;
@@ -95,14 +99,14 @@
 			align-items: flex-end;
 
 			.bar {
-				width: 25px;
-				margin: 5px;
-				padding: 5px;
-				border-radius: 3px;
-				border-radius: 2px;
+				width: 2.5rem;
+				margin: 0.5rem;
+				padding: 0.5rem;
+				border-radius: 0.3rem;
+				border-radius: 0.2rem;
 				opacity: 0.75;
 				color: white;
-				box-shadow: 4px 4px 10px 2px background-color;
+				box-shadow: 0.4rem 0.4rem 1rem 0.2rem background-color;
 			}
 		}
 
@@ -110,12 +114,12 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
-			padding: 10px;
+			padding: 1rem;
 
 			& > button {
-				margin: 5px;
-				padding: 5px;
-				min-width: 80px;
+				margin: 0.5rem;
+				padding: 0.5rem;
+				min-width: 8rem;
 			}
 		}
 	}
@@ -123,9 +127,9 @@
 	.sidePanel {
 		grid-area: side;
 		background: rgba(255, 255, 255, 0.356);
-		border: 1.5px solid rgba(255, 255, 255, 0.71);
-		border-radius: 15px 0px 0px 0px;
-		padding: 40px 0px 0px 40px;
+		border: 0.15rem solid rgba(255, 255, 255, 0.71);
+		border-radius: 1.5rem 0rem 0rem 0rem;
+		padding: 4rem 0rem 0rem 4rem;
 		text-align: justify;
 		width: 100%;
 		height: 100%;
@@ -138,33 +142,37 @@
 			height: 90%;
 			text-align: justify;
 			overflow: hidden;
-			padding-right: 40px;
+			padding-right: 4rem;
 
 			&:hover {
 				overflow-y: scroll;
-				padding-right: 30px;
+				padding-right: 3rem;
 			}
 
 			/* width */
 			&::-webkit-scrollbar {
-				width: 10px;
+				width: 1rem;
 			}
 
 			/* Track */
 			&::-webkit-scrollbar-track {
-				box-shadow: inset 0 0 5px rgb(255, 255, 255);
-				border-radius: 10px;
+				box-shadow: inset 0 0 0.5rem rgb(255, 255, 255);
+				border-radius: 1rem;
 			}
 
 			/* Handle */
 			&::-webkit-scrollbar-thumb {
 				background: rgba(255, 255, 255, 0.829);
-				border-radius: 10px;
+				border-radius: 1rem;
 			}
 
 			/* Handle on hover */
 			&::-webkit-scrollbar-thumb:hover {
 				background: #b30000;
+			}
+
+			code {
+				font-size: 1.4rem;
 			}
 		}
 	}
@@ -176,9 +184,9 @@
 			rgba(255, 255, 255, 0.37) 0%,
 			rgba(255, 255, 255, 0) 100%
 		);
-		border: 1.5px solid rgba(255, 255, 255, 0.67);
-		border-radius: 0px 0px 15px 15px;
-		padding: 40px;
+		border: 0.15rem solid rgba(255, 255, 255, 0.67);
+		border-radius: 0rem 0rem 1.5rem 1.5rem;
+		padding: 4rem;
 		text-align: justify;
 	}
 }
