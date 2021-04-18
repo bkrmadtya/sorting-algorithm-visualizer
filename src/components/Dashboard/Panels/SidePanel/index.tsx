@@ -1,10 +1,30 @@
 import React from 'react'
-import { Header } from 'src/components/Common'
 
+//components
+import { Header } from 'src/components/Common'
+import Dropdown from 'src/components/Common/Dropdown'
+
+const algorithmsOptions = [
+	{
+		key: 'Quick Sort',
+		value: 'quickSort'
+	},
+	{
+		key: 'Bubble Sort',
+		value: 'bubbleSort'
+	},
+	{
+		key: 'Merge Sort',
+		value: 'mergeSort'
+	}
+]
 const SidePanel: React.FC = () => {
 	return (
 		<div className='sidePanel'>
-			<Header className='panelHeader'>Side Panel</Header>
+			<Header className='panelHeader'>
+				<span>Algorithm: </span>
+				<Dropdown options={algorithmsOptions} />
+			</Header>
 			<div className='codeContainer'>
 				<code>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos et vitae
