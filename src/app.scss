@@ -29,12 +29,22 @@
 	);
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 .navbar {
 	width: 100%;
-	background-color: #1ce0ed;
 	padding: 3.5rem;
 	position: absolute;
 	top: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	background-color: #1ce0ed;
 	background: linear-gradient(
 		180deg,
 		rgba(255, 255, 255, 0.1802) 0%,
@@ -49,6 +59,21 @@
 		line-height: 2rem;
 		letter-spacing: 0.3em;
 		text-align: center;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+
+		& > * {
+			margin: 0px 2rem;
+			font-weight: 500;
+			font-size: 2rem;
+			line-height: 2rem;
+			letter-spacing: 0.3em;
+		}
 	}
 }
 
