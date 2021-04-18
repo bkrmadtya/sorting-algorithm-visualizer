@@ -47,6 +47,14 @@
 	}
 }
 
+.panelHeader {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 16px;
+	margin-bottom: 20px;
+}
+
 .dashboard {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -74,6 +82,7 @@
 		border: 1.5px solid rgba(255, 255, 255, 0.67);
 		border-radius: 0px 15px 0px 0px;
 		padding: 40px;
+		text-align: justify;
 
 		& > .barContainer {
 			height: 300px;
@@ -114,7 +123,9 @@
 		background: rgba(255, 255, 255, 0.356);
 		border: 1.5px solid rgba(255, 255, 255, 0.71);
 		border-radius: 15px 0px 0px 0px;
-		padding: 40px;
+		padding: 40px 40px 0px 40px;
+		text-align: justify;
+		overflow-y: scroll;
 	}
 
 	.bottomPanel {
@@ -127,5 +138,6 @@
 		border: 1.5px solid rgba(255, 255, 255, 0.67);
 		border-radius: 0px 0px 15px 15px;
 		padding: 40px;
+		text-align: justify;
 	}
 }
