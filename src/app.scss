@@ -8,8 +8,7 @@
 #root {
 	width: 100vw;
 	height: 100vh;
-	background: linear-gradient(109.62deg, #1ce0ed 6.05%, #a8f5af 106.05%),
-		#ff9898;
+	background: linear-gradient(109.62deg, #1ce0ed 6.05%, #a8f5af 106.05%);
 }
 
 .app {
@@ -21,8 +20,8 @@
 	align-items: center;
 	background: linear-gradient(
 		109.62deg,
-		rgba(255, 255, 255, 0.15) 0.5%,
-		rgba(255, 255, 255, 0) 100%
+		rgba(255, 255, 255, 0.42) 0.02%,
+		rgba(255, 255, 255, 0.05) 99.99%
 	);
 }
 
@@ -35,9 +34,17 @@
 	background: linear-gradient(
 		180deg,
 		rgba(255, 255, 255, 0.1802) 0%,
-		rgba(255, 255, 255, 0.459) 100%
+		rgba(255, 255, 255, 0.34) 100%
 	);
 	border-bottom: 1px solid #ffffff;
+
+	&__header {
+		font-style: normal;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 16px;
+		letter-spacing: 0.3em;
+	}
 }
 
 .dashboard {
@@ -104,7 +111,7 @@
 
 	.sidePanel {
 		grid-area: side;
-		background: rgba(255, 255, 255, 0.363);
+		background: rgba(255, 255, 255, 0.356);
 		border: 1.5px solid rgba(255, 255, 255, 0.71);
 		border-radius: 15px 0px 0px 0px;
 		padding: 40px;
