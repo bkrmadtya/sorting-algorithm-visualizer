@@ -4,7 +4,7 @@ import { Header } from 'src/components/Common'
 const SidePanel: React.FC = () => {
 	return (
 		<div className='sidePanel'>
-			<Header>Side Panel</Header>
+			<Header className='panelHeader'>Side Panel</Header>
 			<p>
 				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut deleniti,
 				iste quos eveniet eligendi enim facilis ullam officiis debitis obcaecati
