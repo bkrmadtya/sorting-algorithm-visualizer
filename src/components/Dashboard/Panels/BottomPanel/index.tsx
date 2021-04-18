@@ -1,9 +1,10 @@
 import React from 'react'
+import { Header } from 'src/components/Common'
 
 const BottomPanel: React.FC = () => {
 	return (
 		<div className='bottomPanel'>
-			<h1>Bottom Pannel</h1>
+			<Header>Bottom Pannel</Header>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quae
 				minus dolorum inventore in obcaecati, suscipit molestiae quod rerum
