@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import 'src/app.scss'
 
 // components
-import DashBoard from 'src/components/Dashboard'
-import { Header, NavBar } from 'src/components/Common'
+import { NavBar } from 'src/components/Common'
+import { Home, Algorithms, About } from 'src/components/Pages'
 
 const App: React.FC = () => {
 	return (
@@ -18,13 +18,13 @@ const App: React.FC = () => {
 				</NavBar>
 				<Switch>
 					<Route path='/algorithms'>
-						<h1>Algorithms</h1>
+						<Algorithms />
 					</Route>
 					<Route path='/about'>
-						<h1>About</h1>
+						<About />
 					</Route>
 					<Route path='/'>
-						<DashBoard />
+						<Home />
 					</Route>
 				</Switch>
 			</Router>
