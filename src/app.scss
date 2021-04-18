@@ -26,6 +26,20 @@
 	);
 }
 
+.navbar {
+	width: 100%;
+	background-color: #1ce0ed;
+	padding: 40px;
+	position: absolute;
+	top: 0;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.1802) 0%,
+		rgba(255, 255, 255, 0.459) 100%
+	);
+	border-bottom: 1px solid #ffffff;
+}
+
 .dashboard {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
