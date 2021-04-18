@@ -5,12 +5,12 @@ import 'src/app.scss'
 
 // components
 import DashBoard from 'src/components/Dashboard'
-import { Header } from 'src/components/Common'
+import { Header, NavBar } from 'src/components/Common'
 
 const App: React.FC = () => {
 	return (
 		<div className='app'>
-			<Header>Sorting Algorithm Visualizer</Header>
+			<NavBar />
 			<DashBoard />
 		</div>
 	)
