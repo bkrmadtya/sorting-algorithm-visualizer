@@ -1,6 +1,5 @@
 import React from 'react'
 import { BarStatus } from 'src/utils/enum'
-import BarColors from 'src/utils/BarColors'
 
 interface IProps {
 	value: number
@@ -10,7 +9,7 @@ interface IProps {
 const Bar: React.FC<IProps> = ({ value, status }: IProps) => {
 	const barStyle = {
 		height: value * 2,
-		backgroundColor: BarColors[status]
+		backgroundColor: `var(--${status})`
 	}
 	return (
 		<div className='bar' style={barStyle}>
