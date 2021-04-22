@@ -123,7 +123,17 @@ a {
 
 	.mainPanel {
 		grid-area: main;
-		display: flex;
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-areas:
+			'. . . . . .'
+			'. . . . . .'
+			'. . . . . .'
+			'. . . . . .'
+			'barContainer barContainer barContainer barContainer barContainer legend'
+			'barContainer barContainer barContainer barContainer barContainer legend'
+			'barContainer barContainer barContainer barContainer barContainer legend'
+			'controls controls controls controls controls . ';
 		flex-direction: column;
 		justify-content: center;
 		background-color: var(--mainPanelBg);
@@ -131,8 +141,8 @@ a {
 		text-align: justify;
 
 		& > .barContainer {
+			grid-area: barContainer;
 			height: 30rem;
-			position: relative;
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
@@ -150,6 +160,7 @@ a {
 		}
 
 		& > .controls {
+			grid-area: controls;
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
@@ -159,6 +170,29 @@ a {
 				margin: 0.5rem;
 				padding: 0.5rem;
 				min-width: 8rem;
+			}
+		}
+
+		& .legendContainer {
+			grid-area: legend;
+
+			&__header {
+				margin-bottom: 1rem;
+			}
+			& .legend {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				font-size: 1.4rem;
+				margin: 0.5rem 0rem;
+
+				&__color {
+					height: 2rem;
+					width: 2rem;
+					border: 1px solid white;
+					border-radius: 0.5rem;
+					margin-right: 1rem;
+				}
 			}
 		}
 	}
