@@ -3,15 +3,18 @@ import Bar from 'src/utils/Bar'
 import randomArrayGenerator from 'src/utils/randomArrayGenerator'
 import { ISortingAlgorithm, IState } from 'src/utils/interface'
 
-const initailArray = randomArrayGenerator(10)
+const arraySize = 25
+const delay = 50
 
-console.log(initailArray.map(i => i.value))
+const initialArray = randomArrayGenerator(arraySize)
+
+console.log(initialArray.map(i => i.value))
 
 const initialState: IState = {
-	steps: [[...initailArray]],
+	steps: [[...initialArray]],
 	currentStep: 0,
 	timeouts: [],
-	delay: 300
+	delay
 }
 
 const useSort = (
@@ -74,7 +77,7 @@ const useSort = (
 
 	const reset = (): void => {
 		cancel()
-		const newArray = randomArrayGenerator(10)
+		const newArray = randomArrayGenerator(25)
 		console.clear()
 		console.log(newArray.map(i => i.value))
 		const newSteps = sortingAlgorithm.sort(newArray)
@@ -85,7 +88,7 @@ const useSort = (
 			steps: [...newSteps],
 			currentStep: 0,
 			timeouts: [],
-			delay: 300
+			delay
 		})
 	}
 
