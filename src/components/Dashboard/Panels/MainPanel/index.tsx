@@ -10,10 +10,21 @@ import Controls from 'src/components/Dashboard/Controls'
 // utils
 import { ISortingAlgorithm } from 'src/utils/interface'
 import { BubbleSort, MergeSort, QuickSort } from 'src/algorithms'
+import LegendContainer from 'src/components/Dashboard/LegendContainer'
+import { BarStatus } from 'src/utils/enum'
 
 let selectedAlgorithm: ISortingAlgorithm = BubbleSort
 selectedAlgorithm = MergeSort
-selectedAlgorithm = QuickSort
+// selectedAlgorithm = QuickSort
+
+const legends = [
+	BarStatus.ACTIVE,
+	BarStatus.GREATER,
+	BarStatus.LESSER,
+	BarStatus.PIVOT,
+	BarStatus.SORTED,
+	BarStatus.UNSORTED
+]
 
 const MainPanel: React.FC = () => {
 	const { state, sort, reset, cancel, previousStep, nextStep } = useSort(
@@ -23,6 +34,7 @@ const MainPanel: React.FC = () => {
 		<div className='mainPanel'>
 			<BarContainer steps={state.steps[state.currentStep]} />
 			<Controls {...{ sort, cancel, reset, previousStep, nextStep }} />
+			<LegendContainer legends={legends} />
 		</div>
 	)
 }
