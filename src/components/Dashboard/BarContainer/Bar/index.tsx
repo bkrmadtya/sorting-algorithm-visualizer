@@ -9,12 +9,12 @@ interface IProps {
 
 const Bar: React.FC<IProps> = ({ value, status }: IProps) => {
 	const barStyle = {
-		height: value * 5,
+		height: value * 2,
 		backgroundColor: BarColors[status]
 	}
 	return (
 		<div className='bar' style={barStyle}>
-			{value}
+			{/* {value} */}
 		</div>
 	)
 }
