@@ -14,6 +14,13 @@
 	--sidePanelBg: hsl(228, 2%, 46%);
 	// --bottomPanelBg: hsl(228, 2%, 46%);
 	--bottomPanelBg: hsl(0, 0%, 80%);
+
+	--SORTED: hsl(206, 80%, 65%); // B
+	--GREATER: hsl(152, 49%, 64%); // G
+	--PIVOT: hsl(51, 94%, 67%); // Y
+	--ACTIVE: hsl(29, 80%, 65%); // O
+	--LESSER: hsl(4, 80%, 65%); // R
+	--UNSORTED: hsl(0, 0%, 28%);
 }
 
 #root {
