@@ -1,5 +1,4 @@
 import React from 'react'
-import BarColors from 'src/utils/BarColors'
 import { BarStatus } from 'src/utils/enum'
 
 const Legend: React.FC<{ type: BarStatus }> = ({ type }) => {
@@ -8,7 +7,7 @@ const Legend: React.FC<{ type: BarStatus }> = ({ type }) => {
 			<div
 				className='legend__color'
 				style={{
-					backgroundColor: BarColors[type]
+					backgroundColor: `var(--${type})`
 				}}
 			></div>
 			<div className='legend__text'>
