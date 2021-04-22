@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: sans-serif;
+	font-family: Roboto, sans-serif;
 }
 
 :root {
 	font-size: 62.5%; // 1rem = 10px, 10px / 16px => 62.5%
+	--navBarBg: hsl(0, 0%, 19%);
+	--mainPanelBg: hsl(0, 0%, 80%);
+	--sidePanelBg: hsl(228, 2%, 46%);
+	// --bottomPanelBg: hsl(228, 2%, 46%);
+	--bottomPanelBg: hsl(0, 0%, 80%);
 }
 
 #root {
@@ -36,28 +43,25 @@ a {
 
 .navbar {
 	width: 100%;
-	padding: 3.5rem;
-	position: absolute;
-	top: 0;
+	padding: 2rem 15rem;
+	align-self: flex-start;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-
 	background-color: #1ce0ed;
-	background: linear-gradient(
-		180deg,
-		rgba(255, 255, 255, 0.1802) 0%,
-		rgba(255, 255, 255, 0.34) 100%
-	);
-	border-bottom: 0.1rem solid #ffffff;
+	background-color: var(--navBarBg);
+
+	& > * {
+		color: white;
+		font-weight: bold;
+		font-size: 1.3rem;
+		line-height: 1.5rem;
+		letter-spacing: 0.1em;
+	}
 
 	&__header {
-		width: 30rem;
-		font-weight: bold;
-		font-size: 1.6rem;
-		line-height: 2rem;
-		letter-spacing: 0.3em;
+		width: 20rem;
 		text-align: center;
 	}
 
@@ -66,13 +70,8 @@ a {
 		flex-direction: row;
 		align-items: center;
 		justify-content: flex-end;
-
 		& > * {
-			margin: 0px 2rem;
-			font-weight: 500;
-			font-size: 2rem;
-			line-height: 2rem;
-			letter-spacing: 0.3em;
+			margin-left: 5rem;
 		}
 	}
 }
@@ -81,15 +80,9 @@ a {
 	width: 20rem;
 	padding: 0.8rem 1.5rem;
 	margin: 0 0.5rem;
-	background: linear-gradient(
-		173.95deg,
-		rgba(255, 255, 255, 0.74) 4.79%,
-		rgba(255, 255, 255, 0) 205.85%
-	);
-	border: 0.15rem solid #ffffff;
-	border-radius: 1.5rem;
+	background: hsl(0, 0%, 77%);
 	font-size: 1.5rem;
-	letter-spacing: 0.1rem;
+	letter-spacing: 0.01rem;
 
 	&:hover {
 		cursor: pointer;
@@ -116,16 +109,16 @@ a {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-areas:
-		'side main main main'
-		'side main main main'
-		'side main main main'
-		'side main main main'
-		'side main main main'
-		'bottom bottom bottom bottom';
-	min-width: 150rem;
-	max-width: 80%;
-	min-height: 80rem;
-	max-height: 80%;
+		'side main main main '
+		'side main main main '
+		'side main main main '
+		'side main main main '
+		'side main main main '
+		'side main main main '
+		'side bottom bottom bottom'
+		'side bottom bottom bottom';
+	height: 100%;
+	width: 100%;
 	backdrop-filter: blur(2rem);
 
 	.mainPanel {
@@ -133,13 +126,7 @@ a {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		background: linear-gradient(
-			108.41deg,
-			rgba(255, 255, 255, 0.44) 0%,
-			rgba(238, 238, 238, 0.04) 100%
-		);
-		border: 0.15rem solid rgba(255, 255, 255, 0.67);
-		border-radius: 0rem 1.5rem 0rem 0rem;
+		background-color: var(--mainPanelBg);
 		padding: 4rem;
 		text-align: justify;
 
@@ -152,12 +139,11 @@ a {
 			align-items: flex-end;
 
 			.bar {
-				width: 2.5rem;
-				margin: 0.5rem;
+				width: 1rem;
+				margin: 0.4rem;
 				padding: 0.5rem;
 				border-radius: 0.3rem;
-				border-radius: 0.2rem;
-				opacity: 0.75;
+				opacity: 1;
 				color: white;
 				box-shadow: 0.4rem 0.4rem 1rem 0.2rem background-color;
 			}
@@ -179,9 +165,7 @@ a {
 
 	.sidePanel {
 		grid-area: side;
-		background: rgba(255, 255, 255, 0.356);
-		border: 0.15rem solid rgba(255, 255, 255, 0.71);
-		border-radius: 1.5rem 0rem 0rem 0rem;
+		background-color: var(--sidePanelBg);
 		padding: 4rem 0rem 0rem 4rem;
 		text-align: justify;
 		width: 100%;
@@ -215,13 +199,13 @@ a {
 
 			/* Handle */
 			&::-webkit-scrollbar-thumb {
-				background: rgba(255, 255, 255, 0.829);
+				background-color: hsl(0, 0%, 25%);
 				border-radius: 1rem;
 			}
 
 			/* Handle on hover */
 			&::-webkit-scrollbar-thumb:hover {
-				background: #b30000;
+				background-color: hsl(0, 0%, 10%);
 			}
 
 			code {
@@ -232,13 +216,7 @@ a {
 
 	.bottomPanel {
 		grid-area: bottom;
-		background: linear-gradient(
-			92.52deg,
-			rgba(255, 255, 255, 0.37) 0%,
-			rgba(255, 255, 255, 0) 100%
-		);
-		border: 0.15rem solid rgba(255, 255, 255, 0.67);
-		border-radius: 0rem 0rem 1.5rem 1.5rem;
+		background-color: var(--bottomPanelBg);
 		padding: 4rem;
 		text-align: justify;
 	}
