@@ -8,7 +8,7 @@
 }
 
 :root {
-	font-size: 62.5%; // 1rem = 10px, 10px / 16px => 62.5%
+	font-size: 62.5%; // 1rem = 10px, (10px / 16px) => 62.5%
 	--navBarBg: hsl(0, 0%, 19%);
 	--mainPanelBg: hsl(0, 0%, 80%);
 	--sidePanelBg: hsl(228, 2%, 46%);
@@ -52,7 +52,7 @@ a {
 	background-color: #1ce0ed;
 	background-color: var(--navBarBg);
 
-	& > * {
+	& * {
 		color: white;
 		font-weight: bold;
 		font-size: 1.3rem;
@@ -70,7 +70,7 @@ a {
 		flex-direction: row;
 		align-items: center;
 		justify-content: flex-end;
-		& > * {
+		& * {
 			margin-left: 5rem;
 		}
 	}
@@ -92,7 +92,7 @@ a {
 		outline: none;
 	}
 
-	& > option {
+	& option {
 		font-size: 1.7rem;
 	}
 }
@@ -140,7 +140,7 @@ a {
 		padding: 4rem;
 		text-align: justify;
 
-		& > .barContainer {
+		& .barContainer {
 			grid-area: barContainer;
 			height: 30rem;
 			display: flex;
@@ -159,14 +159,14 @@ a {
 			}
 		}
 
-		& > .controls {
+		& .controls {
 			grid-area: controls;
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
 			padding: 1rem;
 
-			& > button {
+			& button {
 				margin: 0.5rem;
 				padding: 0.5rem;
 				min-width: 8rem;
@@ -179,6 +179,7 @@ a {
 			&__header {
 				margin-bottom: 1rem;
 			}
+
 			& .legend {
 				display: flex;
 				flex-direction: row;
