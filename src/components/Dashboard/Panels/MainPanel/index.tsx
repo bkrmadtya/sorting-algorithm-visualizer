@@ -12,6 +12,7 @@ import { ISortingAlgorithm } from 'src/utils/interface'
 import { BubbleSort, MergeSort, QuickSort } from 'src/algorithms'
 import LegendContainer from 'src/components/Dashboard/LegendContainer'
 import { BarStatus } from 'src/utils/enum'
+import OptionContainer from '../../OptionContainer'
 
 let selectedAlgorithm: ISortingAlgorithm = BubbleSort
 selectedAlgorithm = MergeSort
@@ -32,6 +33,7 @@ const MainPanel: React.FC = () => {
 	)
 	return (
 		<div className='mainPanel'>
+			<OptionContainer />
 			<BarContainer steps={state.steps[state.currentStep]} />
 			<Controls {...{ sort, cancel, reset, previousStep, nextStep }} />
 			<LegendContainer legends={legends} />
