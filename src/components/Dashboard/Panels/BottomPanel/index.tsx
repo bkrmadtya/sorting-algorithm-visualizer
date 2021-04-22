@@ -4,13 +4,10 @@ import { Header } from 'src/components/Common'
 const BottomPanel: React.FC = () => {
 	return (
 		<div className='bottomPanel'>
-			<Header className='panelHeader'>Bottom Pannel</Header>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quae
-				minus dolorum inventore in obcaecati, suscipit molestiae quod rerum
-				consequuntur aliquam deserunt libero iste reiciendis illum reprehenderit
-				voluptates placeat ipsum!
-			</p>
+			<Header className='panelHeader'>Logs:</Header>
+			<Header className='panelHeader'>Array:</Header>
+			<Header className='panelHeader'>Active elements:</Header>
+			<Header className='panelHeader'>Status:</Header>
 		</div>
 	)
 }
