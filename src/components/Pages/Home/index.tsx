@@ -4,7 +4,11 @@ import React from 'react'
 import Dashboard from 'src/components/Dashboard'
 
 const Home: React.FC = () => {
-	return <Dashboard />
+	return (
+		<div className='home'>
+			<Dashboard />
+		</div>
+	)
 }
 
 export default Home

@@ -1,6 +1,6 @@
 import React from 'react'
 
-//components
+// components
 import { Header } from 'src/components/Common'
 import Dropdown from 'src/components/Common/Dropdown'
 

@@ -9,11 +9,11 @@ import {
 
 const DashBoard: React.FC = () => {
 	return (
-		<div className='dashboard'>
+		<>
 			<SidePanel />
 			<MainPanel />
 			<BottomPanel />
-		</div>
+		</>
 	)
 }
 

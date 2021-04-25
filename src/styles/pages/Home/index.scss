@@ -1,0 +1,19 @@
+@import './bottomPanel.scss';
+@import './mainPanel.scss';
+@import './sidePanel.scss';
+
+.home {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-areas:
+		'side main main main '
+		'side main main main '
+		'side main main main '
+		'side main main main '
+		'side main main main '
+		'side main main main '
+		'side bottom bottom bottom';
+	height: 100%;
+	width: 100%;
+	backdrop-filter: blur(2rem);
+}
