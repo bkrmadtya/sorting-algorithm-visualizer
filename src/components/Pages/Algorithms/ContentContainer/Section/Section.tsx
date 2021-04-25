@@ -7,14 +7,15 @@ import { Header } from 'src/components/Common'
 import { ITableOfContent } from 'src/utils/interface'
 
 interface IProps {
-	section: ITableOfContent
+	content: ITableOfContent
 }
 
-const Section: React.FC<IProps> = ({ section, children }) => {
+const Section: React.FC<IProps> = ({ content }) => {
+	const { component: Component, id, title } = content
 	return (
-		<section id={section.id} className='content'>
-			<Header className='content__header'>{section.title}</Header>
-			<div className='content__detail'>{children}</div>
+		<section id={id} className='content'>
+			<Header className='content__header'>{title}</Header>
+			<div className='content__detail'>{<Component />}</div>
 		</section>
 	)
 }

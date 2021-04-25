@@ -19,5 +19,5 @@ export interface IState {
 export interface ITableOfContent {
 	id: string
 	title: string
-	content?: React.ReactNode
+	component: React.FC
 }
