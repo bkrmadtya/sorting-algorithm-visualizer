@@ -9,6 +9,7 @@
 		'side main main main';
 	height: 100%;
 	width: 100%;
+	overflow: hidden;
 
 	&__sidePanel {
 		grid-area: side;
@@ -22,7 +23,7 @@
 
 		.contentLink {
 			font-size: 1.5rem;
-			padding: 2rem;
+			padding: 2rem 4rem;
 			border-bottom: 0.1rem solid var(--mainPanelBg);
 
 			&:hover {
@@ -34,7 +35,30 @@
 
 	&__mainPanel {
 		grid-area: main;
-		padding: 4rem;
+		padding: 10rem;
 		background-color: var(--mainPanelBg);
+		overflow-y: scroll;
+		--contentPadding: 2rem;
+		scroll-padding-top: var(--contentPadding);
+
+		.panelHeader {
+			font-size: 1.8rem;
+			padding: var(--contentPadding) 0;
+		}
+
+		.content {
+			width: 70%;
+			padding: var(--contentPadding) 0;
+
+			&__header {
+				font-size: 1.8rem;
+				padding-bottom: 1rem;
+			}
+
+			&__detail {
+				font-size: 1.4rem;
+				text-align: justify;
+			}
+		}
 	}
 }
