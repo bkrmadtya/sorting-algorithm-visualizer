@@ -1,3 +1,4 @@
+import React from 'react';
 import Bar from 'src/utils/Bar'
 
 export interface IAlgorithm {
@@ -5,7 +6,7 @@ export interface IAlgorithm {
 }
 
 export interface ISortingAlgorithm {
-	new (): IAlgorithm
+	new(): IAlgorithm
 }
 
 export interface IState {
@@ -13,4 +14,10 @@ export interface IState {
 	currentStep: number
 	timeouts: NodeJS.Timeout[]
 	delay: number
+}
+
+export interface ITableOfContent {
+	id: string
+	title: string
+	content?: React.ReactNode
 }
