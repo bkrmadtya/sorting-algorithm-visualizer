@@ -7,7 +7,7 @@ interface IProps {
 	tableOfContent: ITableOfContent[]
 }
 
-const Content: React.FC<IProps> = ({ tableOfContent }) => {
+const ContentContainer: React.FC<IProps> = ({ tableOfContent }) => {
 	return (
 		<div className='algorithmsPage__mainPanel'>
 			<div id='algorithms'>
@@ -110,4 +110,4 @@ const Content: React.FC<IProps> = ({ tableOfContent }) => {
 	)
 }
 
-export default Content
+export default ContentContainer

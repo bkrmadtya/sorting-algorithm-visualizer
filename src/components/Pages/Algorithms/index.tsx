@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 // components
-import MainContent from 'src/components/Pages/Algorithms/Content'
+import MainContent from 'src/components/Pages/Algorithms/ContentContainer'
 import SideMenus from 'src/components/Pages/Algorithms/SideMenu'
 
 // utils
