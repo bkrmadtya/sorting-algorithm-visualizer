@@ -1,31 +1,40 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Header } from 'src/components/Common'
 
+interface ITab {
+	href: string
+	name: string
+}
+
+const tabs: ITab[] = [
+	{ href: '#definition', name: 'Definition' },
+	{ href: '#measurement', name: 'Measurement and Efficiency' },
+	{ href: '#big-o-notation', name: 'Big(O) notation' },
+	{ href: '#bubble-sort', name: 'Bubble Sort' },
+	{ href: '#merge-sort', name: 'Merge Sort' },
+	{ href: '#quick-sort', name: 'Quick Sort' }
+]
+
 const Algorithms: React.FC = () => {
+	const [selected, setSelected] = useState('algorithms')
+
+	const handleTabSelection = (name: string) => setSelected(name)
+
 	return (
 		<div className='algorithmsPage'>
 			<div className='algorithmsPage__sidePanel'>
 				<a href='#algorithms'>
 					<Header className='panelHeader'>Table of content</Header>
 				</a>
-				<a href='#definition'>
-					<div className='contentLink'>Definition</div>
-				</a>
-				<a href='#measurement'>
-					<div className='contentLink'>Measurement and Efficiency</div>
-				</a>
-				<a href='#big-o-notation'>
-					<div className='contentLink'>Big O notation</div>
-				</a>
-				<a href='#bubble-sort'>
-					<div className='contentLink'>Bubble Sort</div>
-				</a>
-				<a href='#merge-sort'>
-					<div className='contentLink'>Merge Sort</div>
-				</a>
-				<a href='#quick-sort'>
-					<div className='contentLink'>Quick Sort</div>
-				</a>
+				{tabs.map(({ href, name }) => (
+					<Tab
+						key={href}
+						href={href}
+						name={name}
+						isSelected={selected === name}
+						onClick={() => handleTabSelection(name)}
+					/>
+				))}
 			</div>
 			<div className='algorithmsPage__mainPanel'>
 				<div id='algorithms'>
@@ -585,3 +594,24 @@ const Algorithms: React.FC = () => {
 }
 
 export default Algorithms
+
+interface IProps {
+	href: string
+	name: string
+	isSelected: boolean
+	onClick: () => any
+}
+
+const Tab: React.FC<IProps> = ({ href, name, isSelected, onClick }) => {
+	console.log(isSelected)
+	return (
+		<a href={href}>
+			<div
+				className={`contentLink ${isSelected ? 'selectedTab' : ''}`}
+				onClick={onClick}
+			>
+				{name}
+			</div>
+		</a>
+	)
+}
