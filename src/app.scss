@@ -122,7 +122,6 @@ a {
 		'side main main main '
 		'side main main main '
 		'side main main main '
-		'side bottom bottom bottom'
 		'side bottom bottom bottom';
 	height: 100%;
 	width: 100%;
@@ -138,7 +137,7 @@ a {
 			'. barContainer barContainer barContainer barContainer barContainer legend'
 			'. barContainer barContainer barContainer barContainer barContainer legend'
 			'. barContainer barContainer barContainer barContainer barContainer legend'
-			'con controls controls controls controls controls . ';
+			'. controls controls controls controls controls . ';
 		background-color: var(--mainPanelBg);
 		padding: 4rem;
 		text-align: justify;
@@ -266,7 +265,30 @@ a {
 	.bottomPanel {
 		grid-area: bottom;
 		background-color: var(--bottomPanelBg);
-		padding: 4rem;
 		text-align: justify;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+
+		& .detailTable {
+			width: 100%;
+			border-collapse: collapse;
+
+			& .rowData {
+				font-size: 1.4rem;
+
+				& td {
+					padding: 1.5rem;
+				}
+
+				&:nth-child(odd) {
+					background-color: hsl(0, 0%, 73%);
+				}
+
+				&__key {
+					font-weight: bold;
+				}
+			}
+		}
 	}
 }
