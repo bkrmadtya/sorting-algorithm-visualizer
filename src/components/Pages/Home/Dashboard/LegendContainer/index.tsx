@@ -1,6 +1,6 @@
 import React from 'react'
 import { BarStatus } from 'src/utils/enum'
-import Legend from 'src/components/Dashboard/LegendContainer/Legend'
+import Legend from 'src/components/Pages/Home/Dashboard/LegendContainer/Legend'
 import { Header } from 'src/components/Common'
 
 interface IProps {

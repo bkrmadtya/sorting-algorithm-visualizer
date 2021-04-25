@@ -4,13 +4,13 @@ import React from 'react'
 import useSort from 'src/hooks/useSort'
 
 // components
-import BarContainer from 'src/components/Dashboard/BarContainer'
-import Controls from 'src/components/Dashboard/Controls'
+import BarContainer from 'src/components/Pages/Home/Dashboard/BarContainer'
+import Controls from 'src/components/Pages/Home/Dashboard/Controls'
 
 // utils
 import { ISortingAlgorithm } from 'src/utils/interface'
 import { BubbleSort, MergeSort, QuickSort } from 'src/algorithms'
-import LegendContainer from 'src/components/Dashboard/LegendContainer'
+import LegendContainer from 'src/components/Pages/Home/Dashboard/LegendContainer'
 import { BarStatus } from 'src/utils/enum'
 import OptionContainer from '../../OptionContainer'
 
