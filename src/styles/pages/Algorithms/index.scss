@@ -1,3 +1,6 @@
+@import './sideMenu.scss';
+@import './contentContainer.scss';
+
 .algorithmsPage {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -10,61 +13,4 @@
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
-
-	&__sidePanel {
-		grid-area: side;
-		background-color: var(--sidePanelBg);
-		color: hsl(0, 2%, 91%);
-
-		.panelHeader {
-			font-size: 1.8rem;
-			padding: 4rem 2rem 0 4rem;
-		}
-
-		.contentLink {
-			font-size: 1.5rem;
-			padding: 2rem 4rem;
-			border-bottom: 0.1rem solid var(--mainPanelBg);
-
-			&:hover {
-				cursor: pointer;
-				background-color: #ababab;
-				color: black;
-			}
-		}
-
-		.selectedTab {
-			background-color: var(--mainPanelBg);
-			color: black;
-		}
-	}
-
-	&__mainPanel {
-		grid-area: main;
-		padding: 2rem 10rem;
-		background-color: var(--mainPanelBg);
-		overflow-y: scroll;
-		--contentPadding: 2rem;
-		scroll-padding-top: var(--contentPadding);
-
-		.panelHeader {
-			font-size: 1.8rem;
-			padding-top: var(--contentPadding);
-		}
-
-		.content {
-			width: 90%;
-			padding: var(--contentPadding) 0;
-
-			&__header {
-				font-size: 1.8rem;
-				padding-bottom: 1rem;
-			}
-
-			&__detail {
-				font-size: 1.4rem;
-				text-align: justify;
-			}
-		}
-	}
 }

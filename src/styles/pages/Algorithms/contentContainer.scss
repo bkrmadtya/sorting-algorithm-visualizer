@@ -1,0 +1,28 @@
+.contentContainer {
+	grid-area: main;
+	padding: 2rem 10rem;
+	background-color: var(--mainPanelBg);
+	overflow-y: scroll;
+	--contentPadding: 2rem;
+	scroll-padding-top: var(--contentPadding);
+
+	.panelHeader {
+		font-size: 1.8rem;
+		padding-top: var(--contentPadding);
+	}
+
+	.content {
+		width: 90%;
+		padding: var(--contentPadding) 0;
+
+		&__header {
+			font-size: 1.8rem;
+			padding-bottom: 1rem;
+		}
+
+		&__detail {
+			font-size: 1.4rem;
+			text-align: justify;
+		}
+	}
+}

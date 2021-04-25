@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header } from 'src/components/Common'
 import { ITableOfContent } from 'src/utils/interface'
-import Section from './Section/Section'
+import Section from './Section'
 
 interface IProps {
 	tableOfContent: ITableOfContent[]
@@ -10,7 +10,7 @@ interface IProps {
 const ContentContainer: React.FC<IProps> = ({ tableOfContent }) => {
 	console.log(tableOfContent)
 	return (
-		<div className='algorithmsPage__mainPanel'>
+		<div className='contentContainer'>
 			<div id='algorithms'>
 				<Header className='panelHeader'>Algorithms</Header>
 			</div>

@@ -14,7 +14,7 @@ const AlgorithmsTabs: React.FC<IProps> = ({
 	tableOfContent
 }) => {
 	return (
-		<div className='algorithmsPage__sidePanel'>
+		<div className='sideMenu'>
 			<a href='#algorithms'>
 				<Header className='panelHeader'>Table of content</Header>
 			</a>

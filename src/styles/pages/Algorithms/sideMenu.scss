@@ -1,0 +1,27 @@
+.sideMenu {
+	grid-area: side;
+	background-color: var(--sidePanelBg);
+	color: hsl(0, 2%, 91%);
+
+	.panelHeader {
+		font-size: 1.8rem;
+		padding: 4rem 2rem 0 4rem;
+	}
+
+	.contentLink {
+		font-size: 1.5rem;
+		padding: 2rem 4rem;
+		border-bottom: 0.1rem solid var(--mainPanelBg);
+
+		&:hover {
+			cursor: pointer;
+			background-color: #ababab;
+			color: black;
+		}
+	}
+
+	.selectedTab {
+		background-color: var(--mainPanelBg);
+		color: black;
+	}
+}
