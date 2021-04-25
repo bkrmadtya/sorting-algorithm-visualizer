@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 // style
-import 'src/app.scss'
+import 'src/styles/app.scss'
 
 // components
 import { NavBar } from 'src/components/Common'

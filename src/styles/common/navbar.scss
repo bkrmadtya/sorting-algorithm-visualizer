@@ -1,0 +1,34 @@
+.navbar {
+	width: 100%;
+	padding: 2rem 15rem;
+	align-self: flex-start;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #1ce0ed;
+	background-color: var(--navBarBg);
+
+	& * {
+		color: white;
+		font-weight: bold;
+		font-size: 1.3rem;
+		line-height: 1.5rem;
+		letter-spacing: 0.1em;
+	}
+
+	&__header {
+		width: 20rem;
+		text-align: center;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+		& * {
+			margin-left: 5rem;
+		}
+	}
+}
