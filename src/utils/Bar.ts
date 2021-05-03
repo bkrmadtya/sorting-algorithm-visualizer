@@ -1,4 +1,4 @@
-import { BarStatus } from 'src/utils/enum'
+import { BarStatus } from './enum'
 
 export default class Bar {
 	value: number

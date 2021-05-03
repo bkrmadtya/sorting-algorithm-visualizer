@@ -1,7 +1,11 @@
 import React from 'react'
+
+// components
+import Legend from './Legend'
+import { Header } from '../../../../Common'
+
+// utils
 import { BarStatus } from 'src/utils/enum'
-import Legend from 'src/components/Pages/Home/Dashboard/LegendContainer/Legend'
-import { Header } from 'src/components/Common'
 
 interface IProps {
 	legends: BarStatus[]

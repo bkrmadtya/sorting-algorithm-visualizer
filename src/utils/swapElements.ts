@@ -1,4 +1,4 @@
-import Bar from 'src/utils/Bar'
+import Bar from './Bar'
 
 const getIndexOfElement = (arr: Bar[], ele: Bar): number =>
 	arr.findIndex(item => item.value === ele.value)

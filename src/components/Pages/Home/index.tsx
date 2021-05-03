@@ -1,7 +1,7 @@
 import React from 'react'
 
 // components
-import Dashboard from 'src/components/Pages/Home/Dashboard'
+import Dashboard from './Dashboard'
 
 const Home: React.FC = () => {
 	return (

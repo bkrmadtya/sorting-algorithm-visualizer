@@ -1,5 +1,5 @@
-import Bar from 'src/utils/Bar'
-import { BarStatus } from 'src/utils/enum'
+import Bar from './Bar'
+import { BarStatus } from './enum'
 
 const changeStatusOfElement = (
 	steps: Array<Array<Bar>>,

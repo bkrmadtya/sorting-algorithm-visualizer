@@ -1,6 +1,6 @@
 import React from 'react'
-import { Header } from 'src/components/Common'
-import { ITableOfContent } from 'src/utils/interface'
+import { Header } from '../../../Common'
+import { ITableOfContent } from '../../../../utils/interface'
 
 interface IProps {
 	tableOfContent: ITableOfContent[]

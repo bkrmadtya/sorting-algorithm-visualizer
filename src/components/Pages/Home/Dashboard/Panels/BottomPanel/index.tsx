@@ -1,5 +1,4 @@
 import React from 'react'
-import { Header } from 'src/components/Common'
 
 interface IRowData {
 	key: string

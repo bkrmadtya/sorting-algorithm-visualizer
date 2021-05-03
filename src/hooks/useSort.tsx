@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Bar from 'src/utils/Bar'
-import randomArrayGenerator from 'src/utils/randomArrayGenerator'
-import { ISortingAlgorithm, IState } from 'src/utils/interface'
+import randomArrayGenerator from '../utils/randomArrayGenerator'
+import { ISortingAlgorithm, IState } from '../utils/interface'
 
 const arraySize = 25
 const delay = 50

@@ -1,4 +1,6 @@
 import React from 'react'
+
+// utils
 import { BarStatus } from 'src/utils/enum'
 
 const Legend: React.FC<{ type: BarStatus }> = ({ type }) => {

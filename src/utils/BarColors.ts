@@ -1,4 +1,4 @@
-import { BarStatus } from 'src/utils/enum'
+import { BarStatus } from './enum'
 
 const BarColors = {
 	[BarStatus.ACTIVE]: '#ff9e2c', 	// orange

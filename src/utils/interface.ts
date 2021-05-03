@@ -1,5 +1,5 @@
 import React from 'react';
-import Bar from 'src/utils/Bar'
+import Bar from './Bar'
 
 export interface IAlgorithm {
 	sort: (arr: Bar[]) => Bar[][]

@@ -1,5 +1,5 @@
-import Bar from 'src/utils/Bar'
-import { BarStatus } from 'src/utils/enum'
+import Bar from './Bar'
+import { BarStatus } from './enum'
 
 const generateRandomSetOfNumbers = (sizeOfArray: number): Set<number> => {
 	const set = new Set<number>()

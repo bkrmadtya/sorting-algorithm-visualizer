@@ -1,7 +1,7 @@
-import Bar from 'src/utils/Bar'
-import changeStatusOfElement from 'src/utils/changeStatusOfElement'
-import { BarStatus } from 'src/utils/enum'
-import { IAlgorithm } from 'src/utils/interface'
+import Bar from '../utils/Bar'
+import changeStatusOfElement from '../utils/changeStatusOfElement'
+import { BarStatus } from '../utils/enum'
+import { IAlgorithm } from '../utils/interface'
 const { ACTIVE, UNSORTED, SORTED } = BarStatus
 
 export default class MergeSort implements IAlgorithm {

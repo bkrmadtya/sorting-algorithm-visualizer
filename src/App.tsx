@@ -2,11 +2,11 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 // style
-import 'src/styles/app.scss'
+import './styles/app.scss'
 
 // components
-import { NavBar } from 'src/components/Common'
-import { Home, Algorithms, About } from 'src/components/Pages'
+import { NavBar } from './components/Common'
+import { Home, Algorithms, About } from './components/Pages'
 
 const App: React.FC = () => {
 	return (

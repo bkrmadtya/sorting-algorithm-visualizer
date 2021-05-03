@@ -1,18 +1,18 @@
 import React from 'react'
 
 // hooks
-import useSort from 'src/hooks/useSort'
+import useSort from '../../../../../../hooks/useSort'
 
 // components
-import BarContainer from 'src/components/Pages/Home/Dashboard/BarContainer'
-import Controls from 'src/components/Pages/Home/Dashboard/Controls'
+import BarContainer from '../../BarContainer'
+import Controls from '../../Controls'
+import LegendContainer from '../../LegendContainer'
+import OptionContainer from '../../OptionContainer'
 
 // utils
-import { ISortingAlgorithm } from 'src/utils/interface'
-import { BubbleSort, MergeSort, QuickSort } from 'src/algorithms'
-import LegendContainer from 'src/components/Pages/Home/Dashboard/LegendContainer'
-import { BarStatus } from 'src/utils/enum'
-import OptionContainer from '../../OptionContainer'
+import { ISortingAlgorithm } from '../../../../../../utils/interface'
+import { BarStatus } from '../../../../../../utils/enum'
+import { BubbleSort, MergeSort, QuickSort } from '../../../../../../algorithms'
 
 let selectedAlgorithm: ISortingAlgorithm = BubbleSort
 selectedAlgorithm = MergeSort

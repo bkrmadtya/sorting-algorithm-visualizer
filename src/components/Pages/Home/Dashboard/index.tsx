@@ -1,11 +1,7 @@
 import React from 'react'
 
 // components
-import {
-	SidePanel,
-	MainPanel,
-	BottomPanel
-} from 'src/components/Pages/Home/Dashboard/Panels'
+import { SidePanel, MainPanel, BottomPanel } from './Panels'
 
 const DashBoard: React.FC = () => {
 	return (

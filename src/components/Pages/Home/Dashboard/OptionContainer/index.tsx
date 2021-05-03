@@ -1,6 +1,7 @@
 import React from 'react'
-import { Header } from 'src/components/Common'
-import Dropdown from 'src/components/Common/Dropdown'
+
+// components
+import { Header, Dropdown } from '../../../../Common'
 
 const sizeOptions = [
 	{
