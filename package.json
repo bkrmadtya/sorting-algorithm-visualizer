@@ -9,7 +9,9 @@
 		"build": "rm -rf build && webpack --config webpack/webpack.prod.config.ts",
 		"lint": "eslint --ext .ts,.tsx src/",
 		"lint:fix": "eslint --fix --ext .ts,.tsx src/",
-		"prettier": "prettier \"**/*.+(js|jsx|json|ts|tsx|css|scss|md|mdx|graphql)\""
+		"prettier": "prettier \"**/*.+(js|jsx|json|ts|tsx|css|scss|md|mdx|graphql)\"",
+		"deploy:draft": "rm -rf build && npm run build && netlify deploy -d build",
+		"deploy:prod": "netlify deploy -d build --prod"
 	},
 	"husky": {
 		"hooks": {
