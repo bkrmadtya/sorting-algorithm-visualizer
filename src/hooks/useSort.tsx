@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
-import Bar from 'src/utils/Bar'
+
+// utils
+import { Bar } from 'src/utils/Bar'
 import randomArrayGenerator from '../utils/randomArrayGenerator'
 import { ISortingAlgorithm, IState } from '../utils/interface'
 

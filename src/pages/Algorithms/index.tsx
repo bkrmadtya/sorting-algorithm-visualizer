@@ -13,7 +13,7 @@ import {
 import SideMenus from './components/SideMenu'
 
 // utils
-import { ITableOfContent } from '../../utils/interface'
+import { ITableOfContent } from '../../utils'
 
 const tableOfContent: ITableOfContent[] = [
 	{ id: 'definition', title: 'Definition', component: Definition },

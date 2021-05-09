@@ -1,9 +1,4 @@
-import Bar from '../utils/Bar'
-import { IAlgorithm } from '../utils/interface'
-import changeStatusOfElement from '../utils/changeStatusOfElement'
-import swapElements from '../utils/swapElements'
-import { BarStatus } from '../utils/enum'
-import Steps from '../utils/Steps'
+import { IAlgorithm, changeStatusOfElement, swapElements, Bar, BarStatus, Steps } from '../utils'
 
 const { ACTIVE, SORTED, UNSORTED, PIVOT } = BarStatus
 

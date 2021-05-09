@@ -1,5 +1,5 @@
-import Bar from './Bar'
-import { BarStatus } from './enum'
+// utils
+import { Bar, BarStatus } from './'
 
 const changeStatusOfElement = (
 	steps: Array<Array<Bar>>,
@@ -9,7 +9,7 @@ const changeStatusOfElement = (
 	const indexOfEle = steps[steps.length - 1].findIndex(
 		i => i.value === ele.value
 	)
-	steps[steps.length - 1][indexOfEle] = new Bar(ele.value, status)
+	steps[steps.length - 1][indexOfEle] = ({ value: ele.value, status })
 }
 
 export default changeStatusOfElement

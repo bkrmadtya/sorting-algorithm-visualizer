@@ -1,8 +1,0 @@
-export enum BarStatus {
-	ACTIVE = 'ACTIVE',
-	LESSER = 'LESSER',
-	GREATER = 'GREATER',
-	SORTED = 'SORTED',
-	UNSORTED = 'UNSORTED',
-	PIVOT = 'PIVOT'
-}

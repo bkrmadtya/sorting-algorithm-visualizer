@@ -1,7 +1,7 @@
 import React from 'react'
 
 // utils
-import { BarStatus } from '../../../utils/enum'
+import { BarStatus } from '../../../utils'
 
 interface IProps {
 	value: number

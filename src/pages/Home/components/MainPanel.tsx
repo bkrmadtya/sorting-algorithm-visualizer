@@ -10,8 +10,7 @@ import LegendContainer from './LegendContainer'
 import OptionContainer from './OptionContainer'
 
 // utils
-import { ISortingAlgorithm } from '../../../utils/interface'
-import { BarStatus } from '../../../utils/enum'
+import { ISortingAlgorithm, BarStatus } from '../../../utils'
 import { BubbleSort, MergeSort, QuickSort } from '../../../algorithms'
 
 let selectedAlgorithm: ISortingAlgorithm = BubbleSort

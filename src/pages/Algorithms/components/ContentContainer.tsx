@@ -5,7 +5,7 @@ import { Header } from '../../../shared'
 import Section from './Section'
 
 // utils
-import { ITableOfContent } from '../../../utils/interface'
+import { ITableOfContent } from '../../../utils'
 
 interface IProps {
 	tableOfContent: ITableOfContent[]
