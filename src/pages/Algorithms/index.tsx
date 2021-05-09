@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 // components
-import ContentContainer from './ContentContainer'
+import ContentContainer from './components/ContentContainer'
 import {
 	BubbleSort,
 	BigONotation,
@@ -9,11 +9,11 @@ import {
 	Measurement,
 	MergeSort,
 	QuickSort
-} from './ContentContainer/Content'
-import SideMenus from './SideMenu'
+} from './components/contents'
+import SideMenus from './components/SideMenu'
 
 // utils
-import { ITableOfContent } from '../../../utils/interface'
+import { ITableOfContent } from '../../utils/interface'
 
 const tableOfContent: ITableOfContent[] = [
 	{ id: 'definition', title: 'Definition', component: Definition },

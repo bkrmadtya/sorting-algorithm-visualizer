@@ -1,10 +1,10 @@
 import React from 'react'
 
 // components
-import { Header } from '../../../../Common'
+import { Header } from '../../../shared'
 
 // utils
-import { ITableOfContent } from '../../../../../utils/interface'
+import { ITableOfContent } from '../../../utils/interface'
 
 interface IProps {
 	content: ITableOfContent

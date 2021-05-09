@@ -1,12 +1,14 @@
 import React from 'react'
 
 // components
-import Dashboard from './Dashboard'
+import { SidePanel, MainPanel, BottomPanel } from './components'
 
 const Home: React.FC = () => {
 	return (
 		<div className='home'>
-			<Dashboard />
+			<SidePanel />
+			<MainPanel />
+			<BottomPanel />
 		</div>
 	)
 }

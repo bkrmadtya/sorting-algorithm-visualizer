@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import './styles/app.scss'
 
 // components
-import { NavBar } from './components/Common'
-import { Home, Algorithms, About } from './components/Pages'
+import { NavBar } from './shared'
+import { Home, Algorithms, About } from './pages'
 
 const App: React.FC = () => {
 	return (

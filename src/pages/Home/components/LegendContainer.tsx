@@ -2,7 +2,7 @@ import React from 'react'
 
 // components
 import Legend from './Legend'
-import { Header } from '../../../../Common'
+import { Header } from '../../../shared'
 
 // utils
 import { BarStatus } from 'src/utils/enum'
