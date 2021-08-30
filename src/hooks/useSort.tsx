@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Bar from 'src/utils/Bar'
 import randomArrayGenerator from 'src/utils/randomArrayGenerator'
 import { ISortingAlgorithm, IState } from 'src/utils/interface'
 
@@ -31,6 +30,7 @@ const useSort = (
 			...state,
 			steps: [...sortingSteps]
 		})
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [sortingAlgorithm])
 
 	const cancel = (): void => {

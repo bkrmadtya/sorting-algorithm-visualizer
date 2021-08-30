@@ -7,38 +7,38 @@ import { BarStatus } from 'src/utils/enum'
 const { ACTIVE, SORTED, UNSORTED } = BarStatus
 
 export default class BubbleSort implements IAlgorithm {
-	private steps: Bar[][] = []
+  private steps: Bar[][] = []
 
-	public sort(arr: Bar[]): Bar[][] {
-		this.steps = [[...arr], [...arr]]
+  public sort(arr: Bar[]): Bar[][] {
+    this.steps = [[...arr], [...arr]]
 
-		let length = arr.length
+    let length = arr.length
 
-		while (length) {
-			const result = [...this.steps[this.steps.length - 1]]
-			let first = { ...result[0] }
+    while (length) {
+      const result = [...this.steps[this.steps.length - 1]]
+      let first = { ...result[0] }
 
-			for (let j = 1; j < length; j++) {
-				const second = result[j]
+      for (let j = 1; j < length; j++) {
+        const second = result[j]
 
-				changeStatusOfElement(this.steps, first, ACTIVE)
-				changeStatusOfElement(this.steps, second, ACTIVE)
+        changeStatusOfElement(this.steps, first, ACTIVE)
+        changeStatusOfElement(this.steps, second, ACTIVE)
 
-				if (first.value > second.value) {
-					swapElements(result, first, second)
-				} else {
-					first = result[j]
-				}
+        if (first.value > second.value) {
+          swapElements(result, first, second)
+        } else {
+          first = result[j]
+        }
 
-				this.steps.push([...result])
-				changeStatusOfElement(this.steps, first, UNSORTED)
-				changeStatusOfElement(this.steps, second, UNSORTED)
-			}
+        this.steps.push([...result])
+        changeStatusOfElement(this.steps, first, UNSORTED)
+        changeStatusOfElement(this.steps, second, UNSORTED)
+      }
 
-			changeStatusOfElement(this.steps, first, SORTED)
-			length--
-		}
+      changeStatusOfElement(this.steps, first, SORTED)
+      length--
+    }
 
-		return this.steps
-	}
+    return this.steps
+  }
 }

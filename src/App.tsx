@@ -9,7 +9,6 @@ import useSort from './hooks/useSort'
 import BarComponent from 'src/components/Bar'
 
 // utils
-import BubbleSort from 'src/algorithms/BubbleSort'
 import MergeSort from 'src/algorithms/MergeSort'
 
 const App: React.FC = () => {

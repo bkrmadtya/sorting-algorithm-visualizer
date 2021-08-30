@@ -2,14 +2,14 @@ import Bar from 'src/utils/Bar'
 import { BarStatus } from 'src/utils/enum'
 
 const changeStatusOfElement = (
-	steps: Array<Array<Bar>>,
-	ele: Bar,
-	status: BarStatus
+  steps: Array<Array<Bar>>,
+  ele: Bar,
+  status: BarStatus
 ): void => {
-	const indexOfEle = steps[steps.length - 1].findIndex(
-		i => i.value === ele.value
-	)
-	steps[steps.length - 1][indexOfEle] = new Bar(ele.value, status)
+  const indexOfEle = steps[steps.length - 1].findIndex(
+    i => i.value === ele.value
+  )
+  steps[steps.length - 1][indexOfEle] = new Bar(ele.value, status)
 }
 
 export default changeStatusOfElement
