@@ -5,19 +5,21 @@ import { RootState } from '../';
 import { Bar, BarStatus, ISortingAlgorithm, randomArrayGenerator } from '../../utils';
 import { BubbleSort, MergeSort, QuickSort } from '../../algorithms'
 
+const Algorithm = {
+  [BubbleSort.name]: BubbleSort,
+  [MergeSort.name]: MergeSort,
+  [QuickSort.name]: QuickSort
+}
+
+
 interface AlgorithmState {
   selectedAlgorithm: string
+  allAlgorithms: string[]
   animationSpeed: number
   arraySize: number
   currentStep: number
   initialArray: Bar[]
   steps: Bar[][]
-}
-
-const Algorithm = {
-  [BubbleSort.name]: BubbleSort,
-  [MergeSort.name]: MergeSort,
-  [QuickSort.name]: QuickSort
 }
 
 const initialRandomArray = [...randomArrayGenerator(25)]
@@ -30,7 +32,8 @@ const initialState: AlgorithmState = {
   currentStep: 0,
   initialArray: initialRandomArray,
   selectedAlgorithm: BubbleSort.name,
-  steps: initialSteps
+  steps: initialSteps,
+  allAlgorithms: [...Object.keys(Algorithm)]
 }
 
 export const sorting = createSlice({
@@ -49,6 +52,7 @@ export const sorting = createSlice({
     },
     changeAlgorithm: (state, { payload }) => {
       const selectedAlgorithm = (Algorithm[payload] || Algorithm.BubbleSort)
+      state.currentStep = 0
       state.selectedAlgorithm = selectedAlgorithm.name
       state.steps = sortArray(selectedAlgorithm, state.initialArray)
     },
