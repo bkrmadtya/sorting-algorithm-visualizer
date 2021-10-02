@@ -13,18 +13,12 @@ import OptionContainer from './OptionContainer'
 import { ISortingAlgorithm, BarStatus } from '../../utils'
 import { BubbleSort, MergeSort, QuickSort } from '../../algorithms'
 
-let selectedAlgorithm: ISortingAlgorithm = BubbleSort
-selectedAlgorithm = MergeSort
+const selectedAlgorithm: ISortingAlgorithm = BubbleSort
+// selectedAlgorithm = MergeSort
 // selectedAlgorithm = QuickSort
 
-const legends = [
-  BarStatus.ACTIVE,
-  BarStatus.GREATER,
-  BarStatus.LESSER,
-  BarStatus.PIVOT,
-  BarStatus.SORTED,
-  BarStatus.UNSORTED
-]
+const legends = (Object.keys(BarStatus) as Array<keyof typeof BarStatus>)
+  .map((status): BarStatus => BarStatus[status]);
 
 const MainPanel: React.FC = () => {
   const { state, sort, reset, cancel, previousStep, nextStep } = useSort(
