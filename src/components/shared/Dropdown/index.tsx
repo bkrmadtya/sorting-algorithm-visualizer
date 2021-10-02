@@ -1,16 +1,18 @@
 import React from 'react'
 
 type IProps = {
+  name?: string
   options: {
     key: string
     value: string
   }[]
   onChange?: React.ReactEventHandler
+  value?: string
 }
 
-const Dropdown: React.FC<IProps> = ({ options, onChange }) => {
+const Dropdown: React.FC<IProps> = ({ name, options, onChange, value }) => {
   return (
-    <select className='dropdown' onChange={onChange}>
+    <select name={name} className='dropdown' onChange={onChange} defaultValue={value}>
       {options.map(({ key, value }) => (
         <option key={key} value={value}>
           {key}
