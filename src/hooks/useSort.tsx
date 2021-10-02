@@ -1,27 +1,15 @@
+/* eslint-disable no-console */
 import { useEffect, useState } from 'react'
 
 // utils
 import { Bar } from 'src/utils/Bar'
 import randomArrayGenerator from '../utils/randomArrayGenerator'
-import { ISortingAlgorithm, IState } from '../utils/interface'
+import { IState } from '../utils/interface'
+import { useSelector } from 'react-redux'
+import { RootState } from 'src/store'
 
-const arraySize = 25
-const delay = 50
 
-const initialArray = randomArrayGenerator(arraySize)
-
-console.log(initialArray.map(i => i.value))
-
-const initialState: IState = {
-  steps: [[...initialArray]],
-  currentStep: 0,
-  timeouts: [],
-  delay
-}
-
-const useSort = (
-  sortingAlgo: ISortingAlgorithm
-): {
+const useSort = (): {
   state: IState
   sort: () => void
   reset: () => void
@@ -29,8 +17,14 @@ const useSort = (
   previousStep: () => void
   nextStep: () => void
 } => {
-  const [state, setState] = useState(initialState)
-  const [sortingAlgorithm] = useState(new sortingAlgo())
+  const { selectedAlgorithm, arraySize, animationSpeed } = useSelector((state: RootState) => state.algorithm)
+  const [state, setState] = useState<IState>({
+    steps: [[...randomArrayGenerator(arraySize)]],
+    currentStep: 0,
+    timeouts: [],
+    delay: animationSpeed
+  })
+  const [sortingAlgorithm] = useState(new selectedAlgorithm())
 
   useEffect(() => {
     const sortingSteps = sortingAlgorithm.sort(state.steps[0])
@@ -41,7 +35,7 @@ const useSort = (
       ...state,
       steps: [...sortingSteps]
     })
-  }, [sortingAlgorithm])
+  }, [sortingAlgorithm, state])
 
   const cancel = (): void => {
     state.timeouts.forEach(t => clearTimeout(t))
@@ -90,7 +84,7 @@ const useSort = (
       steps: [...newSteps],
       currentStep: 0,
       timeouts: [],
-      delay
+      delay: animationSpeed
     })
   }
 
