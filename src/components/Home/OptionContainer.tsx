@@ -1,7 +1,7 @@
 import React from 'react'
 
 // components
-import { Header, Dropdown } from '../../../shared'
+import { Header, Dropdown } from '../../shared'
 
 const sizeOptions = [
   {

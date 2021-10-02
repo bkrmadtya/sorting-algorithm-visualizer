@@ -1,7 +1,7 @@
 import React from 'react'
 
 // components
-import { SidePanel, MainPanel, BottomPanel } from './components'
+import { SidePanel, MainPanel, BottomPanel } from '../../components/Home'
 
 const Home: React.FC = () => {
   return (

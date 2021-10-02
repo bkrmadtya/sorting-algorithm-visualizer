@@ -2,10 +2,10 @@ import React from 'react'
 
 // components
 import Legend from './Legend'
-import { Header } from '../../../shared'
+import { Header } from '../../shared'
 
 // utils
-import { BarStatus } from '../../../utils'
+import { BarStatus } from '../../utils'
 
 interface IProps {
   legends: BarStatus[]
