@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-console */
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 // utils
@@ -22,7 +22,7 @@ const useSort = (): {
   previousStep: () => void
   nextStep: () => void
 } => {
-  const { animationSpeed, steps } = useSelector((state: RootState) => state.sorting)
+  const { animationSpeed, steps, arraySize } = useSelector((state: RootState) => state.sorting)
   const dispatch = useDispatch();
 
   const [state, setState] = useState<IState>({
@@ -31,14 +31,28 @@ const useSort = (): {
     timeouts: []
   })
 
-  useEffect(() => {
-    setState(prevState => ({ ...prevState, steps, currentStep: 0 }))
-  }, [steps, setState])
+  const update = useCallback((data: Partial<IState>) => {
+    setState(prevState => ({ ...prevState, ...data }))
+  }, [])
 
-  const cancel = (): void => {
+  const cancel = useCallback((): void => {
+    update({ timeouts: [] })
     state.timeouts.forEach(t => clearTimeout(t))
-    setState({ ...state, timeouts: [] })
-  }
+  }, [state.timeouts, update])
+
+  useEffect(() => {
+    cancel();
+    update({ steps, currentStep: 0 })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [steps, arraySize])
+
+  useEffect(() => {
+    if (state.currentStep > 0) {
+      sort()
+    }
+    return cancel
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [animationSpeed])
 
   const sort = (): void => {
     let i = 0
@@ -54,7 +68,6 @@ const useSort = (): {
       const timeout = setTimeout(() => {
         setState(prevState => {
           const currentStep = prevState.currentStep
-
           return {
             ...prevState,
             currentStep: currentStep + 1
