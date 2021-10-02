@@ -1,5 +1,5 @@
-import Bar from 'src/utils/Bar'
-import { BarStatus } from 'src/utils/enum'
+// utils
+import { Bar, BarStatus } from './'
 
 const generateRandomSetOfNumbers = (sizeOfArray: number): Set<number> => {
   const set = new Set<number>()
@@ -14,7 +14,7 @@ const generateRandomSetOfNumbers = (sizeOfArray: number): Set<number> => {
 
 const randomArrayGenerator = (sizeOfArray: number): Array<Bar> => {
   const randomArray = Array.from(generateRandomSetOfNumbers(sizeOfArray))
-  return randomArray.map(height => new Bar(height, BarStatus.UNSORTED))
+  return randomArray.map((height): Bar => ({ value: height, status: BarStatus.UNSORTED }))
 }
 
 export default randomArrayGenerator

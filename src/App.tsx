@@ -1,38 +1,35 @@
 import React from 'react'
-// style
-import 'src/app.scss'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
-// hooks
-import useSort from './hooks/useSort'
+// style
+import './styles/app.scss'
 
 // components
-import BarComponent from 'src/components/Bar'
-
-// utils
-import MergeSort from 'src/algorithms/MergeSort'
+import { NavBar } from './components/shared'
+import { Home, Algorithms, About } from './pages'
 
 const App: React.FC = () => {
-	const { state, sort, reset, cancel, previousStep, nextStep } = useSort(
-		MergeSort
-	)
-
-	return (
-		<div className='app'>
-			<h1>Sorting algorithms visualizer</h1>
-
-			<div className='bar__container'>
-				{state.steps[state.currentStep].map(a => (
-					<BarComponent key={a.value} value={a.value} status={a.status} />
-				))}
-			</div>
-
-			<button onClick={sort}>Sort</button>
-			<button onClick={cancel}>Cancel</button>
-			<button onClick={reset}>Reset</button>
-			<button onClick={previousStep}>Previous Step</button>
-			<button onClick={nextStep}>Next Step</button>
-		</div>
-	)
+  return (
+    <div className='app'>
+      <Router>
+        <NavBar>
+          <Link to='/algorithms'>ALGORITHMS</Link>
+          <Link to='/about'>ABOUT</Link>
+        </NavBar>
+        <Switch>
+          <Route path='/algorithms'>
+            <Algorithms />
+          </Route>
+          <Route path='/about'>
+            <About />
+          </Route>
+          <Route path='/'>
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  )
 }
 
 export default App

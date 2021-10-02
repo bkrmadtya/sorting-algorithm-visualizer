@@ -1,14 +1,22 @@
 import { useEffect, useState } from 'react'
-import randomArrayGenerator from 'src/utils/randomArrayGenerator'
-import { ISortingAlgorithm, IState } from 'src/utils/interface'
 
-const initailArray = randomArrayGenerator(10)
+// utils
+import { Bar } from 'src/utils/Bar'
+import randomArrayGenerator from '../utils/randomArrayGenerator'
+import { ISortingAlgorithm, IState } from '../utils/interface'
+
+const arraySize = 25
+const delay = 50
+
+const initialArray = randomArrayGenerator(arraySize)
+
+console.log(initialArray.map(i => i.value))
 
 const initialState: IState = {
-  steps: [[...initailArray]],
+  steps: [[...initialArray]],
   currentStep: 0,
   timeouts: [],
-  delay: 50
+  delay
 }
 
 const useSort = (
@@ -26,11 +34,13 @@ const useSort = (
 
   useEffect(() => {
     const sortingSteps = sortingAlgorithm.sort(state.steps[0])
+
+    console.log(sortingSteps)
+    console.log(sortingSteps[sortingSteps.length - 1].map(i => i.value))
     setState({
       ...state,
       steps: [...sortingSteps]
     })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortingAlgorithm])
 
   const cancel = (): void => {
@@ -69,14 +79,25 @@ const useSort = (
 
   const reset = (): void => {
     cancel()
-    const newArray = randomArrayGenerator(10)
+    const newArray = randomArrayGenerator(25)
+    console.clear()
+    console.log(newArray.map(i => i.value))
     const newSteps = sortingAlgorithm.sort(newArray)
+    console.log(newSteps[newSteps.length - 1].map(i => i.value))
+    console.log(isSorted(newSteps[newSteps.length - 1]))
+    console.log({ newSteps })
     setState({
       steps: [...newSteps],
       currentStep: 0,
       timeouts: [],
-      delay: 50
+      delay
     })
+  }
+
+  const isSorted = (arr: Bar[]) => {
+    const copyArr = [...arr].sort((a, b) => a.value - b.value)
+
+    return copyArr.every((i, idx) => arr[idx].value === i.value)
   }
 
   const previousStep = (): void => {

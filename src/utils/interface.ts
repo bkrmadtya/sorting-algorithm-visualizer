@@ -1,4 +1,7 @@
-import Bar from 'src/utils/Bar'
+import React from 'react'
+
+// utils
+import { Bar } from './'
 
 export interface IAlgorithm {
   sort: (arr: Bar[]) => Bar[][]
@@ -13,4 +16,10 @@ export interface IState {
   currentStep: number
   timeouts: NodeJS.Timeout[]
   delay: number
+}
+
+export interface ITableOfContent {
+  id: string
+  title: string
+  component: React.FC
 }

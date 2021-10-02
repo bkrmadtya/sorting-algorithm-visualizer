@@ -1,7 +1,5 @@
-import Bar from 'src/utils/Bar'
-import changeStatusOfElement from 'src/utils/changeStatusOfElement'
-import { BarStatus } from 'src/utils/enum'
-import { IAlgorithm } from 'src/utils/interface'
+import { IAlgorithm, changeStatusOfElement, Bar, BarStatus } from '../utils'
+
 const { ACTIVE, UNSORTED, SORTED } = BarStatus
 
 export default class MergeSort implements IAlgorithm {
@@ -107,7 +105,7 @@ export default class MergeSort implements IAlgorithm {
 
   // Copy of Array.shift(): T | undefined but it return T
   private removeFirstElementAndReturn(arr: Bar[]): Bar {
-    const firstEle = new Bar(arr[0].value, arr[0].status)
+    const firstEle = { value: arr[0].value, status: arr[0].status }
     arr = [...arr.splice(0, 1)]
     return firstEle
   }

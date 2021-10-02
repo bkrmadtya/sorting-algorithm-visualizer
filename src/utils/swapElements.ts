@@ -1,4 +1,5 @@
-import Bar from 'src/utils/Bar'
+// utils
+import { Bar } from './'
 
 const getIndexOfElement = (arr: Bar[], ele: Bar): number =>
   arr.findIndex(item => item.value === ele.value)
@@ -11,13 +12,13 @@ const swapElements = (
   const indexOfFirstEle = getIndexOfElement(arr, firstEle)
   const indexOfSecondEle = getIndexOfElement(arr, secondEle)
 
-  const tempFrist: Bar = new Bar(firstEle.value, firstEle.status)
-  const tempSecond: Bar = new Bar(secondEle.value, secondEle.status)
+  const tempFirst: Bar = { value: firstEle.value, status: firstEle.status }
+  const tempSecond: Bar = { value: secondEle.value, status: secondEle.status }
 
   arr[indexOfFirstEle] = tempSecond
-  arr[indexOfSecondEle] = tempFrist
+  arr[indexOfSecondEle] = tempFirst
 
-  return arr
+  return [...arr]
 }
 
 export default swapElements
