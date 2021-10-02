@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 // components
 import Legend from './Legend'
@@ -22,4 +22,4 @@ const LegendContainer: React.FC<IProps> = ({ legends }) => {
   )
 }
 
-export default LegendContainer
+export default React.memo(LegendContainer)
