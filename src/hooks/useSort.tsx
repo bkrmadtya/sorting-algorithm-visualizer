@@ -1,13 +1,18 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-console */
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 // utils
 import { Bar } from 'src/utils/Bar'
-import randomArrayGenerator from '../utils/randomArrayGenerator'
-import { IState } from '../utils/interface'
-import { useSelector } from 'react-redux'
 import { RootState } from 'src/store'
+import { resetSorting } from 'src/store/slice/sorting'
 
+interface IState {
+  steps: Bar[][]
+  currentStep: number
+  timeouts: NodeJS.Timeout[]
+}
 
 const useSort = (): {
   state: IState
@@ -17,25 +22,18 @@ const useSort = (): {
   previousStep: () => void
   nextStep: () => void
 } => {
-  const { selectedAlgorithm, arraySize, animationSpeed } = useSelector((state: RootState) => state.algorithm)
+  const { animationSpeed, steps } = useSelector((state: RootState) => state.sorting)
+  const dispatch = useDispatch();
+
   const [state, setState] = useState<IState>({
-    steps: [[...randomArrayGenerator(arraySize)]],
+    steps: steps,
     currentStep: 0,
-    timeouts: [],
-    delay: animationSpeed
+    timeouts: []
   })
-  const [sortingAlgorithm] = useState(new selectedAlgorithm())
 
   useEffect(() => {
-    const sortingSteps = sortingAlgorithm.sort(state.steps[0])
-
-    console.log(sortingSteps)
-    console.log(sortingSteps[sortingSteps.length - 1].map(i => i.value))
-    setState({
-      ...state,
-      steps: [...sortingSteps]
-    })
-  }, [sortingAlgorithm, state])
+    setState(prevState => ({ ...prevState, steps, currentStep: 0 }))
+  }, [steps, setState])
 
   const cancel = (): void => {
     state.timeouts.forEach(t => clearTimeout(t))
@@ -62,7 +60,7 @@ const useSort = (): {
             currentStep: currentStep + 1
           }
         })
-      }, state.delay * i)
+      }, animationSpeed * i)
 
       timeouts.push(timeout)
       i++
@@ -73,26 +71,13 @@ const useSort = (): {
 
   const reset = (): void => {
     cancel()
-    const newArray = randomArrayGenerator(25)
-    console.clear()
-    console.log(newArray.map(i => i.value))
-    const newSteps = sortingAlgorithm.sort(newArray)
-    console.log(newSteps[newSteps.length - 1].map(i => i.value))
-    console.log(isSorted(newSteps[newSteps.length - 1]))
-    console.log({ newSteps })
-    setState({
-      steps: [...newSteps],
-      currentStep: 0,
-      timeouts: [],
-      delay: animationSpeed
-    })
+    dispatch(resetSorting());
   }
 
-  const isSorted = (arr: Bar[]) => {
-    const copyArr = [...arr].sort((a, b) => a.value - b.value)
-
-    return copyArr.every((i, idx) => arr[idx].value === i.value)
-  }
+  // const isSorted = (arr: Bar[]) => {
+  //   const copyArr = [...arr].sort((a, b) => a.value - b.value)
+  //   return copyArr.every((i, idx) => arr[idx].value === i.value)
+  // }
 
   const previousStep = (): void => {
     cancel()
