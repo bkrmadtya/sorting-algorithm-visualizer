@@ -1,7 +1,7 @@
 import React from 'react'
 
 // components
-import { Header } from '../../shared'
+import { Header } from '../shared'
 import Section from './Section'
 
 // utils

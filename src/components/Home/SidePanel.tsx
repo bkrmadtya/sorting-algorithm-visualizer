@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 // components
 import Highlight from 'react-highlight.js'
-import { Header, Dropdown } from '../../shared'
+import { Header, Dropdown } from '../shared'
 
 const bubbleSortCode = `
 let bubbleSort = (inputArr) => {
