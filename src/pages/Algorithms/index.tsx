@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 
 // components
-import ContentContainer from './components/ContentContainer'
 import {
   BubbleSort,
   BigONotation,
+  ContentContainer,
   Definition,
   Measurement,
   MergeSort,
+  SideMenu,
   QuickSort
-} from './components/contents'
-import SideMenus from './components/SideMenu'
+} from '../../components/Algorithms'
 
 // utils
 import { ITableOfContent } from '../../utils'
@@ -36,7 +36,7 @@ const Algorithms: React.FC = () => {
   return (
     <div className='algorithmsPage'>
       <ContentContainer tableOfContent={tableOfContent} />
-      <SideMenus
+      <SideMenu
         onClick={handleTabSelection}
         selected={selected}
         tableOfContent={tableOfContent}
