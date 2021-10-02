@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 // js
-import { Bar, randomArrayGenerator } from '../../utils';
+import { Bar, ISortingAlgorithm, randomArrayGenerator } from '../../utils';
 import { BubbleSort, MergeSort, QuickSort } from '../../algorithms'
 
 interface AlgorithmState {
@@ -35,25 +35,32 @@ export const sorting = createSlice({
   initialState,
   reducers: {
     changeArraySize: (state, { payload }) => {
+      const randomArray = [...randomArrayGenerator(payload)]
       state.arraySize = payload
-      state.initialArray = [...randomArrayGenerator(payload)]
+      state.initialArray = randomArray
+      state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray)
+    },
+    changeAnimationSpped: (state, { payload }) => {
+      state.animationSpeed = parseInt(payload)
     },
     changeAlgorithm: (state, { payload }) => {
       const selectedAlgorithm = (Algorithm[payload] || Algorithm.BubbleSort)
       state.selectedAlgorithm = selectedAlgorithm.name
-      state.steps = new selectedAlgorithm().sort(state.initialArray)
+      state.steps = sortArray(selectedAlgorithm, state.initialArray)
     },
     resetSorting: (state) => {
       const randomArray = [...randomArrayGenerator(state.arraySize)]
       state.initialArray = randomArray
-      const algorithm = new (Algorithm[state.selectedAlgorithm] || Algorithm.BubbleSort)
-      const newSteps = algorithm.sort(randomArray)
-      state.steps = newSteps
+      state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray)
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { changeArraySize, changeAlgorithm, resetSorting } = sorting.actions
+export const { changeArraySize, changeAlgorithm, changeAnimationSpped, resetSorting } = sorting.actions
 
 export default sorting.reducer
+
+const sortArray = (algorithm: ISortingAlgorithm, randomArray: Bar[]): Bar[][] => {
+  return new (algorithm || Algorithm.BubbleSort)().sort(randomArray)
+}
