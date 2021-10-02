@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import algorithmReducer from './slice/algorithm'
+import sortingReducer from './slice/sorting'
 
 const store = configureStore({
   reducer: {
-    algorithm: algorithmReducer
+    sorting: sortingReducer
   }
 })
 
