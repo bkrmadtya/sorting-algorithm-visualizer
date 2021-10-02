@@ -17,11 +17,11 @@ const legends = (Object.keys(BarStatus) as Array<keyof typeof BarStatus>)
   .map((status): BarStatus => BarStatus[status]);
 
 const MainPanel: React.FC = () => {
-  const { state, sort, reset, cancel, previousStep, nextStep } = useSort()
+  const { currentStep, steps, sort, reset, cancel, previousStep, nextStep } = useSort()
   return (
     <div className='mainPanel'>
       <OptionContainer />
-      <BarContainer steps={state.steps[state.currentStep]} />
+      <BarContainer steps={steps[currentStep]} />
       <Controls {...{ sort, cancel, reset, previousStep, nextStep }} />
       <LegendContainer legends={legends} />
     </div>
