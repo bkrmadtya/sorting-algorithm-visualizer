@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { ReactEventHandler, useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 // components
 import Highlight from 'react-highlight.js'
+
+import { changeAlgorithm } from '../../store/slice/sorting'
+import { BubbleSort, MergeSort, QuickSort } from '../Algorithms'
 import { Header, Dropdown } from '../shared'
 
 const bubbleSortCode = `
@@ -49,7 +53,7 @@ let bubbleSort = (inputArr) => {
 const algorithmsOptions = [
   {
     key: 'Bubble Sort',
-    value: 'bubbleSort',
+    value: BubbleSort.name,
     inventor: 'John Von Neumann',
     year: '1996',
     timeComplexity: {
@@ -64,7 +68,7 @@ const algorithmsOptions = [
   },
   {
     key: 'Merge Sort',
-    value: 'mergeSort',
+    value: MergeSort.name,
     inventor: 'John Von Neumann',
     year: '1996',
     timeComplexity: {
@@ -91,7 +95,7 @@ const algorithmsOptions = [
   },
   {
     key: 'Quick Sort',
-    value: 'quickSort',
+    value: QuickSort.name,
     inventor: 'John Von Neumann',
     year: '1996',
     timeComplexity: {
@@ -123,12 +127,12 @@ const SidePanel: React.FC = () => {
     algorithmsOptions[0]
   )
 
-  const handleSelect = (event: React.FormEvent<HTMLSelectElement>) => {
-    const selected =
-      algorithmsOptions.find(
-        option => option.value === event.currentTarget.value
-      ) || algorithmsOptions[0]
+  const dispatch = useDispatch();
+  const handleSelect: ReactEventHandler<HTMLSelectElement> = (event) => {
+    const selected = algorithmsOptions
+      .find(option => option.value === event.currentTarget.value) || algorithmsOptions[0]
     setSelectedAlgorithm(selected)
+    dispatch(changeAlgorithm(selected.value))
   }
   return (
     <div className='sidePanel'>
