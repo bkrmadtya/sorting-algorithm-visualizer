@@ -4,13 +4,13 @@ import React from 'react'
 import { SidePanel, MainPanel, BottomPanel } from './components'
 
 const Home: React.FC = () => {
-	return (
-		<div className='home'>
-			<SidePanel />
-			<MainPanel />
-			<BottomPanel />
-		</div>
-	)
+  return (
+    <div className='home'>
+      <SidePanel />
+      <MainPanel />
+      <BottomPanel />
+    </div>
+  )
 }
 
 export default Home

@@ -8,18 +8,18 @@ import { Header } from '../../../shared'
 import { BarStatus } from '../../../utils'
 
 interface IProps {
-	legends: BarStatus[]
+  legends: BarStatus[]
 }
 
 const LegendContainer: React.FC<IProps> = ({ legends }) => {
-	return (
-		<div className='legendContainer'>
-			<Header className='legendContainer__header'>Legends</Header>
-			{legends.map(l => (
-				<Legend key={l} type={l} />
-			))}
-		</div>
-	)
+  return (
+    <div className='legendContainer'>
+      <Header className='legendContainer__header'>Legends</Header>
+      {legends.map(l => (
+        <Legend key={l} type={l} />
+      ))}
+    </div>
+  )
 }
 
 export default LegendContainer

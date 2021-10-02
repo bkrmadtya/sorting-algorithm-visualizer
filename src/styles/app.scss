@@ -5,46 +5,46 @@
 @import './common/';
 
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	font-family: Roboto, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
 }
 
 :root {
-	font-size: 62.5%; // 1rem = 10px, (10px / 16px) => 62.5%
-	// background colors
-	--appBg: hsl(0, 0%, 80%);
-	--navBarBg: hsl(0, 0%, 19%);
-	--mainPanelBg: hsl(0, 0%, 80%);
-	--sidePanelBg: hsl(228, 2%, 46%);
-	--bottomPanelBg: hsl(0, 0%, 80%);
+  font-size: 62.5%; // 1rem = 10px, (10px / 16px) => 62.5%
+  // background colors
+  --appBg: hsl(0, 0%, 80%);
+  --navBarBg: hsl(0, 0%, 19%);
+  --mainPanelBg: hsl(0, 0%, 80%);
+  --sidePanelBg: hsl(228, 2%, 46%);
+  --bottomPanelBg: hsl(0, 0%, 80%);
 
-	// bar elements colors
-	--SORTED: hsl(206, 80%, 65%); // B
-	--GREATER: hsl(152, 49%, 64%); // G
-	--PIVOT: hsl(51, 94%, 67%); // Y
-	--ACTIVE: hsl(29, 80%, 65%); // O
-	--LESSER: hsl(4, 80%, 65%); // R
-	--UNSORTED: hsl(0, 0%, 28%);
+  // bar elements colors
+  --SORTED: hsl(206, 80%, 65%); // B
+  --GREATER: hsl(152, 49%, 64%); // G
+  --PIVOT: hsl(51, 94%, 67%); // Y
+  --ACTIVE: hsl(29, 80%, 65%); // O
+  --LESSER: hsl(4, 80%, 65%); // R
+  --UNSORTED: hsl(0, 0%, 28%);
 }
 
 #root {
-	width: 100vw;
-	height: 100vh;
-	background: var(--appBg);
+  width: 100vw;
+  height: 100vh;
+  background: var(--appBg);
 }
 
 .app {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background: linear-gradient(
-		109.62deg,
-		rgba(255, 255, 255, 0.42) 0.02%,
-		rgba(255, 255, 255, 0.05) 99.99%
-	);
-	background: var(--appBg);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    109.62deg,
+    rgba(255, 255, 255, 0.42) 0.02%,
+    rgba(255, 255, 255, 0.05) 99.99%
+  );
+  background: var(--appBg);
 }

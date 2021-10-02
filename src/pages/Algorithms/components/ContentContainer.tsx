@@ -8,23 +8,23 @@ import Section from './Section'
 import { ITableOfContent } from '../../../utils'
 
 interface IProps {
-	tableOfContent: ITableOfContent[]
+  tableOfContent: ITableOfContent[]
 }
 
 const ContentContainer: React.FC<IProps> = ({ tableOfContent }) => {
-	console.log(tableOfContent)
-	return (
-		<div className='contentContainer'>
-			<div id='algorithms'>
-				<Header className='panelHeader'>Algorithms</Header>
-			</div>
-			<article>
-				{tableOfContent.map(content => {
-					return <Section key={content.id} content={content} />
-				})}
-			</article>
-		</div>
-	)
+  console.log(tableOfContent)
+  return (
+    <div className='contentContainer'>
+      <div id='algorithms'>
+        <Header className='panelHeader'>Algorithms</Header>
+      </div>
+      <article>
+        {tableOfContent.map(content => {
+          return <Section key={content.id} content={content} />
+        })}
+      </article>
+    </div>
+  )
 }
 
 export default ContentContainer

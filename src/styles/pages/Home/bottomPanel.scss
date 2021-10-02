@@ -1,29 +1,29 @@
 .bottomPanel {
-	grid-area: bottom;
-	background-color: var(--bottomPanelBg);
-	text-align: justify;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
+  grid-area: bottom;
+  background-color: var(--bottomPanelBg);
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
-	& .detailTable {
-		width: 100%;
-		border-collapse: collapse;
+  & .detailTable {
+    width: 100%;
+    border-collapse: collapse;
 
-		& .rowData {
-			font-size: 1.4rem;
+    & .rowData {
+      font-size: 1.4rem;
 
-			& td {
-				padding: 1.5rem;
-			}
+      & td {
+        padding: 1.5rem;
+      }
 
-			&:nth-child(odd) {
-				background-color: hsl(0, 0%, 73%);
-			}
+      &:nth-child(odd) {
+        background-color: hsl(0, 0%, 73%);
+      }
 
-			&__key {
-				font-weight: bold;
-			}
-		}
-	}
+      &__key {
+        font-weight: bold;
+      }
+    }
+  }
 }

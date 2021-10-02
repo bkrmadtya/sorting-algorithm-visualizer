@@ -1,4 +1,10 @@
-import { IAlgorithm, changeStatusOfElement, swapElements, Bar, BarStatus } from '../utils'
+import {
+  IAlgorithm,
+  changeStatusOfElement,
+  swapElements,
+  Bar,
+  BarStatus
+} from '../utils'
 
 const { ACTIVE, SORTED, UNSORTED } = BarStatus
 

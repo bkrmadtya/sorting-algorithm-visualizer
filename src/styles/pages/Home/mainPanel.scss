@@ -1,83 +1,83 @@
 .mainPanel {
-	grid-area: main;
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	grid-template-areas:
-		'. optionContainer optionContainer optionContainer optionContainer optionContainer legend'
-		'. barContainer barContainer barContainer barContainer barContainer legend'
-		'. barContainer barContainer barContainer barContainer barContainer legend'
-		'. barContainer barContainer barContainer barContainer barContainer legend'
-		'. barContainer barContainer barContainer barContainer barContainer legend'
-		'. controls controls controls controls controls . ';
-	background-color: var(--mainPanelBg);
-	padding: 4rem;
-	text-align: justify;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-areas:
+    '. optionContainer optionContainer optionContainer optionContainer optionContainer legend'
+    '. barContainer barContainer barContainer barContainer barContainer legend'
+    '. barContainer barContainer barContainer barContainer barContainer legend'
+    '. barContainer barContainer barContainer barContainer barContainer legend'
+    '. barContainer barContainer barContainer barContainer barContainer legend'
+    '. controls controls controls controls controls . ';
+  background-color: var(--mainPanelBg);
+  padding: 4rem;
+  text-align: justify;
 
-	& .optionContainer {
-		grid-area: optionContainer;
-		align-self: start;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-evenly;
-	}
+  & .optionContainer {
+    grid-area: optionContainer;
+    align-self: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 
-	& .barContainer {
-		grid-area: barContainer;
-		align-self: end;
-		height: 30rem;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: flex-end;
+  & .barContainer {
+    grid-area: barContainer;
+    align-self: end;
+    height: 30rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
 
-		.bar {
-			width: 1rem;
-			margin: 0.4rem;
-			padding: 0.5rem;
-			opacity: 1;
-			color: white;
-			box-shadow: 0.4rem 0.4rem 1rem 0.2rem background-color;
-		}
-	}
+    .bar {
+      width: 1rem;
+      margin: 0.4rem;
+      padding: 0.5rem;
+      opacity: 1;
+      color: white;
+      box-shadow: 0.4rem 0.4rem 1rem 0.2rem background-color;
+    }
+  }
 
-	& .controls {
-		grid-area: controls;
-		align-self: end;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		padding: 1rem;
+  & .controls {
+    grid-area: controls;
+    align-self: end;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
 
-		& button {
-			max-height: 5rem;
-			margin: 0.5rem;
-			padding: 0.5rem;
-			min-width: 8rem;
-		}
-	}
+    & button {
+      max-height: 5rem;
+      margin: 0.5rem;
+      padding: 0.5rem;
+      min-width: 8rem;
+    }
+  }
 
-	& .legendContainer {
-		grid-area: legend;
-		align-self: center;
+  & .legendContainer {
+    grid-area: legend;
+    align-self: center;
 
-		&__header {
-			margin-bottom: 1rem;
-		}
+    &__header {
+      margin-bottom: 1rem;
+    }
 
-		& .legend {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			font-size: 1.4rem;
-			margin: 0.5rem 0rem;
+    & .legend {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 1.4rem;
+      margin: 0.5rem 0rem;
 
-			&__color {
-				height: 1.8rem;
-				width: 1.8rem;
-				border: 1px solid white;
-				border-radius: 0rem;
-				margin-right: 1rem;
-			}
-		}
-	}
+      &__color {
+        height: 1.8rem;
+        width: 1.8rem;
+        border: 1px solid white;
+        border-radius: 0rem;
+        margin-right: 1rem;
+      }
+    }
+  }
 }

@@ -7,17 +7,17 @@ import BarComponent from './Bar'
 import { Bar } from '../../../utils'
 
 interface IProps {
-	steps: Bar[]
+  steps: Bar[]
 }
 
 const BarContainer: React.FC<IProps> = ({ steps }: IProps) => {
-	return (
-		<div className='barContainer'>
-			{steps.map(a => (
-				<BarComponent key={a.value} value={a.value} status={a.status} />
-			))}
-		</div>
-	)
+  return (
+    <div className='barContainer'>
+      {steps.map(a => (
+        <BarComponent key={a.value} value={a.value} status={a.status} />
+      ))}
+    </div>
+  )
 }
 
 export default BarContainer

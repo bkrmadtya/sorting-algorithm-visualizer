@@ -18,26 +18,26 @@ selectedAlgorithm = MergeSort
 // selectedAlgorithm = QuickSort
 
 const legends = [
-	BarStatus.ACTIVE,
-	BarStatus.GREATER,
-	BarStatus.LESSER,
-	BarStatus.PIVOT,
-	BarStatus.SORTED,
-	BarStatus.UNSORTED
+  BarStatus.ACTIVE,
+  BarStatus.GREATER,
+  BarStatus.LESSER,
+  BarStatus.PIVOT,
+  BarStatus.SORTED,
+  BarStatus.UNSORTED
 ]
 
 const MainPanel: React.FC = () => {
-	const { state, sort, reset, cancel, previousStep, nextStep } = useSort(
-		selectedAlgorithm
-	)
-	return (
-		<div className='mainPanel'>
-			<OptionContainer />
-			<BarContainer steps={state.steps[state.currentStep]} />
-			<Controls {...{ sort, cancel, reset, previousStep, nextStep }} />
-			<LegendContainer legends={legends} />
-		</div>
-	)
+  const { state, sort, reset, cancel, previousStep, nextStep } = useSort(
+    selectedAlgorithm
+  )
+  return (
+    <div className='mainPanel'>
+      <OptionContainer />
+      <BarContainer steps={state.steps[state.currentStep]} />
+      <Controls {...{ sort, cancel, reset, previousStep, nextStep }} />
+      <LegendContainer legends={legends} />
+    </div>
+  )
 }
 
 export default MainPanel

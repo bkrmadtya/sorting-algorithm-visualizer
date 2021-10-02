@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 // utils
 import { Bar } from './'
@@ -8,7 +8,7 @@ export interface IAlgorithm {
 }
 
 export interface ISortingAlgorithm {
-  new(): IAlgorithm
+  new (): IAlgorithm
 }
 
 export interface IState {
