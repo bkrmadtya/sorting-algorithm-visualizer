@@ -7,6 +7,10 @@ import './styles/app.scss'
 // components
 import { NavBar } from './shared'
 import { Home, Algorithms, About } from './pages'
+import BarComponent from 'src/components/Bar'
+
+// utils
+import MergeSort from 'src/algorithms/MergeSort'
 
 const App: React.FC = () => {
 	return (
