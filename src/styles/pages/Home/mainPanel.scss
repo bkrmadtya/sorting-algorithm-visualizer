@@ -1,17 +1,18 @@
 .mainPanel {
-  grid-area: main;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-areas:
-    '. optionContainer optionContainer optionContainer optionContainer optionContainer legend'
+    '. optionContainer optionContainer optionContainer optionContainer optionContainer .'
+    '. barContainer barContainer barContainer barContainer barContainer legend'
+    '. barContainer barContainer barContainer barContainer barContainer legend'
     '. barContainer barContainer barContainer barContainer barContainer legend'
     '. barContainer barContainer barContainer barContainer barContainer legend'
     '. barContainer barContainer barContainer barContainer barContainer legend'
     '. barContainer barContainer barContainer barContainer barContainer legend'
     '. controls controls controls controls controls . ';
-  background-color: var(--mainPanelBg);
-  padding: 4rem;
+  padding: 4rem ;
   text-align: justify;
+  height: 100%;
 
   & .optionContainer {
     grid-area: optionContainer;
@@ -32,8 +33,7 @@
 
     .bar {
       width: 1rem;
-      margin: 0.4rem;
-      padding: 0.5rem;
+      margin: 0.1rem;
       opacity: 1;
       color: white;
       box-shadow: 0.4rem 0.4rem 1rem 0.2rem background-color;
