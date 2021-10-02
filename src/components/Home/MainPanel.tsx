@@ -1,6 +1,7 @@
 import React from 'react'
 
 // hooks
+import { useSelector } from 'react-redux'
 import useSort from '../../hooks/useSort'
 
 // components
@@ -10,17 +11,15 @@ import LegendContainer from './LegendContainer'
 import OptionContainer from './OptionContainer'
 
 // utils
-import { ISortingAlgorithm, BarStatus } from '../../utils'
-import { BubbleSort, MergeSort, QuickSort } from '../../algorithms'
+import { BarStatus } from '../../utils'
+import { RootState } from 'src/store'
 
-const selectedAlgorithm: ISortingAlgorithm = BubbleSort
-// selectedAlgorithm = MergeSort
-// selectedAlgorithm = QuickSort
 
 const legends = (Object.keys(BarStatus) as Array<keyof typeof BarStatus>)
   .map((status): BarStatus => BarStatus[status]);
 
 const MainPanel: React.FC = () => {
+  const { selectedAlgorithm } = useSelector((state: RootState) => state.algorithm)
   const { state, sort, reset, cancel, previousStep, nextStep } = useSort(
     selectedAlgorithm
   )
