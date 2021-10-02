@@ -127,10 +127,12 @@ const SidePanel: React.FC = () => {
     algorithmsOptions[0]
   )
 
-  const dispatch = useDispatch();
-  const handleSelect: ReactEventHandler<HTMLSelectElement> = (event) => {
-    const selected = algorithmsOptions
-      .find(option => option.value === event.currentTarget.value) || algorithmsOptions[0]
+  const dispatch = useDispatch()
+  const handleSelect: ReactEventHandler<HTMLSelectElement> = event => {
+    const selected =
+      algorithmsOptions.find(
+        option => option.value === event.currentTarget.value
+      ) || algorithmsOptions[0]
     setSelectedAlgorithm(selected)
     dispatch(changeAlgorithm(selected.value))
   }

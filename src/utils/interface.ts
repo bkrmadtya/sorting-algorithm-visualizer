@@ -8,7 +8,7 @@ export interface IAlgorithm {
 }
 
 export interface ISortingAlgorithm {
-  new(): IAlgorithm
+  new (): IAlgorithm
 }
 
 export interface ITableOfContent {

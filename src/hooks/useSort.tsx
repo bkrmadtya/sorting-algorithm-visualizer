@@ -6,7 +6,11 @@ import { useDispatch, useSelector } from 'react-redux'
 // utils
 import { Bar } from 'src/utils/Bar'
 import { RootState } from 'src/store'
-import { goToNextStep, goToPreviousStep, resetSorting } from 'src/store/slice/sorting'
+import {
+  goToNextStep,
+  goToPreviousStep,
+  resetSorting
+} from 'src/store/slice/sorting'
 
 type IState = NodeJS.Timeout[]
 
@@ -20,8 +24,10 @@ const useSort = (): {
   nextStep: () => void
 } => {
   const [timeouts, setTimeouts] = useState<IState>([])
-  const { animationSpeed, currentStep, steps, arraySize } = useSelector((state: RootState) => state.sorting)
-  const dispatch = useDispatch();
+  const { animationSpeed, currentStep, steps, arraySize } = useSelector(
+    (state: RootState) => state.sorting
+  )
+  const dispatch = useDispatch()
 
   const cancel = (): void => {
     timeouts.forEach(t => clearTimeout(t))
@@ -29,7 +35,7 @@ const useSort = (): {
   }
 
   useEffect(() => {
-    cancel();
+    cancel()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [steps, arraySize])
 
@@ -62,7 +68,7 @@ const useSort = (): {
 
   const reset = (): void => {
     cancel()
-    dispatch(resetSorting());
+    dispatch(resetSorting())
   }
 
   const previousStep = (): void => {

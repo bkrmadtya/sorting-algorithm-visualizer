@@ -12,12 +12,20 @@ import OptionContainer from './OptionContainer'
 // utils
 import { BarStatus } from '../../utils'
 
-
-const legends = (Object.keys(BarStatus) as Array<keyof typeof BarStatus>)
-  .map((status): BarStatus => BarStatus[status]);
+const legends = (Object.keys(BarStatus) as Array<keyof typeof BarStatus>).map(
+  (status): BarStatus => BarStatus[status]
+)
 
 const MainPanel: React.FC = () => {
-  const { currentStep, steps, sort, reset, cancel, previousStep, nextStep } = useSort()
+  const {
+    currentStep,
+    steps,
+    sort,
+    reset,
+    cancel,
+    previousStep,
+    nextStep
+  } = useSort()
   return (
     <div className='mainPanel'>
       <OptionContainer />

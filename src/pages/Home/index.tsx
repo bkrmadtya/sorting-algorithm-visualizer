@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   return (
     <div className='home'>
       {/* <SidePanel /> */}
-      <div className="rightPanel">
+      <div className='rightPanel'>
         <MainPanel />
         <BottomPanel />
       </div>

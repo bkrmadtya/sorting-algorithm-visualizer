@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Header, Dropdown } from '../shared'
 
 // js
-import { changeAlgorithm, changeAnimationSpped, changeArraySize } from '../../store/slice/sorting'
+import {
+  changeAlgorithm,
+  changeAnimationSpped,
+  changeArraySize
+} from '../../store/slice/sorting'
 import { RootState } from '../../store'
 
 const SizeOption = 'Size'
@@ -52,21 +56,25 @@ const getMenuOptions = (allAlgorithms: string[]) => [
   }
 ]
 
-
 const OptionContainer: React.FC = () => {
-  const { arraySize, allAlgorithms } = useSelector((state: RootState) => state.sorting)
-  const dispatch = useDispatch();
+  const { arraySize, allAlgorithms } = useSelector(
+    (state: RootState) => state.sorting
+  )
+  const dispatch = useDispatch()
 
-  const handleChangeEvent: ReactEventHandler<HTMLSelectElement> = useCallback(event => {
-    const { name, value } = event.currentTarget
-    if (name === SizeOption) {
-      dispatch(changeArraySize(value))
-    } else if (name === AlgorithmOption) {
-      dispatch(changeAlgorithm(value))
-    } else {
-      dispatch(changeAnimationSpped(value))
-    }
-  }, [dispatch])
+  const handleChangeEvent: ReactEventHandler<HTMLSelectElement> = useCallback(
+    event => {
+      const { name, value } = event.currentTarget
+      if (name === SizeOption) {
+        dispatch(changeArraySize(value))
+      } else if (name === AlgorithmOption) {
+        dispatch(changeAlgorithm(value))
+      } else {
+        dispatch(changeAnimationSpped(value))
+      }
+    },
+    [dispatch]
+  )
   const rerender = useRef(0)
 
   const options = useMemo(() => {
@@ -85,8 +93,8 @@ const OptionContainer: React.FC = () => {
               onChange={handleChangeEvent}
               value={`${arraySize}`}
             />
-          </Header>))
-        }
+          </Header>
+        ))}
         {rerender.current++}
       </div>
     )

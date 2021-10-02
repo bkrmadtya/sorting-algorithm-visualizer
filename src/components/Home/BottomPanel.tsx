@@ -45,11 +45,13 @@ const tableData = (
 })
 
 const BottomPanel: React.FC = () => {
-  const { activeElement,
+  const {
+    activeElement,
     arraySize,
     initialArray,
     currentArray,
-    status } = useSelector(getInfoForBottomPanel)
+    status
+  } = useSelector(getInfoForBottomPanel)
   return (
     <div className='bottomPanel'>
       <table className='detailTable'>

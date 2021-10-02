@@ -1,8 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 // js
-import { RootState } from '../';
-import { Bar, BarStatus, ISortingAlgorithm, randomArrayGenerator } from '../../utils';
+import { RootState } from '../'
+import {
+  Bar,
+  BarStatus,
+  ISortingAlgorithm,
+  randomArrayGenerator
+} from '../../utils'
 import { BubbleSort, MergeSort, QuickSort } from '../../algorithms'
 
 const Algorithm = {
@@ -10,7 +15,6 @@ const Algorithm = {
   [MergeSort.name]: MergeSort,
   [QuickSort.name]: QuickSort
 }
-
 
 interface AlgorithmState {
   selectedAlgorithm: string
@@ -51,22 +55,22 @@ export const sorting = createSlice({
       state.animationSpeed = parseInt(payload)
     },
     changeAlgorithm: (state, { payload }) => {
-      const selectedAlgorithm = (Algorithm[payload] || Algorithm.BubbleSort)
+      const selectedAlgorithm = Algorithm[payload] || Algorithm.BubbleSort
       state.currentStep = 0
       state.selectedAlgorithm = selectedAlgorithm.name
       state.steps = sortArray(selectedAlgorithm, state.initialArray)
     },
-    goToNextStep: (state) => {
+    goToNextStep: state => {
       if (state.currentStep < state.steps.length - 1) {
         state.currentStep += 1
       }
     },
-    goToPreviousStep: (state) => {
+    goToPreviousStep: state => {
       if (state.currentStep >= 0) {
         state.currentStep -= 1
       }
     },
-    resetSorting: (state) => {
+    resetSorting: state => {
       const randomArray = [...randomArrayGenerator(state.arraySize)]
       state.initialArray = randomArray
       state.currentStep = 0
@@ -87,21 +91,32 @@ export const {
 
 export default sorting.reducer
 
-const sortArray = (algorithm: ISortingAlgorithm, randomArray: Bar[]): Bar[][] => {
+const sortArray = (
+  algorithm: ISortingAlgorithm,
+  randomArray: Bar[]
+): Bar[][] => {
   return new (algorithm || Algorithm.BubbleSort)().sort(randomArray)
 }
 
-
-export const getActiveElements = ({ sorting }: RootState): string => sorting.steps[sorting.currentStep]
-  .filter(ele => ele.status === BarStatus.ACTIVE)
-  .map(ele => ele.value).join(", ")
-export const getArraySize = ({ sorting }: RootState): number => sorting.arraySize
-export const getCurrentArray = ({ sorting }: RootState): string => sorting.steps[sorting.currentStep].map(i => i.value).join(", ")
-export const getInitialArray = ({ sorting }: RootState): string => sorting.initialArray.map(i => i.value).join(", ")
+export const getActiveElements = ({ sorting }: RootState): string =>
+  sorting.steps[sorting.currentStep]
+    .filter(ele => ele.status === BarStatus.ACTIVE)
+    .map(ele => ele.value)
+    .join(', ')
+export const getArraySize = ({ sorting }: RootState): number =>
+  sorting.arraySize
+export const getCurrentArray = ({ sorting }: RootState): string =>
+  sorting.steps[sorting.currentStep].map(i => i.value).join(', ')
+export const getInitialArray = ({ sorting }: RootState): string =>
+  sorting.initialArray.map(i => i.value).join(', ')
 export const getSortingStatus = ({ sorting }: RootState): string => {
   if (sorting.currentStep === 0) {
     return BarStatus.UNSORTED
-  } else if (sorting.steps[sorting.currentStep].every(ele => ele.status === BarStatus.SORTED)) {
+  } else if (
+    sorting.steps[sorting.currentStep].every(
+      ele => ele.status === BarStatus.SORTED
+    )
+  ) {
     return BarStatus.SORTED
   } else {
     return 'SORTING'
