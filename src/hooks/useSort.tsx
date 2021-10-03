@@ -4,13 +4,13 @@ import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 // utils
-import { Bar } from 'src/utils/Bar'
-import { RootState } from 'src/store'
+import { Bar } from '../utils/Bar'
+import { RootState } from '../store'
 import {
   goToNextStep,
   goToPreviousStep,
   resetSorting
-} from 'src/store/slice/sorting'
+} from '../store/slice/sorting'
 
 type IState = NodeJS.Timeout[]
 
