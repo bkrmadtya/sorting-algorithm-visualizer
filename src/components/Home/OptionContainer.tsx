@@ -57,7 +57,7 @@ const getMenuOptions = (allAlgorithms: string[]) => [
 ]
 
 const OptionContainer: React.FC = () => {
-  const { arraySize, allAlgorithms } = useSelector(
+  const { allAlgorithms } = useSelector(
     (state: RootState) => state.sorting
   )
   const dispatch = useDispatch()
@@ -91,14 +91,13 @@ const OptionContainer: React.FC = () => {
               name={op.name}
               options={op.value}
               onChange={handleChangeEvent}
-              value={`${arraySize}`}
             />
           </Header>
         ))}
         {rerender.current++}
       </div>
     )
-  }, [arraySize, handleChangeEvent, options])
+  }, [handleChangeEvent, options])
 }
 
 export default OptionContainer
