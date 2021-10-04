@@ -59,10 +59,9 @@ export const sorting = createSlice({
       state.animationSpeed = parseInt(payload)
     },
     changeAlgorithm: (state, { payload }) => {
-      const selectedAlgorithm = Algorithm[payload] || Algorithm.BubbleSort
       state.currentStep = 0
-      state.selectedAlgorithm = selectedAlgorithm.name
-      state.steps = sortArray(selectedAlgorithm, state.initialArray)
+      state.selectedAlgorithm = payload
+      state.steps = sortArray(Algorithm[payload], state.initialArray)
     },
     goToNextStep: state => {
       if (state.currentStep < state.steps.length - 1) {
@@ -99,7 +98,7 @@ const sortArray = (
   algorithm: ISortingAlgorithm,
   randomArray: Bar[]
 ): Bar[][] => {
-  return new (algorithm || Algorithm.BubbleSort)().sort(randomArray)
+  return new algorithm().sort(randomArray)
 }
 
 export const getActiveElements = ({ sorting }: RootState): string =>
