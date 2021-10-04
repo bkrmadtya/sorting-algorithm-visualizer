@@ -11,7 +11,7 @@
     "lint:fix": "eslint --fix --ext .ts,.tsx src/",
     "prettier": "prettier \"**/*.+(js|jsx|json|ts|tsx|css|scss|md|mdx|graphql)\" --write",
     "deploy:draft": "rm -rf build && npm run build && netlify deploy -d build",
-    "deploy:prod": "netlify deploy -d build --prod"
+    "deploy:prod": "rm -rf build && npm run build && netlify deploy -d build --prod"
   },
   "husky": {
     "hooks": {
