@@ -10,10 +10,10 @@ import {
 } from '../../utils'
 import { BubbleSort, MergeSort, QuickSort } from '../../algorithms'
 
-const Algorithm = {
-  [BubbleSort.name]: BubbleSort,
-  [MergeSort.name]: MergeSort,
-  [QuickSort.name]: QuickSort
+const Algorithm: Record<string, ISortingAlgorithm> = {
+  'Bubble Sort': BubbleSort,
+  'Merge Sort': MergeSort,
+  'Quick Sort': QuickSort
 }
 
 interface AlgorithmState {
@@ -26,16 +26,20 @@ interface AlgorithmState {
   steps: Bar[][]
 }
 
-const initialRandomArray = [...randomArrayGenerator(25)]
-const initialAlgorithm = new BubbleSort()
+const defaultArraySize = 25;
+const defaultAnimationSpeed = 50;
+const defaultAlgorithm = "Merge Sort";
+
+const initialRandomArray = [...randomArrayGenerator(defaultArraySize)]
+const initialAlgorithm = new Algorithm[defaultAlgorithm]()
 const initialSteps = initialAlgorithm.sort(initialRandomArray)
 
 const initialState: AlgorithmState = {
-  animationSpeed: 50,
-  arraySize: 25,
+  animationSpeed: defaultAnimationSpeed,
+  arraySize: defaultArraySize,
   currentStep: 0,
   initialArray: initialRandomArray,
-  selectedAlgorithm: BubbleSort.name,
+  selectedAlgorithm: defaultAlgorithm,
   steps: initialSteps,
   allAlgorithms: [...Object.keys(Algorithm)]
 }

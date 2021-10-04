@@ -91,6 +91,7 @@ const OptionContainer: React.FC = () => {
               name={op.name}
               options={op.value}
               onChange={handleChangeEvent}
+              value={op.value[1].value}
             />
           </Header>
         ))}
