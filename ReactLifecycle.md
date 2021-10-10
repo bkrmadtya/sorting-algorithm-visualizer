@@ -71,10 +71,12 @@ shouldComponentUpdate() {
 ```js
 React.memo(Component, 
   (prevProps, nextProps) => {
-  // compares previous and next props
-  // returns false if they are not same
-  // (component will then re-render)
-  // otherwise returns true
+  /**
+   * compares previous and next props
+   * returns false if they are not same
+   * (component will then re-render)
+   * otherwise returns true
+   */
 })
 ```
 
