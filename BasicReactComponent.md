@@ -1,6 +1,9 @@
 <table align="center">
 <tr>
 <th><h2>Basic React Component</h2></th>
+</tr>
+
+<tr>
 <td>
 
 ```js
