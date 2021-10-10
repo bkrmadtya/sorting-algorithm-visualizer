@@ -27,8 +27,8 @@ interface AlgorithmState {
 }
 
 const defaultArraySize = 25;
-const defaultAnimationSpeed = 50;
-const defaultAlgorithm = "Merge Sort";
+const defaultAnimationSpeed = 20;
+const defaultAlgorithm = "Quick Sort";
 
 const initialRandomArray = [...randomArrayGenerator(defaultArraySize)]
 const initialAlgorithm = new Algorithm[defaultAlgorithm]()
@@ -69,7 +69,7 @@ export const sorting = createSlice({
       }
     },
     goToPreviousStep: state => {
-      if (state.currentStep >= 0) {
+      if (state.currentStep > 0) {
         state.currentStep -= 1
       }
     },
