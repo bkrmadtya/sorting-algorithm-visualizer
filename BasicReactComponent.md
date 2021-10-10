@@ -1,10 +1,7 @@
 <table align="center">
-<tr>
-<th><h3>Basic React Component</h3></th>
+<tr align="center">
+<td>Basic React Component</td>
 </tr>
-
-<tr></tr>
-
 <tr>
 <td>
 
