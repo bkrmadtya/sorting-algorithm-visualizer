@@ -1,7 +1,6 @@
-# Basic React Component
-
 <table align="center">
 <tr>
+<th><h2>Basic React Component</h2></th>
 <td>
 
 ```js
