@@ -1,5 +1,9 @@
 # Basic React Component
 
+<table align="center">
+<tr>
+<td>
+
 ```js
 import React from 'react';
 
@@ -9,3 +13,6 @@ const App = () => {
 
 export default App;
 ```
+</td>
+</tr>
+</table>
