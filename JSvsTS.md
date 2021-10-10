@@ -52,7 +52,4 @@ squareOfNumber(1);
 ```
 </td>
 </tr>
-
-<tr></tr>
-
 </table>
