@@ -29,7 +29,7 @@ const MainPanel: React.FC = () => {
   return (
     <div className='mainPanel'>
       <OptionContainer />
-      <BarContainer steps={steps[currentStep]} />
+      <BarContainer step={steps[currentStep]} />
       <Controls {...{ sort, cancel, reset, previousStep, nextStep }} />
       <LegendContainer legends={legends} />
     </div>
