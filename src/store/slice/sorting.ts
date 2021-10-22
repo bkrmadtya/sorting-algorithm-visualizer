@@ -67,6 +67,10 @@ export const sorting = createSlice({
     },
     changeColorMode: (state, { payload }) => {
       state.colorMode = payload.toLowerCase() === 'true'
+      const randomArray = [...randomArrayGenerator(state.arraySize)]
+      state.initialArray = randomArray
+      state.currentStep = 0
+      state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray)
     },
     goToNextStep: state => {
       if (state.currentStep < state.steps.length - 1) {
