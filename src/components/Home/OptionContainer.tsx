@@ -8,12 +8,14 @@ import { Header, Dropdown } from '../shared'
 import {
   changeAlgorithm,
   changeAnimationSpped,
-  changeArraySize
+  changeArraySize,
+  changeColorMode
 } from '../../store/slice/sorting'
 import { RootState } from '../../store'
 
 const SizeOption = 'Size'
 const AlgorithmOption = 'Algorithm'
+const ModeOption = 'Color mode'
 
 const getMenuOptions = (allAlgorithms: string[]) => [
   {
@@ -53,6 +55,19 @@ const getMenuOptions = (allAlgorithms: string[]) => [
         value: '20'
       }
     ]
+  },
+  {
+    name: ModeOption,
+    value: [
+      {
+        key: 'True',
+        value: true.toString()
+      },
+      {
+        key: 'False',
+        value: false.toString()
+      }
+    ]
   }
 ]
 
@@ -69,6 +84,9 @@ const OptionContainer: React.FC = () => {
         dispatch(changeArraySize(value))
       } else if (name === AlgorithmOption) {
         dispatch(changeAlgorithm(value))
+      } else if (name === ModeOption) {
+        // console.log(value)
+        dispatch(changeColorMode(value))
       } else {
         dispatch(changeAnimationSpped(value))
       }

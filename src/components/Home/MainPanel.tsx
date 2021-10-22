@@ -12,10 +12,6 @@ import OptionContainer from './OptionContainer'
 // utils
 import { BarStatus } from '../../utils'
 
-const legends = (Object.keys(BarStatus) as Array<keyof typeof BarStatus>).map(
-  (status): BarStatus => BarStatus[status]
-)
-
 const MainPanel: React.FC = () => {
   const {
     currentStep,
@@ -31,7 +27,7 @@ const MainPanel: React.FC = () => {
       <OptionContainer />
       <BarContainer step={steps[currentStep]} />
       <Controls {...{ sort, cancel, reset, previousStep, nextStep }} />
-      <LegendContainer legends={legends} />
+      <LegendContainer />
     </div>
   )
 }

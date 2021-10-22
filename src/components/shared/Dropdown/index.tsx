@@ -11,7 +11,7 @@ type IProps = {
 }
 
 const Dropdown: React.FC<IProps> = ({ name, options, onChange, value }) => {
-  const ref = useRef(0)
+  // const ref = useRef(0)
   return (
     <>
       <select
@@ -26,7 +26,7 @@ const Dropdown: React.FC<IProps> = ({ name, options, onChange, value }) => {
           </option>
         ))}
       </select>
-      {ref.current++}
+      {/* {ref.current++} */}
     </>
   )
 }

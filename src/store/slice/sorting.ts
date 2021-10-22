@@ -24,6 +24,7 @@ interface AlgorithmState {
   currentStep: number
   initialArray: Bar[]
   steps: Bar[][]
+  colorMode: boolean
 }
 
 const defaultArraySize = 25;
@@ -41,7 +42,8 @@ const initialState: AlgorithmState = {
   initialArray: initialRandomArray,
   selectedAlgorithm: defaultAlgorithm,
   steps: initialSteps,
-  allAlgorithms: [...Object.keys(Algorithm)]
+  allAlgorithms: [...Object.keys(Algorithm)],
+  colorMode: false
 }
 
 export const sorting = createSlice({
@@ -62,6 +64,9 @@ export const sorting = createSlice({
       state.currentStep = 0
       state.selectedAlgorithm = payload
       state.steps = sortArray(Algorithm[payload], state.initialArray)
+    },
+    changeColorMode: (state, { payload }) => {
+      state.colorMode = payload.toLowerCase() === 'true'
     },
     goToNextStep: state => {
       if (state.currentStep < state.steps.length - 1) {
@@ -87,6 +92,7 @@ export const {
   changeArraySize,
   changeAlgorithm,
   changeAnimationSpped,
+  changeColorMode,
   goToNextStep,
   goToPreviousStep,
   resetSorting
@@ -108,6 +114,7 @@ export const getActiveElements = ({ sorting }: RootState): string =>
     .join(', ')
 export const getArraySize = ({ sorting }: RootState): number =>
   sorting.arraySize
+export const getColorMode = ({ sorting }: RootState): boolean => sorting.colorMode
 export const getCurrentArray = ({ sorting }: RootState): string =>
   sorting.steps[sorting.currentStep].map(i => i.value).join(', ')
 export const getInitialArray = ({ sorting }: RootState): string =>
