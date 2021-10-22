@@ -30,9 +30,10 @@ interface AlgorithmState {
 const defaultArraySize = 25;
 const defaultAnimationSpeed = 20;
 const defaultAlgorithm = "Quick Sort";
+const defaultColorMode = false;
 
 const initialRandomArray = [...randomArrayGenerator(defaultArraySize)]
-const initialAlgorithm = new Algorithm[defaultAlgorithm]()
+const initialAlgorithm = new Algorithm[defaultAlgorithm](defaultColorMode)
 const initialSteps = initialAlgorithm.sort(initialRandomArray)
 
 const initialState: AlgorithmState = {
@@ -43,7 +44,7 @@ const initialState: AlgorithmState = {
   selectedAlgorithm: defaultAlgorithm,
   steps: initialSteps,
   allAlgorithms: [...Object.keys(Algorithm)],
-  colorMode: false
+  colorMode: defaultColorMode
 }
 
 export const sorting = createSlice({
@@ -55,7 +56,7 @@ export const sorting = createSlice({
       state.arraySize = payload
       state.currentStep = 0
       state.initialArray = randomArray
-      state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray)
+      state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray, state.colorMode)
     },
     changeAnimationSpeed: (state, { payload }) => {
       state.animationSpeed = parseInt(payload)
@@ -63,14 +64,14 @@ export const sorting = createSlice({
     changeAlgorithm: (state, { payload }) => {
       state.currentStep = 0
       state.selectedAlgorithm = payload
-      state.steps = sortArray(Algorithm[payload], state.initialArray)
+      state.steps = sortArray(Algorithm[payload], state.initialArray, state.colorMode)
     },
     changeColorMode: (state, { payload }) => {
       state.colorMode = payload.toLowerCase() === 'true'
       const randomArray = [...randomArrayGenerator(state.arraySize)]
       state.initialArray = randomArray
       state.currentStep = 0
-      state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray)
+      state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray, state.colorMode)
     },
     goToNextStep: state => {
       if (state.currentStep < state.steps.length - 1) {
@@ -86,7 +87,7 @@ export const sorting = createSlice({
       const randomArray = [...randomArrayGenerator(state.arraySize)]
       state.initialArray = randomArray
       state.currentStep = 0
-      state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray)
+      state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray, state.colorMode)
     }
   }
 })
@@ -106,9 +107,10 @@ export default sorting.reducer
 
 const sortArray = (
   algorithm: ISortingAlgorithm,
-  randomArray: Bar[]
+  randomArray: Bar[],
+  colorMode: boolean
 ): Bar[][] => {
-  return new algorithm().sort(randomArray)
+  return new algorithm(colorMode).sort(randomArray)
 }
 
 export const getActiveElements = ({ sorting }: RootState): string =>
@@ -143,6 +145,7 @@ type BottomPanelInfo = {
   initialArray: string
   currentArray: string
   status: string
+  colorMode: boolean
 }
 
 export const getInfoForBottomPanel = (state: RootState): BottomPanelInfo => {
@@ -151,6 +154,7 @@ export const getInfoForBottomPanel = (state: RootState): BottomPanelInfo => {
     activeElement: getActiveElements(state),
     initialArray: getInitialArray(state),
     currentArray: getCurrentArray(state),
-    status: getSortingStatus(state)
+    status: getSortingStatus(state),
+    colorMode: getColorMode(state)
   }
 }

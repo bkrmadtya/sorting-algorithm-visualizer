@@ -12,8 +12,8 @@ export default class BubbleSort implements IAlgorithm {
   private steps: Bar[][] = []
   private colorMode: boolean
 
-  constructor() {
-    this.colorMode = false
+  constructor(colorMode: boolean) {
+    this.colorMode = colorMode
   }
 
   public sort(arr: Bar[]): Bar[][] {

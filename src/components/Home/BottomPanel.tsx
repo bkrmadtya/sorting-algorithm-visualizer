@@ -35,7 +35,7 @@ const tableData = (
     },
     {
       key: 'Active Elements',
-      value: activeElement
+      value: activeElement.length ? activeElement : 'N/A'
     },
     {
       key: 'Status',

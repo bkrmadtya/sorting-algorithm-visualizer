@@ -4,7 +4,11 @@ const { ACTIVE, UNSORTED, SORTED } = BarStatus
 
 export default class MergeSort implements IAlgorithm {
   private steps: Bar[][] = []
-  private colorMode = false
+  private colorMode: boolean
+
+  constructor(colorMode: boolean) {
+    this.colorMode = colorMode
+  }
 
   public sort(arr: Bar[]): Bar[][] {
     this.steps = []

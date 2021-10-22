@@ -11,7 +11,11 @@ const { ACTIVE, SORTED, UNSORTED, PIVOT } = BarStatus
 
 export default class QuickSort implements IAlgorithm {
   private steps!: Steps
-  private colorMode = true
+  private colorMode: boolean
+
+  constructor(colorMode: boolean) {
+    this.colorMode = colorMode
+  }
 
   public sort(arr: Bar[]): Bar[][] {
     this.steps = new Steps(arr)
