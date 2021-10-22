@@ -65,9 +65,7 @@ const BottomPanel: React.FC = () => {
           ).tableRows.map(row => {
             return (
               <tr className='rowData' key={row.key}>
-                <td className='rowData__key'>
-                  <strong>{row.key}</strong>
-                </td>
+                <td className='rowData__key'>{row.key}</td>
                 <td className='rowData__value'>{row.value}</td>
               </tr>
             )
