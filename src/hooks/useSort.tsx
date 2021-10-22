@@ -36,6 +36,7 @@ const useSort = (): {
 
   useEffect(() => {
     cancel()
+    return cancel
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [steps, arraySize])
 
