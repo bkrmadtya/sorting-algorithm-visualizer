@@ -57,7 +57,7 @@ export const sorting = createSlice({
       state.initialArray = randomArray
       state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray)
     },
-    changeAnimationSpped: (state, { payload }) => {
+    changeAnimationSpeed: (state, { payload }) => {
       state.animationSpeed = parseInt(payload)
     },
     changeAlgorithm: (state, { payload }) => {
@@ -95,7 +95,7 @@ export const sorting = createSlice({
 export const {
   changeArraySize,
   changeAlgorithm,
-  changeAnimationSpped,
+  changeAnimationSpeed,
   changeColorMode,
   goToNextStep,
   goToPreviousStep,

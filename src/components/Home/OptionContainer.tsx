@@ -7,7 +7,7 @@ import { Header, Dropdown } from '../shared'
 // js
 import {
   changeAlgorithm,
-  changeAnimationSpped,
+  changeAnimationSpeed,
   changeArraySize,
   changeColorMode
 } from '../../store/slice/sorting'
@@ -88,7 +88,7 @@ const OptionContainer: React.FC = () => {
         // console.log(value)
         dispatch(changeColorMode(value))
       } else {
-        dispatch(changeAnimationSpped(value))
+        dispatch(changeAnimationSpeed(value))
       }
     },
     [dispatch]
