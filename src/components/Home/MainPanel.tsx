@@ -9,9 +9,6 @@ import Controls from './Controls'
 import LegendContainer from './LegendContainer'
 import OptionContainer from './OptionContainer'
 
-// utils
-import { BarStatus } from '../../utils'
-
 const MainPanel: React.FC = () => {
   const {
     currentStep,
