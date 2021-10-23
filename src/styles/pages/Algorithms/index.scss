@@ -3,14 +3,15 @@
 
 .algorithmsPage {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-areas:
-    'side main main main'
-    'side main main main'
-    'side main main main'
-    'side main main main'
-    'side main main main';
+    'side main main main main'
+    'side main main main main'
+    'side main main main main'
+    'side main main main main'
+    'side main main main main';
   height: 100%;
   width: 100%;
   overflow: hidden;
+  scroll-behavior: smooth;
 }

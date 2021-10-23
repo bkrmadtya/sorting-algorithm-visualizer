@@ -13,8 +13,9 @@ const generateRandomSetOfNumbers = (sizeOfArray: number): Set<number> => {
 }
 
 const randomArrayGenerator = (sizeOfArray: number): Array<Bar> => {
-  const randomArray = Array.from(generateRandomSetOfNumbers(sizeOfArray))
+  // const randomArray = Array.from(generateRandomSetOfNumbers(sizeOfArray))
   // const randomArray = [52, 30, 32, 14, 57, 43, 10, 25, 38, 35]
+  const randomArray = [40, 115, 120, 114, 112, 89, 27, 83, 72, 95, 84, 25, 126, 10, 16, 50, 52, 91, 46, 59, 58, 81, 12, 124, 131]
   // const randomArray = [111, 117, 35, 79, 64, 127, 77, 130, 103, 73, 13, 122, 131, 59, 37, 97, 84, 46, 21, 125, 17, 119, 94, 19, 58] // first 3 and last
   // const randomArray = [57, 28, 126, 42, 125, 16, 62, 89, 27, 11, 44, 58, 130, 94, 32, 15, 34, 60, 133, 52, 101, 38, 55, 29, 129] // all good
   // const randomArray = [64, 88, 49, 95, 31, 120, 19, 20, 72, 134, 39, 34, 105, 106, 35, 89, 102, 75, 46, 128, 48, 60, 61, 52, 96] // 11th index
