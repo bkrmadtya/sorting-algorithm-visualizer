@@ -18,7 +18,7 @@ const MainPanel: React.FC = () => {
     steps,
     sort,
     reset,
-    cancel,
+    pause,
     previousStep,
     nextStep
   } = useSort()
@@ -26,7 +26,7 @@ const MainPanel: React.FC = () => {
     <div className='mainPanel'>
       <OptionContainer />
       <BarContainer step={steps[currentStep]} />
-      <Controls {...{ sort, cancel, reset, previousStep, nextStep }} />
+      <Controls {...{ sort, pause, reset, previousStep, nextStep }} />
       <LegendContainer />
     </div>
   )

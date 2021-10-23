@@ -19,7 +19,7 @@ const useSort = (): {
   steps: Bar[][]
   sort: () => void
   reset: () => void
-  cancel: () => void
+  pause: () => void
   previousStep: () => void
   nextStep: () => void
 } => {
@@ -29,14 +29,14 @@ const useSort = (): {
   )
   const dispatch = useDispatch()
 
-  const cancel = (): void => {
+  const pause = (): void => {
     timeouts.forEach(t => clearTimeout(t))
     setTimeouts([])
   }
 
   useEffect(() => {
-    cancel()
-    return cancel
+    pause()
+    return pause
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [steps, arraySize])
 
@@ -44,14 +44,14 @@ const useSort = (): {
     if (currentStep > 0) {
       sort()
     }
-    return cancel
+    return pause
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [animationSpeed])
 
   const sort = (): void => {
     let i = 0
     const timeouts = []
-    cancel()
+    pause()
 
     if (currentStep >= steps.length - 1) {
       return
@@ -68,21 +68,21 @@ const useSort = (): {
   }
 
   const reset = (): void => {
-    cancel()
+    pause()
     dispatch(resetSorting())
   }
 
   const previousStep = (): void => {
-    cancel()
+    pause()
     dispatch(goToPreviousStep())
   }
 
   const nextStep = (): void => {
-    cancel()
+    pause()
     dispatch(goToNextStep())
   }
 
-  return { currentStep, steps, sort, cancel, reset, previousStep, nextStep }
+  return { currentStep, steps, sort, pause, reset, previousStep, nextStep }
 }
 
 export default useSort

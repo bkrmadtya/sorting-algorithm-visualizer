@@ -93,7 +93,7 @@ const OptionContainer: React.FC = () => {
     },
     [dispatch]
   )
-  const rerender = useRef(0)
+  // const rerender = useRef(0)
 
   const options = useMemo(() => {
     return getMenuOptions(allAlgorithms)
@@ -113,7 +113,7 @@ const OptionContainer: React.FC = () => {
             />
           </Header>
         ))}
-        {rerender.current++}
+        {/* {rerender.current++} */}
       </div>
     )
   }, [handleChangeEvent, options])

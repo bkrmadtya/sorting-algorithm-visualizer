@@ -2,7 +2,7 @@ import React from 'react'
 
 interface IProps {
   sort: () => void
-  cancel: () => void
+  pause: () => void
   reset: () => void
   previousStep: () => void
   nextStep: () => void
@@ -10,7 +10,7 @@ interface IProps {
 
 const Controls: React.FC<IProps> = ({
   sort,
-  cancel,
+  pause,
   reset,
   previousStep,
   nextStep
@@ -18,7 +18,7 @@ const Controls: React.FC<IProps> = ({
   return (
     <div className='controls'>
       <button onClick={sort}>Sort</button>
-      <button onClick={cancel}>Cancel</button>
+      <button onClick={pause}>Pause</button>
       <button onClick={reset}>Reset</button>
       <button onClick={previousStep}>Previous Step</button>
       <button onClick={nextStep}>Next Step</button>
