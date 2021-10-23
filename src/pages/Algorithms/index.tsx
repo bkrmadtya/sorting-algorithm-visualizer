@@ -2,30 +2,26 @@ import React, { useState } from 'react'
 
 // components
 import {
-  BubbleSort,
+  Algorithm,
   BigONotation,
   ContentContainer,
-  Definition,
-  Measurement,
-  MergeSort,
+  SortingAlgorithm,
   SideMenu,
-  QuickSort
+  Visualization
 } from '../../components/Algorithms'
 
 // utils
 import { ITableOfContent } from '../../utils'
 
 const tableOfContent: ITableOfContent[] = [
-  { id: 'definition', title: 'Definition', component: Definition },
+  { id: 'algorithm', title: 'Algorithm', component: Algorithm },
   {
-    id: 'measurement',
-    title: 'Measurement and Efficiency',
-    component: Measurement
+    id: 'sorting-algorithm',
+    title: 'Sorting Algorithms',
+    component: SortingAlgorithm
   },
   { id: 'big-o-notation', title: 'Big(O) notation', component: BigONotation },
-  { id: 'bubble-sort', title: 'Bubble Sort', component: BubbleSort },
-  { id: 'merge-sort', title: 'Merge Sort', component: MergeSort },
-  { id: 'quick-sort', title: 'Quick Sort', component: QuickSort }
+  { id: 'visualization', title: 'Visualization', component: Visualization }
 ]
 
 const Algorithms: React.FC = () => {

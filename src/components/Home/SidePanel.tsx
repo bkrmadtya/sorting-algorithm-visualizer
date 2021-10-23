@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import Highlight from 'react-highlight.js'
 
 import { changeAlgorithm } from '../../store/slice/sorting'
-import { BubbleSort, MergeSort, QuickSort } from '../Algorithms'
+// import { BubbleSort, MergeSort, QuickSort } from '../Algorithms'
 import { Header, Dropdown } from '../shared'
 
 const bubbleSortCode = `
@@ -53,7 +53,7 @@ let bubbleSort = (inputArr) => {
 const algorithmsOptions = [
   {
     key: 'Bubble Sort',
-    value: BubbleSort.name,
+    value: 'BubbleSort',
     inventor: 'John Von Neumann',
     year: '1996',
     timeComplexity: {
@@ -68,7 +68,7 @@ const algorithmsOptions = [
   },
   {
     key: 'Merge Sort',
-    value: MergeSort.name,
+    value: 'MergeSort',
     inventor: 'John Von Neumann',
     year: '1996',
     timeComplexity: {
@@ -95,7 +95,7 @@ const algorithmsOptions = [
   },
   {
     key: 'Quick Sort',
-    value: QuickSort.name,
+    value: 'QuickSort',
     inventor: 'John Von Neumann',
     year: '1996',
     timeComplexity: {

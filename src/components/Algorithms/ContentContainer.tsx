@@ -1,7 +1,6 @@
 import React from 'react'
 
 // components
-import { Header } from '../shared'
 import Section from './Section'
 
 // utils
@@ -12,12 +11,8 @@ interface IProps {
 }
 
 const ContentContainer: React.FC<IProps> = ({ tableOfContent }) => {
-  console.log(tableOfContent)
   return (
     <div className='contentContainer'>
-      <div id='algorithms'>
-        <Header className='panelHeader'>Algorithms</Header>
-      </div>
       <article>
         {tableOfContent.map(content => {
           return <Section key={content.id} content={content} />

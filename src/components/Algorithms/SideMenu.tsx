@@ -19,7 +19,7 @@ const AlgorithmsTabs: React.FC<IProps> = ({
 }) => {
   return (
     <div className='sideMenu'>
-      <a href='#algorithms'>
+      <a href='#algorithm'>
         <Header className='panelHeader'>Table of content</Header>
       </a>
       {tableOfContent.map(({ id, title }) => (
