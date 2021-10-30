@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "importHelpers": true,
     "removeComments": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
