@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 // components
 import {
   Algorithm,
-  BigONotation,
   ContentContainer,
   SortingAlgorithm,
   SideMenu,
@@ -20,7 +19,6 @@ const tableOfContent: ITableOfContent[] = [
     title: 'Sorting Algorithms',
     component: SortingAlgorithm
   },
-  { id: 'big-o-notation', title: 'Big(O) notation', component: BigONotation },
   { id: 'visualization', title: 'Visualization', component: Visualization }
 ]
 
