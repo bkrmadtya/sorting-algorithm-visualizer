@@ -9,11 +9,11 @@ import { NavBar } from './components/shared'
 import { Home, Algorithms, About } from './pages'
 
 const App: React.FC = () => {
-  // useEffect(() => {
-  //   alert(
-  //     `Caution!\nThe application shows flashing colors.\n Please, use it in color mode 'off' if you are affected by it.`
-  //   )
-  // }, [])
+  useEffect(() => {
+    alert(
+      `Caution!\nThe application shows flashing colors.\n Please, use it in color mode 'off' if you are affected by it.`
+    )
+  }, [])
   return (
     <div className='app'>
       <Router>
