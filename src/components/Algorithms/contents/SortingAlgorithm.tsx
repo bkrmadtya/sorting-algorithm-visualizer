@@ -54,7 +54,7 @@ const Algorithm: React.FC = () => {
         These are few of the most common sorting.
       </p>
       <br />
-      <table>
+      <table className="sorting-algo-table">
         <tbody>
           <tr>
             <th>Sorting algorithm</th>
