@@ -1,0 +1,56 @@
+.aboutPage {
+  width: 70%;
+  margin: 0 auto;
+  padding: 4rem;
+  font-size: 1.8rem;
+
+  @media (max-width: 600px) {
+    width: 80%;
+  }
+
+  .header {
+    font-size: 4rem;
+    font-weight: 300;
+    padding: 2rem 0;
+    text-transform: uppercase;
+  }
+
+  .description {
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: justify;
+    padding-bottom: 2rem;
+  }
+  
+  .details-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td {
+      padding: 1rem;
+      li {
+        list-style: none;
+        margin-bottom: .2rem;
+      }
+    }
+
+    td:first-child{
+      width: 1%;
+      white-space: nowrap;
+      text-align: left;
+      vertical-align: top;
+      font-size: 2rem;
+    }
+    
+    td:nth-child(2){
+      font-weight: 300 ;
+    }
+    
+  }
+
+  .link {
+    margin: 2rem 0;
+    text-decoration: underline;
+    color: blue;
+  }
+}
