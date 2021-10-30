@@ -10,6 +10,11 @@ const { ACTIVE, SORTED, UNSORTED } = BarStatus
 
 export default class BubbleSort implements IAlgorithm {
   private steps: Bar[][] = []
+  private colorMode: boolean
+
+  constructor(colorMode: boolean) {
+    this.colorMode = colorMode
+  }
 
   public sort(arr: Bar[]): Bar[][] {
     this.steps = [[...arr], [...arr]]
@@ -23,8 +28,10 @@ export default class BubbleSort implements IAlgorithm {
       for (let j = 1; j < length; j++) {
         const second = result[j]
 
-        changeStatusOfElement(this.steps, first, ACTIVE)
-        changeStatusOfElement(this.steps, second, ACTIVE)
+        if (this.colorMode) {
+          changeStatusOfElement(this.steps, first, ACTIVE)
+          changeStatusOfElement(this.steps, second, ACTIVE)
+        }
 
         if (first.value > second.value) {
           swapElements(result, first, second)

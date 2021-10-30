@@ -11,6 +11,11 @@ const { ACTIVE, SORTED, UNSORTED, PIVOT } = BarStatus
 
 export default class QuickSort implements IAlgorithm {
   private steps!: Steps
+  private colorMode: boolean
+
+  constructor(colorMode: boolean) {
+    this.colorMode = colorMode
+  }
 
   public sort(arr: Bar[]): Bar[][] {
     this.steps = new Steps(arr)
@@ -32,34 +37,42 @@ export default class QuickSort implements IAlgorithm {
     const initialLeft = left
     const initialRight = right
     const pivot = items[Math.floor((right + left) / 2)]
-    changeStatusOfElement(this.steps.getSteps(), pivot, PIVOT)
+    if (this.colorMode) {
+      changeStatusOfElement(this.steps.getSteps(), pivot, PIVOT)
+    }
 
     while (left <= right) {
-      changeStatusOfElement(this.steps.getSteps(), items[left], ACTIVE)
-      changeStatusOfElement(this.steps.getSteps(), items[right], ACTIVE)
+      if (this.colorMode) {
+        changeStatusOfElement(this.steps.getSteps(), items[left], ACTIVE)
+        changeStatusOfElement(this.steps.getSteps(), items[right], ACTIVE)
+      }
 
       while (items[left].value < pivot.value) {
-        this.makePreviousEleUnsorted(items[left - 1], initialLeft, left)
-
-        changeStatusOfElement(this.steps.getSteps(), items[left], ACTIVE)
-        this.steps.addStep()
+        if (this.colorMode) {
+          this.makePreviousEleUnsorted(items[left - 1], initialLeft, left)
+          changeStatusOfElement(this.steps.getSteps(), items[left], ACTIVE)
+          this.steps.addStep()
+        }
         left++
       }
 
       while (items[right].value > pivot.value) {
-        this.makePreviousEleUnsorted(items[right + 1], initialRight, right)
-
-        changeStatusOfElement(this.steps.getSteps(), items[right], ACTIVE)
-        this.steps.addStep()
+        if (this.colorMode) {
+          this.makePreviousEleUnsorted(items[right + 1], initialRight, right)
+          changeStatusOfElement(this.steps.getSteps(), items[right], ACTIVE)
+          this.steps.addStep()
+        }
         right--
       }
 
       if (left <= right) {
-        this.makePreviousEleUnsorted(items[left - 1], initialLeft, left)
-        this.makePreviousEleUnsorted(items[right + 1], initialRight, right)
+        if (this.colorMode) {
+          this.makePreviousEleUnsorted(items[left - 1], initialLeft, left)
+          this.makePreviousEleUnsorted(items[right + 1], initialRight, right)
 
-        changeStatusOfElement(this.steps.getSteps(), items[left], ACTIVE)
-        changeStatusOfElement(this.steps.getSteps(), items[right], ACTIVE)
+          changeStatusOfElement(this.steps.getSteps(), items[left], ACTIVE)
+          changeStatusOfElement(this.steps.getSteps(), items[right], ACTIVE)
+        }
 
         items = this.steps.getLastStep()
         items = swapElements(

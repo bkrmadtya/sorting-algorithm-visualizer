@@ -1,4 +1,7 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+
+import { getInfoForBottomPanel } from '../../store/slice/sorting'
 
 interface IRowData {
   key: string
@@ -9,43 +12,60 @@ interface ITableData {
   tableRows: IRowData[]
 }
 
-const tableData: ITableData = {
+const tableData = (
+  activeElement: string,
+  arraySize: number,
+  initialArray: string,
+  currentArray: string,
+  status: string
+): ITableData => ({
   tableHead: 'DETAILS',
   tableRows: [
     {
       key: 'Size',
-      value: `25`
+      value: arraySize
     },
     {
       key: 'Initial Array',
-      value: `[88, 95, 117, 133, 48, 17, 123, 54, 37, 92, 74, 59, 124, 84, 113, 20, 94, 66, 73, 22, 39, 91, 97, 64, 13]`
+      value: `[${initialArray}]`
     },
     {
       key: 'Current Array',
-      value: `[13, 17, 20, 22, 37, 39, 48, 54, 59, 64, 66, 73, 74, 84, 88, 91, 92, 94, 95, 97, 113, 117, 123, 124, 133]`
+      value: `[${currentArray}]`
     },
     {
       key: 'Active Elements',
-      value: `10, 45`
+      value: activeElement.length ? activeElement : 'N/A'
     },
     {
       key: 'Status',
-      value: `Unsorted`
+      value: status
     }
   ]
-}
+})
 
 const BottomPanel: React.FC = () => {
+  const {
+    activeElement,
+    arraySize,
+    initialArray,
+    currentArray,
+    status
+  } = useSelector(getInfoForBottomPanel)
   return (
     <div className='bottomPanel'>
       <table className='detailTable'>
         <tbody>
-          {tableData.tableRows.map(row => {
+          {tableData(
+            activeElement,
+            arraySize,
+            initialArray,
+            currentArray,
+            status
+          ).tableRows.map(row => {
             return (
               <tr className='rowData' key={row.key}>
-                <td className='rowData__key'>
-                  <strong>{row.key}</strong>
-                </td>
+                <td className='rowData__key'>{row.key}</td>
                 <td className='rowData__value'>{row.value}</td>
               </tr>
             )

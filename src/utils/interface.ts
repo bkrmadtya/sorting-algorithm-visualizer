@@ -8,14 +8,7 @@ export interface IAlgorithm {
 }
 
 export interface ISortingAlgorithm {
-  new (): IAlgorithm
-}
-
-export interface IState {
-  steps: Bar[][]
-  currentStep: number
-  timeouts: NodeJS.Timeout[]
-  delay: number
+  new(colorMode: boolean): IAlgorithm
 }
 
 export interface ITableOfContent {

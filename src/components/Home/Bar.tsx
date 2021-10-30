@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 // utils
 import { BarStatus } from '../../utils'
@@ -13,11 +13,12 @@ const Bar: React.FC<IProps> = ({ value, status }: IProps) => {
     height: value * 2,
     backgroundColor: `var(--${status})`
   }
+  // const renderCount = useRef(0)
   return (
     <div className='bar' style={barStyle}>
-      {/* {value} */}
+      {/* {renderCount.current++} */}
     </div>
   )
 }
 
-export default Bar
+export default React.memo(Bar)

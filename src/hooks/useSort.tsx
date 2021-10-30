@@ -1,139 +1,88 @@
-import { useEffect, useState } from 'react'
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable no-console */
+import { useCallback, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 // utils
-import { Bar } from 'src/utils/Bar'
-import randomArrayGenerator from '../utils/randomArrayGenerator'
-import { ISortingAlgorithm, IState } from '../utils/interface'
+import { Bar } from '../utils/Bar'
+import { RootState } from '../store'
+import {
+  goToNextStep,
+  goToPreviousStep,
+  resetSorting
+} from '../store/slice/sorting'
 
-const arraySize = 25
-const delay = 50
+type IState = NodeJS.Timeout[]
 
-const initialArray = randomArrayGenerator(arraySize)
-
-console.log(initialArray.map(i => i.value))
-
-const initialState: IState = {
-  steps: [[...initialArray]],
-  currentStep: 0,
-  timeouts: [],
-  delay
-}
-
-const useSort = (
-  sortingAlgo: ISortingAlgorithm
-): {
-  state: IState
+const useSort = (): {
+  currentStep: number
+  steps: Bar[][]
   sort: () => void
   reset: () => void
-  cancel: () => void
+  pause: () => void
   previousStep: () => void
   nextStep: () => void
 } => {
-  const [state, setState] = useState(initialState)
-  const [sortingAlgorithm] = useState(new sortingAlgo())
+  const [timeouts, setTimeouts] = useState<IState>([])
+  const { animationSpeed, currentStep, steps, arraySize } = useSelector(
+    (state: RootState) => state.sorting
+  )
+  const dispatch = useDispatch()
+
+  const pause = (): void => {
+    timeouts.forEach(t => clearTimeout(t))
+    setTimeouts([])
+  }
 
   useEffect(() => {
-    const sortingSteps = sortingAlgorithm.sort(state.steps[0])
+    pause()
+    return pause
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [steps, arraySize])
 
-    console.log(sortingSteps)
-    console.log(sortingSteps[sortingSteps.length - 1].map(i => i.value))
-    setState({
-      ...state,
-      steps: [...sortingSteps]
-    })
-  }, [sortingAlgorithm])
-
-  const cancel = (): void => {
-    state.timeouts.forEach(t => clearTimeout(t))
-    setState({ ...state, timeouts: [] })
-  }
+  useEffect(() => {
+    if (currentStep > 0) {
+      sort()
+    }
+    return pause
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [animationSpeed])
 
   const sort = (): void => {
     let i = 0
     const timeouts = []
+    pause()
 
-    cancel()
-
-    if (state.currentStep >= state.steps.length - 1) {
+    if (currentStep >= steps.length - 1) {
       return
     }
-
-    while (i < state.steps.length - 1 - state.currentStep) {
+    while (i < steps.length - 1 - currentStep) {
       const timeout = setTimeout(() => {
-        setState(prevState => {
-          const currentStep = prevState.currentStep
-
-          return {
-            ...prevState,
-            currentStep: currentStep + 1
-          }
-        })
-      }, state.delay * i)
+        dispatch(goToNextStep())
+      }, animationSpeed * i)
 
       timeouts.push(timeout)
       i++
     }
-
-    setState({ ...state, timeouts: timeouts })
+    setTimeouts([...timeouts])
   }
 
   const reset = (): void => {
-    cancel()
-    const newArray = randomArrayGenerator(25)
-    console.clear()
-    console.log(newArray.map(i => i.value))
-    const newSteps = sortingAlgorithm.sort(newArray)
-    console.log(newSteps[newSteps.length - 1].map(i => i.value))
-    console.log(isSorted(newSteps[newSteps.length - 1]))
-    console.log({ newSteps })
-    setState({
-      steps: [...newSteps],
-      currentStep: 0,
-      timeouts: [],
-      delay
-    })
-  }
-
-  const isSorted = (arr: Bar[]) => {
-    const copyArr = [...arr].sort((a, b) => a.value - b.value)
-
-    return copyArr.every((i, idx) => arr[idx].value === i.value)
+    pause()
+    dispatch(resetSorting())
   }
 
   const previousStep = (): void => {
-    cancel()
-
-    if (state.currentStep <= 0) {
-      return
-    }
-
-    setState(prevState => {
-      const currentStep = prevState.currentStep
-      return {
-        ...prevState,
-        currentStep: currentStep - 1
-      }
-    })
+    pause()
+    dispatch(goToPreviousStep())
   }
 
   const nextStep = (): void => {
-    cancel()
-
-    if (state.currentStep >= state.steps.length - 1) {
-      return
-    }
-
-    setState(prevState => {
-      const currentStep = prevState.currentStep
-
-      return {
-        ...prevState,
-        currentStep: currentStep + 1
-      }
-    })
+    pause()
+    dispatch(goToNextStep())
   }
 
-  return { state, sort, cancel, reset, previousStep, nextStep }
+  return { currentStep, steps, sort, pause, reset, previousStep, nextStep }
 }
 
 export default useSort

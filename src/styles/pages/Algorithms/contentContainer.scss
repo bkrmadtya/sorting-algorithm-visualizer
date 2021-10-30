@@ -6,23 +6,52 @@
   --contentPadding: 2rem;
   scroll-padding-top: var(--contentPadding);
 
-  .panelHeader {
-    font-size: 1.8rem;
-    padding-top: var(--contentPadding);
-  }
-
   .content {
-    width: 90%;
+    width: 70%;
+    margin: 0 auto;
     padding: var(--contentPadding) 0;
 
     &__header {
-      font-size: 1.8rem;
-      padding-bottom: 1rem;
+      font-size: 2.5rem;
+      padding-bottom: 3rem;
     }
 
     &__detail {
-      font-size: 1.4rem;
+      font-size: 1.8rem;
       text-align: justify;
+    }
+
+    ol {
+      padding-left: 2.5rem;
+    }
+
+    img {
+      display: block;
+      width: 60%;
+      padding: 2rem;
+      margin: 0 auto;
+    }
+
+    .sorting-algo-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th {
+        background-color: #474747;
+        color: white;
+      }
+      
+      td, th {
+        text-align: center;
+        padding: 1rem;
+        border: 1px solid #474747;
+      }
+
+      td:first-child, 
+      td:nth-child(2){
+        text-align: left;
+      }
+      
     }
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-// hooks
+// hooks'
 import useSort from '../../hooks/useSort'
 
 // components
@@ -9,27 +9,22 @@ import Controls from './Controls'
 import LegendContainer from './LegendContainer'
 import OptionContainer from './OptionContainer'
 
-// utils
-import { ISortingAlgorithm, BarStatus } from '../../utils'
-import { BubbleSort, MergeSort, QuickSort } from '../../algorithms'
-
-const selectedAlgorithm: ISortingAlgorithm = BubbleSort
-// selectedAlgorithm = MergeSort
-// selectedAlgorithm = QuickSort
-
-const legends = (Object.keys(BarStatus) as Array<keyof typeof BarStatus>)
-  .map((status): BarStatus => BarStatus[status]);
-
 const MainPanel: React.FC = () => {
-  const { state, sort, reset, cancel, previousStep, nextStep } = useSort(
-    selectedAlgorithm
-  )
+  const {
+    currentStep,
+    steps,
+    sort,
+    reset,
+    pause,
+    previousStep,
+    nextStep
+  } = useSort()
   return (
     <div className='mainPanel'>
       <OptionContainer />
-      <BarContainer steps={state.steps[state.currentStep]} />
-      <Controls {...{ sort, cancel, reset, previousStep, nextStep }} />
-      <LegendContainer legends={legends} />
+      <BarContainer step={steps[currentStep]} />
+      <Controls {...{ sort, pause, reset, previousStep, nextStep }} />
+      <LegendContainer />
     </div>
   )
 }

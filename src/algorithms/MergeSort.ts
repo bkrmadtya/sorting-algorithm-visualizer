@@ -4,6 +4,11 @@ const { ACTIVE, UNSORTED, SORTED } = BarStatus
 
 export default class MergeSort implements IAlgorithm {
   private steps: Bar[][] = []
+  private colorMode: boolean
+
+  constructor(colorMode: boolean) {
+    this.colorMode = colorMode
+  }
 
   public sort(arr: Bar[]): Bar[][] {
     this.steps = []
@@ -38,8 +43,10 @@ export default class MergeSort implements IAlgorithm {
       const isLeftEleGreater = leftArr[0].value > rightArr[0].value
       const currentIndex = sortedArr.length
 
-      changeStatusOfElement(this.steps, leftArr[0], ACTIVE)
-      changeStatusOfElement(this.steps, rightArr[0], ACTIVE)
+      if (this.colorMode) {
+        changeStatusOfElement(this.steps, leftArr[0], ACTIVE)
+        changeStatusOfElement(this.steps, rightArr[0], ACTIVE)
+      }
 
       const lesserEle = isLeftEleGreater
         ? this.removeFirstElementAndReturn(rightArr)

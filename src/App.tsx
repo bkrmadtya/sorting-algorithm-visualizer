@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 // style
@@ -9,6 +9,11 @@ import { NavBar } from './components/shared'
 import { Home, Algorithms, About } from './pages'
 
 const App: React.FC = () => {
+  // useEffect(() => {
+  //   alert(
+  //     `Caution!\nThe application shows flashing colors.\n Please, use it in color mode 'off' if you are affected by it.`
+  //   )
+  // }, [])
   return (
     <div className='app'>
       <Router>

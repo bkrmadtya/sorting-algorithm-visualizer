@@ -14,7 +14,9 @@ const generateRandomSetOfNumbers = (sizeOfArray: number): Set<number> => {
 
 const randomArrayGenerator = (sizeOfArray: number): Array<Bar> => {
   const randomArray = Array.from(generateRandomSetOfNumbers(sizeOfArray))
-  return randomArray.map((height): Bar => ({ value: height, status: BarStatus.UNSORTED }))
+  return randomArray.map(
+    (height): Bar => ({ value: height, status: BarStatus.UNSORTED })
+  )
 }
 
 export default randomArrayGenerator

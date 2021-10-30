@@ -3,17 +3,15 @@
 @import './sidePanel.scss';
 
 .home {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas:
-    'side main main main '
-    'side main main main '
-    'side main main main '
-    'side main main main '
-    'side main main main '
-    'side main main main '
-    'side bottom bottom bottom';
+  display: flex;
+  flex-direction: row;
   height: 100%;
   width: 100%;
-  backdrop-filter: blur(2rem);
+  justify-content: space-between;
+
+  .rightPanel {
+    flex: 6;
+    display: flex;
+    flex-direction: column;
+  }
 }

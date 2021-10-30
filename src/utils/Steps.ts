@@ -13,7 +13,9 @@ export default class Steps {
   }
 
   public addStep(newSteps?: Bar[]): Bar[] {
-    const newStepsToAdd = this.makeDeepCopy([...(newSteps || this.getLastStep())])
+    const newStepsToAdd = this.makeDeepCopy([
+      ...(newSteps || this.getLastStep())
+    ])
     this.steps.push(newStepsToAdd)
     return this.getLastStep()
   }
@@ -35,9 +37,9 @@ export default class Steps {
   }
 
   /**
-   * Make deep copy of the steps 
+   * Make deep copy of the steps
    * so, that each element of step is a distinct object and not referencing value from other steps
-   * @param arg 
+   * @param arg
    * @returns arg
    */
   private makeDeepCopy<T>(arg: T): T {
