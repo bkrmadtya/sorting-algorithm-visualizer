@@ -7,7 +7,7 @@ import { Header } from '../shared'
 
 // utils
 import { BarStatus } from '../../utils'
-import { getColorMode } from 'src/store/slice/sorting'
+import { getColorMode } from '../../store/slice/sorting'
 
 
 const getLegends = (colorMode: boolean) => {
