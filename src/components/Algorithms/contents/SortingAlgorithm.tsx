@@ -25,7 +25,7 @@ const Algorithm: React.FC = () => {
         few of the techniques are listed below:
       </p>
       <br />
-      <ol style={{ paddingLeft: "2rem" }}>
+      <ol>
         <li>
           <strong>Comparison/Non-comparison-based sorting: </strong>
           A sorting is comparison-based sorting if the elements are compared with each other to find the sorted array otherwise,
