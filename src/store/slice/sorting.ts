@@ -28,8 +28,8 @@ interface AlgorithmState {
 }
 
 const defaultArraySize = 25;
-const defaultAnimationSpeed = 20;
-const defaultAlgorithm = "Quick Sort";
+const defaultAnimationSpeed = 50;
+const defaultAlgorithm = "Merge Sort";
 const defaultColorMode = false;
 
 const initialRandomArray = [...randomArrayGenerator(defaultArraySize)]
