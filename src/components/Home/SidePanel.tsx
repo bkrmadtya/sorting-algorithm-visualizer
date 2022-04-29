@@ -1,11 +1,8 @@
 import React, { ReactEventHandler, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-// components
-import Highlight from 'react-highlight.js'
 
 import { changeAlgorithm } from '../../store/slice/sorting'
-// import { BubbleSort, MergeSort, QuickSort } from '../Algorithms'
 import { Header, Dropdown } from '../shared'
 
 const bubbleSortCode = `
@@ -197,9 +194,7 @@ const SidePanel: React.FC = () => {
 
       <div className='codeContainer'>
         <Header className='codeContainer__title'>CODE</Header>
-        <Highlight language='javascript'>
-          <>{selectedAlgorithm.code}</>
-        </Highlight>
+        <pre>{selectedAlgorithm.code}</pre>
       </div>
     </div>
   )

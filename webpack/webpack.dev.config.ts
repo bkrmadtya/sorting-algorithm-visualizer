@@ -51,14 +51,7 @@ const config: webpack.Configuration = {
       extensions: ['js', 'jsx', 'ts', 'tsx']
     })
   ],
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, '../src'),
-    historyApiFallback: true,
-    port: 4000,
-    open: true,
-    hot: true
-  }
+  devtool: 'inline-source-map'
 }
 
 export default config
