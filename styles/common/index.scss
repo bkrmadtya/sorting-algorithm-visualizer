@@ -1,0 +1,15 @@
+@import './navbar.scss';
+@import './dropdown.scss';
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.panelHeader {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  margin-bottom: 2rem;
+}

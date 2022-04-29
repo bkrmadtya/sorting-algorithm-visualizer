@@ -1,0 +1,84 @@
+.sidePanel {
+  flex: 2;
+  height: 100%;
+  overflow-y: auto;
+  padding: 4rem 2rem;
+  margin-bottom: 4rem;
+  text-align: justify;
+  color: hsl(0, 0%, 90%);
+  background-color: var(--sidePanelBg);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .algorithmDetail {
+    font-size: 1.4rem;
+
+    select {
+      margin: 0;
+      width: 100%;
+    }
+
+    table {
+      width: 100%;
+      margin: 1.5rem 0;
+
+      thead {
+        th {
+          font-size: 2.2rem;
+          font-weight: 500;
+          padding: 1rem 0;
+        }
+      }
+
+      tbody {
+        color: hsl(0, 0%, 80%);
+        tr {
+          font-size: 1.8rem;
+          line-height: 2rem;
+          td {
+            padding: 0.5rem 0;
+            border: none;
+          }
+        }
+
+        tr :first-child {
+          font-weight: 300;
+          text-align: left;
+        }
+
+        tr :last-child {
+          font-size: 2rem;
+          text-align: right;
+
+          var {
+            line-height: 0;
+            font-weight: 800;
+          }
+        }
+      }
+    }
+  }
+
+  .codeContainer {
+    position: relative;
+    width: 100%;
+    height: 50%;
+
+    &__title {
+      font-size: 2.2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    code {
+      border-radius: 0.5rem;
+      letter-spacing: 0.12rem;
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 2rem;
+      padding: 2rem;
+    }
+  }
+}
