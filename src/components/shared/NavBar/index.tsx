@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Header } from '@/components/shared'
