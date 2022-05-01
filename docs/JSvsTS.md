@@ -12,8 +12,8 @@
 <td>
 
 ```js
-const squareOfNumber = (num) => {
-  console.log(num * num);
+const squareOfNumber = num => {
+  console.log(num * num)
 }
 
 /**
@@ -22,19 +22,18 @@ const squareOfNumber = (num) => {
  * Valid JavaScript syntax
  */
 
-squareOfNumber("incorrect data type");
-squareOfNumber(true);
-squareOfNumber([]);
-squareOfNumber(1);  
-
-  
+squareOfNumber('incorrect data type')
+squareOfNumber(true)
+squareOfNumber([])
+squareOfNumber(1)
 ```
+
 </td>
 <td>
 
 ```ts
 const squareOfNumber = (num: number): void => {
-  console.log(num * num);
+  console.log(num * num)
 }
 
 /**
@@ -43,13 +42,14 @@ const squareOfNumber = (num: number): void => {
  * Invalid TypeScript syntax
  */
 
-squareOfNumber("incorrect data type");
-squareOfNumber(true);
-squareOfNumber([]);
+squareOfNumber('incorrect data type')
+squareOfNumber(true)
+squareOfNumber([])
 
 // Only valid TypeScript syntax
-squareOfNumber(1);
+squareOfNumber(1)
 ```
+
 </td>
 </tr>
 </table>

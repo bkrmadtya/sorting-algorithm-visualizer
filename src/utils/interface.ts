@@ -7,7 +7,7 @@ export interface IAlgorithm {
 }
 
 export interface ISortingAlgorithm {
-  new(colorMode: boolean): IAlgorithm
+  new (colorMode: boolean): IAlgorithm
 }
 
 export interface ITableOfContent {

@@ -45,13 +45,8 @@ const tableData = (
 })
 
 const BottomPanel: React.FC = () => {
-  const {
-    activeElement,
-    arraySize,
-    initialArray,
-    currentArray,
-    status
-  } = useSelector(getInfoForBottomPanel)
+  const { activeElement, arraySize, initialArray, currentArray, status } =
+    useSelector(getInfoForBottomPanel)
   return (
     <div className='bottomPanel'>
       <table className='detailTable'>

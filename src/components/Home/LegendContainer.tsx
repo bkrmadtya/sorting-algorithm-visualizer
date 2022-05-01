@@ -17,7 +17,7 @@ const getLegends = (colorMode: boolean) => {
 }
 
 const LegendContainer = () => {
-  const colorMode = useSelector(getColorMode);
+  const colorMode = useSelector(getColorMode)
   const legends = useMemo(() => getLegends(colorMode), [colorMode])
   return (
     <div className='legendContainer'>

@@ -8,15 +8,8 @@ import LegendContainer from './LegendContainer'
 import OptionContainer from './OptionContainer'
 
 const MainPanel: React.FC = () => {
-  const {
-    currentStep,
-    steps,
-    sort,
-    reset,
-    pause,
-    previousStep,
-    nextStep
-  } = useSort()
+  const { currentStep, steps, sort, reset, pause, previousStep, nextStep } =
+    useSort()
   return (
     <div className='mainPanel'>
       <OptionContainer />

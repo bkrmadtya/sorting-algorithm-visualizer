@@ -40,18 +40,18 @@
         background-color: #474747;
         color: white;
       }
-      
-      td, th {
+
+      td,
+      th {
         text-align: center;
         padding: 1rem;
         border: 1px solid #474747;
       }
 
-      td:first-child, 
-      td:nth-child(2){
+      td:first-child,
+      td:nth-child(2) {
         text-align: left;
       }
-      
     }
   }
 }

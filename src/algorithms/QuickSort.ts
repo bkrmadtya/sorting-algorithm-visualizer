@@ -20,10 +20,13 @@ export default class QuickSort implements IAlgorithm {
   public sort(arr: Bar[]): Bar[][] {
     this.steps = new Steps(arr)
     this.quickSort(this.steps.getLastStep(), 0, arr.length - 1)
-    return [...this.steps.getSteps(), this.steps.getLastStep().map(i => {
-      i.status = BarStatus.SORTED
-      return i
-    })]
+    return [
+      ...this.steps.getSteps(),
+      this.steps.getLastStep().map(i => {
+        i.status = BarStatus.SORTED
+        return i
+      })
+    ]
   }
 
   private quickSort(items: Bar[], left: number, right: number) {

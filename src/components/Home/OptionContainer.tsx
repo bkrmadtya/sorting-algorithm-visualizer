@@ -70,9 +70,7 @@ const getMenuOptions = (allAlgorithms: string[]) => [
 ]
 
 const OptionContainer: React.FC = () => {
-  const { allAlgorithms } = useSelector(
-    (state: RootState) => state.sorting
-  )
+  const { allAlgorithms } = useSelector((state: RootState) => state.sorting)
   const dispatch = useDispatch()
 
   const handleChangeEvent: ReactEventHandler<HTMLSelectElement> = useCallback(

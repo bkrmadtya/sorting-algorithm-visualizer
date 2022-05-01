@@ -12,7 +12,7 @@ const Bar: React.FC<IProps> = ({ value, status }: IProps) => {
     height: value * 2,
     backgroundColor: `var(--${status})`
   }
-  return (<div className='bar' style={barStyle} />)
+  return <div className='bar' style={barStyle} />
 }
 
 export default React.memo(Bar)

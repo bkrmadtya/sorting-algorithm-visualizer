@@ -1,4 +1,3 @@
-
 <h1 align="center"> 
     Sorting Algorithm Visualizer
 </h1>   
@@ -7,8 +6,8 @@ This project was part of my thesis work. It is a visualizer application made wit
 </p>
 <p align="center">Application live on: https://algo-react-viz.netlify.app</p>
 
-
 ---
+
 <p align="center">
   <img align="center" src="./docs/visualization.gif"/>
 </p>
@@ -16,31 +15,33 @@ This project was part of my thesis work. It is a visualizer application made wit
 ---
 
 ### Tech stack:
-- React 
-- TypeScript 
-- Redux 
-- React-Router 
-- SASS 
-- Babel 
-- Webpack 
+
+- React
+- TypeScript
+- Redux
+- React-Router
+- SASS
+- Babel
+- Webpack
 - Eslint
 
 ### To run the project locally, clone the project and run:
 
-````bash 
+```bash
 npm install && npm start
-```` 
-Or 
+```
 
-````bash 
+Or
+
+```bash
 yarn install && yarn start
-```` 
-Or 
+```
 
-````bash 
+Or
+
+```bash
 pnpm install && pnpm start
-```` 
-
+```
 
 <p align="center">
   <em>@bkrmadtya 2021</em>
