@@ -1,10 +1,17 @@
-# Sorting Algorithm Visualizer
 
+<h1 align="center"> 
+    Sorting Algorithm Visualizer
+</h1>   
+<p>    
 This project was part of my thesis work. It is a visualizer application made with React to visualize the workings of different sorting algorithms.
+</p>
+<p align="center">Application live on: https://algo-react-viz.netlify.app</p>
+
 
 ---
-
-<img src="./docs/visualization.gif"/>
+<p align="center">
+  <img align="center" src="./docs/visualization.gif"/>
+</p>
 
 ---
 
@@ -20,7 +27,21 @@ This project was part of my thesis work. It is a visualizer application made wit
 
 ### To run the project locally, clone the project and run:
 
-### `npm start` or `yarn start` or `pnpm start`
+````bash 
+npm install && npm start
+```` 
+Or 
+
+````bash 
+yarn install && yarn start
+```` 
+Or 
+
+````bash 
+pnpm install && pnpm start
+```` 
 
 
-@bkrmdtya 2021
+<p align="center">
+  <em>@bkrmadtya 2021</em>
+</p>
