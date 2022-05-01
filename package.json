@@ -12,15 +12,16 @@
     "lint:fix": "eslint --fix --ext .ts,.tsx src/",
     "prettier": "prettier \"**/*.+(js|jsx|json|ts|tsx|css|scss|md|mdx|graphql)\" --write",
     "deploy:draft": "rm -rf build && npm run build && netlify deploy -d build",
-      "deploy:prod": "rm -rf build && npm run build && netlify deploy -d build --prod"
+    "deploy:prod": "rm -rf build && npm run build && netlify deploy -d build --prod"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
-      "./**/*.{js,jsx,json,ts,tsx,css,scss,md,mdx,graphql}": "pnpm prettier:ts -- --write"
+    "**/*.(ts|tsx|js|json|svg|css|scss)": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
@@ -39,10 +40,10 @@
     "@vitejs/plugin-react": "^1.3.1",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
-    "husky": "^7.0.4",
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
     "sass": "^1.51.0",
+    "simple-git-hooks": "^2.7.0",
     "typescript": "^4.6.4",
     "vite": "^2.9.6"
   }
