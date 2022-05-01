@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { Bar } from '@/utils/Bar'
 import { RootState } from '@/store'
-import {
+import sorting, {
   goToNextStep,
   goToPreviousStep,
-  resetSorting
+  resetSorting,
+  getSortingStatus
 } from '@/store/slice/sorting'
 
 type IState = number[]
@@ -24,6 +25,7 @@ const useSort = (): {
   const { animationSpeed, currentStep, steps, arraySize } = useSelector(
     (state: RootState) => state.sorting
   )
+  const status = useSelector(getSortingStatus)
   const dispatch = useDispatch()
 
   const pause = (): void => {
@@ -33,14 +35,18 @@ const useSort = (): {
 
   useEffect(() => {
     pause()
-    return pause
+    return () => {
+      pause
+    }
   }, [steps, arraySize])
 
   useEffect(() => {
-    if (currentStep > 0) {
+    if (status === 'SORTING') {
       sort()
     }
-    return sort
+    return () => {
+      sort
+    }
   }, [animationSpeed])
 
   const sort = (): void => {
