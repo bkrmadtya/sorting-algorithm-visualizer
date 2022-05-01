@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-// js
 import { RootState } from '../'
 import {
   Bar,

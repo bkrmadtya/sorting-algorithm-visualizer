@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-// components
+import { ITableOfContent } from '../../utils'
+
 import {
   Algorithm,
   ContentContainer,
@@ -8,9 +9,6 @@ import {
   SideMenu,
   Visualization
 } from '../../components/Algorithms'
-
-// utils
-import { ITableOfContent } from '../../utils'
 
 const tableOfContent: ITableOfContent[] = [
   { id: 'algorithm', title: 'Algorithm', component: Algorithm },

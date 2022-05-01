@@ -1,9 +1,7 @@
 import React from 'react'
 
-// components
 import Section from './Section'
 
-// utils
 import { ITableOfContent } from '../../utils'
 
 interface IProps {

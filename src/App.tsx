@@ -1,19 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
-// style
 import './styles/app.scss'
 
-// components
 import { NavBar } from './components/shared'
 import { Home, Algorithms, About } from './pages'
+import Modal from './components/shared/Modal'
 
 const App: React.FC = () => {
-  useEffect(() => {
-    alert(
-      `Caution!\nThe application shows flashing colors.\n Please, use it in color mode 'off' if you are affected by it.`
-    )
-  }, [])
   return (
     <div className='app'>
       <Router>
@@ -21,19 +15,14 @@ const App: React.FC = () => {
           <Link to='/algorithms'>ALGORITHMS</Link>
           <Link to='/about'>ABOUT</Link>
         </NavBar>
+        <Modal />
         <Switch>
-          <Route path='/algorithms'>
-            <Algorithms />
-          </Route>
-          <Route path='/about'>
-            <About />
-          </Route>
-          <Route path='/'>
-            <Home />
-          </Route>
+          <Route exact path='/algorithms' component={Algorithms} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/' component={Home} />
         </Switch>
       </Router>
-    </div>
+    </div >
   )
 }
 

@@ -1,4 +1,3 @@
-// utils
 import { Bar, BarStatus } from './'
 
 const changeStatusOfElement = (

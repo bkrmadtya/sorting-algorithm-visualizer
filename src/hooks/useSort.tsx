@@ -1,9 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable no-console */
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-// utils
 import { Bar } from '../utils/Bar'
 import { RootState } from '../store'
 import {
@@ -44,7 +41,7 @@ const useSort = (): {
     if (currentStep > 0) {
       sort()
     }
-    return pause
+    return sort
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [animationSpeed])
 
