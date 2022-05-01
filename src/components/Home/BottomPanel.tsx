@@ -1,7 +1,7 @@
-import React from 'react'
+import { FC } from 'react'
 import { useSelector } from 'react-redux'
 
-import { getInfoForBottomPanel } from '../../store/slice/sorting'
+import { getInfoForBottomPanel } from '@/store/slice/sorting'
 
 interface IRowData {
   key: string
@@ -44,14 +44,9 @@ const tableData = (
   ]
 })
 
-const BottomPanel: React.FC = () => {
-  const {
-    activeElement,
-    arraySize,
-    initialArray,
-    currentArray,
-    status
-  } = useSelector(getInfoForBottomPanel)
+const BottomPanel: FC = () => {
+  const { activeElement, arraySize, initialArray, currentArray, status } =
+    useSelector(getInfoForBottomPanel)
   return (
     <div className='bottomPanel'>
       <table className='detailTable'>

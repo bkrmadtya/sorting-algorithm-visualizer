@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { Header } from '..'
+import { Header } from '@/components/shared'
 
 interface IProps {
   children?: React.ReactNode
 }
 
-const NavBar: React.FC<IProps> = ({ children }) => {
+const NavBar: FC<IProps> = ({ children }) => {
   return (
     <div className='navbar'>
       <Header className='navbar__header'>

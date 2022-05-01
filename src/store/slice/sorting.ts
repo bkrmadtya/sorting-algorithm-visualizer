@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { RootState } from '../'
+import { RootState } from '@/store'
 import {
   Bar,
   BarStatus,
   ISortingAlgorithm,
   randomArrayGenerator
-} from '../../utils'
-import { BubbleSort, MergeSort, QuickSort } from '../../algorithms'
+} from '@/utils'
+import { BubbleSort, MergeSort, QuickSort } from '@/algorithms'
 
 const Algorithm: Record<string, ISortingAlgorithm> = {
   'Bubble Sort': BubbleSort,
@@ -26,10 +26,10 @@ interface AlgorithmState {
   colorMode: boolean
 }
 
-const defaultArraySize = 25;
-const defaultAnimationSpeed = 50;
-const defaultAlgorithm = "Merge Sort";
-const defaultColorMode = false;
+const defaultArraySize = 25
+const defaultAnimationSpeed = 50
+const defaultAlgorithm = 'Merge Sort'
+const defaultColorMode = false
 
 const initialRandomArray = [...randomArrayGenerator(defaultArraySize)]
 const initialAlgorithm = new Algorithm[defaultAlgorithm](defaultColorMode)
@@ -55,7 +55,11 @@ export const sorting = createSlice({
       state.arraySize = payload
       state.currentStep = 0
       state.initialArray = randomArray
-      state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray, state.colorMode)
+      state.steps = sortArray(
+        Algorithm[state.selectedAlgorithm],
+        randomArray,
+        state.colorMode
+      )
     },
     changeAnimationSpeed: (state, { payload }) => {
       state.animationSpeed = parseInt(payload)
@@ -63,14 +67,22 @@ export const sorting = createSlice({
     changeAlgorithm: (state, { payload }) => {
       state.currentStep = 0
       state.selectedAlgorithm = payload
-      state.steps = sortArray(Algorithm[payload], state.initialArray, state.colorMode)
+      state.steps = sortArray(
+        Algorithm[payload],
+        state.initialArray,
+        state.colorMode
+      )
     },
     changeColorMode: (state, { payload }) => {
       state.colorMode = payload.toLowerCase() === 'true'
       const randomArray = [...randomArrayGenerator(state.arraySize)]
       state.initialArray = randomArray
       state.currentStep = 0
-      state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray, state.colorMode)
+      state.steps = sortArray(
+        Algorithm[state.selectedAlgorithm],
+        randomArray,
+        state.colorMode
+      )
     },
     goToNextStep: state => {
       if (state.currentStep < state.steps.length - 1) {
@@ -86,7 +98,11 @@ export const sorting = createSlice({
       const randomArray = [...randomArrayGenerator(state.arraySize)]
       state.initialArray = randomArray
       state.currentStep = 0
-      state.steps = sortArray(Algorithm[state.selectedAlgorithm], randomArray, state.colorMode)
+      state.steps = sortArray(
+        Algorithm[state.selectedAlgorithm],
+        randomArray,
+        state.colorMode
+      )
     }
   }
 })
@@ -119,7 +135,8 @@ export const getActiveElements = ({ sorting }: RootState): string =>
     .join(', ')
 export const getArraySize = ({ sorting }: RootState): number =>
   sorting.arraySize
-export const getColorMode = ({ sorting }: RootState): boolean => sorting.colorMode
+export const getColorMode = ({ sorting }: RootState): boolean =>
+  sorting.colorMode
 export const getCurrentArray = ({ sorting }: RootState): string =>
   sorting.steps[sorting.currentStep].map(i => i.value).join(', ')
 export const getInitialArray = ({ sorting }: RootState): string =>

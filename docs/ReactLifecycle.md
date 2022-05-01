@@ -18,15 +18,16 @@
 componentDidMount() {
 }
 ```
-  
+
 </td>
 <td>
 
 ```js
 useEffect(() => {
   // runs on mount (only once)
-},[])
+}, [])
 ```
+
 </td>
 </tr>
 
@@ -40,6 +41,7 @@ useEffect(() => {
 componentDidUpdate() {
 }
 ```
+
 </td>
 <td>
 
@@ -52,8 +54,9 @@ useEffect(() => {
 ```js
 useEffect(() => {
   // runs if any dependency changes
-},[dependencies])
+}, [dependencies])
 ```
+
 </td>
 </tr>
 
@@ -65,12 +68,12 @@ useEffect(() => {
 shouldComponentUpdate() {
 }
 ```
+
 </td>
 <td>
 
 ```js
-React.memo(Component, 
-  (prevProps, nextProps) => {
+React.memo(Component, (prevProps, nextProps) => {
   /**
    * compares previous and next props
    * returns false if they are not same
@@ -83,7 +86,6 @@ React.memo(Component,
 </td>
 </tr>
 
-
 <tr></tr>
 
 <tr>
@@ -94,6 +96,7 @@ React.memo(Component,
 componentWillUnmount() {
 }
 ```
+
 </td>
 <td>
 
@@ -104,6 +107,7 @@ useEffect(() => {
   }
 })
 ```
+
 </td>
 </tr>
 </table>

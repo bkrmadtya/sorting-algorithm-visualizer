@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { useState, FC } from 'react'
 
-import { ITableOfContent } from '../../utils'
+import { ITableOfContent } from '@/utils'
 
 import {
   Algorithm,
@@ -8,7 +8,7 @@ import {
   SortingAlgorithm,
   SideMenu,
   Visualization
-} from '../../components/Algorithms'
+} from '@/components/Algorithms'
 
 const tableOfContent: ITableOfContent[] = [
   { id: 'algorithm', title: 'Algorithm', component: Algorithm },
@@ -20,7 +20,7 @@ const tableOfContent: ITableOfContent[] = [
   { id: 'visualization', title: 'Visualization', component: Visualization }
 ]
 
-const Algorithms: React.FC = () => {
+const Algorithms: FC = () => {
   const [selected, setSelected] = useState('algorithms')
 
   const handleTabSelection = (title: string) => setSelected(title)

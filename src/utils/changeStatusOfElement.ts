@@ -1,4 +1,4 @@
-import { Bar, BarStatus } from './'
+import { Bar, BarStatus } from '@/utils'
 
 const changeStatusOfElement = (
   steps: Array<Array<Bar>>,

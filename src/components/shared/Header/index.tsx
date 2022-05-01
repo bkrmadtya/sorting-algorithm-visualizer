@@ -5,7 +5,7 @@ interface IProps {
   className?: string
 }
 
-const Header: React.FC<IProps> = ({ children, className }: IProps) => {
+const Header: FC<IProps> = ({ children, className }: IProps) => {
   return <h1 className={className}>{children}</h1>
 }
 

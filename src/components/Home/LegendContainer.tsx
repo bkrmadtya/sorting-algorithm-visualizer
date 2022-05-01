@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react'
+import { memo, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 
-import { BarStatus } from '../../utils'
-import { getColorMode } from '../../store/slice/sorting'
+import { BarStatus } from '@/utils'
+import { getColorMode } from '@/store/slice/sorting'
 
+import { Header } from '@/components/shared'
 import Legend from './Legend'
-import { Header } from '../shared'
 
 const getLegends = (colorMode: boolean) => {
   if (colorMode) {
@@ -17,7 +17,7 @@ const getLegends = (colorMode: boolean) => {
 }
 
 const LegendContainer = () => {
-  const colorMode = useSelector(getColorMode);
+  const colorMode = useSelector(getColorMode)
   const legends = useMemo(() => getLegends(colorMode), [colorMode])
   return (
     <div className='legendContainer'>
@@ -29,4 +29,4 @@ const LegendContainer = () => {
   )
 }
 
-export default React.memo(LegendContainer)
+export default memo(LegendContainer)

@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Bar } from '../utils/Bar'
-import { RootState } from '../store'
+import { Bar } from '@/utils/Bar'
+import { RootState } from '@/store'
 import {
   goToNextStep,
   goToPreviousStep,
   resetSorting
-} from '../store/slice/sorting'
+} from '@/store/slice/sorting'
 
-type IState = NodeJS.Timeout[]
+type IState = number[]
 
 const useSort = (): {
   currentStep: number
@@ -34,7 +34,6 @@ const useSort = (): {
   useEffect(() => {
     pause()
     return pause
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [steps, arraySize])
 
   useEffect(() => {
@@ -42,7 +41,6 @@ const useSort = (): {
       sort()
     }
     return sort
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [animationSpeed])
 
   const sort = (): void => {

@@ -1,8 +1,9 @@
-import React, { ReactEventHandler, useState } from 'react'
+import { FC, ReactEventHandler, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { changeAlgorithm } from '../../store/slice/sorting'
-import { Header, Dropdown } from '../shared'
+import { changeAlgorithm } from '@/store/slice/sorting'
+
+import { Header, Dropdown } from '@/components/shared'
 
 // WIP
 
@@ -120,7 +121,7 @@ const algorithmsOptions = [
   }
 ]
 
-const SidePanel: React.FC = () => {
+const SidePanel: FC = () => {
   const [selectedAlgorithm, setSelectedAlgorithm] = useState(
     algorithmsOptions[0]
   )

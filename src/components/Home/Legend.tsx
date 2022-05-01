@@ -1,8 +1,8 @@
-import React from 'react'
+import { FC } from 'react'
 
-import { BarStatus } from 'src/utils'
+import { BarStatus } from '@/utils'
 
-const Legend: React.FC<{ type: BarStatus }> = ({ type }) => {
+const Legend: FC<{ type: BarStatus }> = ({ type }) => {
   return (
     <div className='legend'>
       <div

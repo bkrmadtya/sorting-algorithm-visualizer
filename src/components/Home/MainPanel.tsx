@@ -1,22 +1,15 @@
-import React from 'react'
+import { FC } from 'react'
 
-import useSort from '../../hooks/useSort'
+import useSort from '@/hooks/useSort'
 
 import BarContainer from './BarContainer'
 import Controls from './Controls'
 import LegendContainer from './LegendContainer'
 import OptionContainer from './OptionContainer'
 
-const MainPanel: React.FC = () => {
-  const {
-    currentStep,
-    steps,
-    sort,
-    reset,
-    pause,
-    previousStep,
-    nextStep
-  } = useSort()
+const MainPanel: FC = () => {
+  const { currentStep, steps, sort, reset, pause, previousStep, nextStep } =
+    useSort()
   return (
     <div className='mainPanel'>
       <OptionContainer />

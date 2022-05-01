@@ -1,29 +1,26 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { FC } from 'react'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
-import './styles/app.scss'
+import '@/styles/app.scss'
 
-import { NavBar } from './components/shared'
-import { Home, Algorithms, About } from './pages'
-import Modal from './components/shared/Modal'
+import { NavBar, Modal } from '@/components/shared'
+import { Home, Algorithms, About } from '@/pages'
 
-const App: React.FC = () => {
-  return (
-    <div className='app'>
-      <Router>
-        <NavBar>
-          <Link to='/algorithms'>ALGORITHMS</Link>
-          <Link to='/about'>ABOUT</Link>
-        </NavBar>
-        <Modal />
-        <Switch>
-          <Route exact path='/algorithms' component={Algorithms} />
-          <Route exact path='/about' component={About} />
-          <Route exact path='/' component={Home} />
-        </Switch>
-      </Router>
-    </div >
-  )
-}
+const App: FC = () => (
+  <div className='app'>
+    <Router>
+      <NavBar>
+        <Link to='/algorithms'>ALGORITHMS</Link>
+        <Link to='/about'>ABOUT</Link>
+      </NavBar>
+      <Modal />
+      <Routes>
+        <Route path='/algorithms' element={<Algorithms />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/' element={<Home />} />
+      </Routes>
+    </Router>
+  </div>
+)
 
 export default App

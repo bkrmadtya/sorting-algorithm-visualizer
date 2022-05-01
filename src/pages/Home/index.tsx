@@ -1,8 +1,8 @@
-import React from 'react'
+import { FC } from 'react'
 
-import { BottomPanel, MainPanel } from '../../components/Home'
+import { BottomPanel, MainPanel } from '@/components/Home'
 
-const Home: React.FC = () => {
+const Home: FC = () => {
   return (
     <div className='home'>
       <div className='rightPanel'>

@@ -1,13 +1,11 @@
-import React from 'react'
-
-import { Bar } from './'
+import { Bar } from '@/utils'
 
 export interface IAlgorithm {
   sort: (arr: Bar[]) => Bar[][]
 }
 
 export interface ISortingAlgorithm {
-  new(colorMode: boolean): IAlgorithm
+  new (colorMode: boolean): IAlgorithm
 }
 
 export interface ITableOfContent {

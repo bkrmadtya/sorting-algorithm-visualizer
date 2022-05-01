@@ -22,22 +22,23 @@
 <tr>
   <td>
 
-  ```html
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <title>Basic HTML web page</title>
-      <style>
-        h3 {
-          color: red;
-        }
-      </style>
-    </head>
-    <body>
-      <h3>Hello world!</h3>
-    </body>
-  </html>
-  ```
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Basic HTML web page</title>
+    <style>
+      h3 {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Hello world!</h3>
+  </body>
+</html>
+```
+
   </td>
   <td align="center">
       <h3>Hello world!</h3>

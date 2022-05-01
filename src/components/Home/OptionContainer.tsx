@@ -1,4 +1,4 @@
-import React, { ReactEventHandler, useCallback, useMemo } from 'react'
+import { FC, ReactEventHandler, useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
@@ -6,10 +6,10 @@ import {
   changeAnimationSpeed,
   changeArraySize,
   changeColorMode
-} from '../../store/slice/sorting'
-import { RootState } from '../../store'
+} from '@/store/slice/sorting'
+import { RootState } from '@/store'
 
-import { Header, Dropdown } from '../shared'
+import { Header, Dropdown } from '@/components/shared'
 
 const SizeOption = 'Size'
 const AlgorithmOption = 'Algorithm'
@@ -69,10 +69,8 @@ const getMenuOptions = (allAlgorithms: string[]) => [
   }
 ]
 
-const OptionContainer: React.FC = () => {
-  const { allAlgorithms } = useSelector(
-    (state: RootState) => state.sorting
-  )
+const OptionContainer: FC = () => {
+  const { allAlgorithms } = useSelector((state: RootState) => state.sorting)
   const dispatch = useDispatch()
 
   const handleChangeEvent: ReactEventHandler<HTMLSelectElement> = useCallback(
