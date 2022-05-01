@@ -1,55 +1,85 @@
 .aboutPage {
+  max-width: 900px;
   width: 70%;
+  height: 100vh;
   margin: 0 auto;
-  padding: 4rem;
-  font-size: 1.8rem;
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 
-  @media (max-width: 600px) {
-    width: 80%;
-  }
-
-  .header {
-    font-size: 4rem;
+  &__header {
+    font-size: 30px;
     font-weight: 300;
-    padding: 2rem 0;
+    padding: 20px;
     text-transform: uppercase;
+    text-align: center;
   }
 
-  .description {
-    font-size: 2rem;
+  &__description {
+    font-size: 16px;
     font-weight: 300;
     text-align: justify;
-    padding-bottom: 2rem;
+    padding: 50px 0px;
   }
 
-  .details-table {
+  &__details {
     width: 100%;
     border-collapse: collapse;
 
     td {
-      padding: 1rem;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: 300;
+
       li {
         list-style: none;
-        margin-bottom: 0.2rem;
+        margin-bottom: 2px;
+      }
+
+      &:first-child {
+        width: 65px;
+        white-space: nowrap;
+        text-align: left;
+        vertical-align: top;
+        font-weight: bold;
       }
     }
 
-    td:first-child {
-      width: 1%;
-      white-space: nowrap;
-      text-align: left;
-      vertical-align: top;
-      font-size: 2rem;
-    }
-
-    td:nth-child(2) {
-      font-weight: 300;
+    &-link {
+      text-decoration: underline;
+      color: rgb(90, 90, 251);
+      word-break: break-all;
     }
   }
 
-  .link {
-    margin: 2rem 0;
-    text-decoration: underline;
-    color: blue;
+  &__footer {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    left: 0;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 20px;
+
+    &__header {
+      font-size: 20px;
+    }
+
+    &__description {
+      font-size: 14px;
+    }
+
+    &__details {
+      td {
+        font-size: 14px;
+      }
+    }
   }
 }

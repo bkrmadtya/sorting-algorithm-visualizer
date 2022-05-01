@@ -12,18 +12,22 @@ type IProps = {
 
 const Dropdown: FC<IProps> = ({ name, options, onChange, value }) => {
   return (
-    <select
-      name={name}
-      className='dropdown'
-      onChange={onChange}
-      defaultValue={value}
-    >
-      {options.map(({ key, value }) => (
-        <option key={key} value={value}>
-          {key}
-        </option>
-      ))}
-    </select>
+    <div className='dropdown'>
+      <label className='dropdown__label'>{name}:</label>
+      <select
+        className='dropdown__select'
+        defaultValue={value}
+        data-name={name}
+        name={name}
+        onChange={onChange}
+      >
+        {options.map(({ key, value }) => (
+          <option key={key} value={value}>
+            {key}
+          </option>
+        ))}
+      </select>
+    </div>
   )
 }
 

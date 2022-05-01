@@ -141,7 +141,9 @@ export const getCurrentArray = ({ sorting }: RootState): string =>
   sorting.steps[sorting.currentStep].map(i => i.value).join(', ')
 export const getInitialArray = ({ sorting }: RootState): string =>
   sorting.initialArray.map(i => i.value).join(', ')
-export const getSortingStatus = ({ sorting }: RootState): string => {
+
+type SortingStatus = BarStatus | 'SORTING'
+export const getSortingStatus = ({ sorting }: RootState): SortingStatus => {
   if (sorting.currentStep === 0) {
     return BarStatus.UNSORTED
   } else if (

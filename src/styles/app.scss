@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100&display=swap');
-@import url('https://highlightjs.org/static/demo/styles/railscasts.css');
 
 @import './pages/';
-@import './common/';
+@import './shared/';
 
 *,
 html {
@@ -13,7 +12,6 @@ html {
 }
 
 :root {
-  font-size: 62.5%; // 1rem = 10px, (10px / 16px) => 62.5%
   // background colors
   --appBg: hsl(0, 0%, 80%);
   --navBarBg: hsl(0, 0%, 19%);

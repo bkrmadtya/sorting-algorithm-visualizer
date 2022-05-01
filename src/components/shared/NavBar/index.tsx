@@ -11,7 +11,9 @@ const NavBar: FC<IProps> = ({ children }) => {
   return (
     <div className='navbar'>
       <Header className='navbar__header'>
-        <Link to='/'>SORTING ALGORITHM VISUALIZER</Link>
+        <Link to='/'>
+          SORTING ALGORITHM <br /> VISUALIZER
+        </Link>
       </Header>
       <div className='navbar__content'>{children}</div>
     </div>

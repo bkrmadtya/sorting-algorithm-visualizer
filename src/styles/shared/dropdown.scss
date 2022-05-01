@@ -1,0 +1,37 @@
+.dropdown {
+  width: 100px;
+
+  &__label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    margin: 5px;
+  }
+
+  &__select {
+    width: 100%;
+    font-size: 14px;
+    border: none;
+    position: relative;
+    padding: 5px;
+    border-radius: 3px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 70px;
+    font-size: 12px;
+
+    &__label {
+      font-size: 10px;
+    }
+  }
+}

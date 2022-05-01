@@ -11,10 +11,11 @@
     border-collapse: collapse;
 
     & .rowData {
-      font-size: 1.4rem;
+      font-size: 14px;
 
       & td {
-        padding: 1.5rem 5rem;
+        padding: 15px 20px;
+        box-sizing: border-box;
       }
 
       &:nth-child(odd) {
@@ -22,8 +23,26 @@
       }
 
       &__key {
-        width: 20rem;
+        max-width: 150px;
         font-weight: bold;
+      }
+
+      &__value {
+        text-align: left;
+      }
+
+      @media screen and (max-width: 768px) {
+        font-size: 12px;
+        & td {
+          padding: 10px;
+          font-size: 12px;
+          &:nth-child(2) {
+            font-size: 10px;
+          }
+        }
+        &__key {
+          max-width: 70px;
+        }
       }
     }
   }

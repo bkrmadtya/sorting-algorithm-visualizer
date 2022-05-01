@@ -1,5 +1,6 @@
 import { FC, ReactEventHandler, useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit/dist/createAction'
 
 import {
   changeAlgorithm,
@@ -9,11 +10,12 @@ import {
 } from '@/store/slice/sorting'
 import { RootState } from '@/store'
 
-import { Header, Dropdown } from '@/components/shared'
+import { Dropdown } from '@/components/shared'
 
 const SizeOption = 'Size'
 const AlgorithmOption = 'Algorithm'
-const ModeOption = 'Color mode'
+const ModeOption = 'Color Mode'
+const SpeedOption = 'Speed'
 
 const getMenuOptions = (allAlgorithms: string[]) => [
   {
@@ -38,7 +40,7 @@ const getMenuOptions = (allAlgorithms: string[]) => [
     ]
   },
   {
-    name: 'Speed',
+    name: SpeedOption,
     value: [
       {
         key: '1x',
@@ -58,16 +60,25 @@ const getMenuOptions = (allAlgorithms: string[]) => [
     name: ModeOption,
     value: [
       {
-        key: 'True',
+        key: 'On',
         value: true.toString()
       },
       {
-        key: 'False',
+        key: 'Off',
         value: false.toString()
       }
     ]
   }
 ]
+
+const OptionHandlerMap: {
+  [key: string]: ActionCreatorWithPayload<any, string>
+} = {
+  [SizeOption]: changeArraySize,
+  [AlgorithmOption]: changeAlgorithm,
+  [ModeOption]: changeColorMode,
+  [SpeedOption]: changeAnimationSpeed
+}
 
 const OptionContainer: FC = () => {
   const { allAlgorithms } = useSelector((state: RootState) => state.sorting)
@@ -76,16 +87,7 @@ const OptionContainer: FC = () => {
   const handleChangeEvent: ReactEventHandler<HTMLSelectElement> = useCallback(
     event => {
       const { name, value } = event.currentTarget
-      if (name === SizeOption) {
-        dispatch(changeArraySize(value))
-      } else if (name === AlgorithmOption) {
-        dispatch(changeAlgorithm(value))
-      } else if (name === ModeOption) {
-        // console.log(value)
-        dispatch(changeColorMode(value))
-      } else {
-        dispatch(changeAnimationSpeed(value))
-      }
+      dispatch(OptionHandlerMap[name](value))
     },
     [dispatch]
   )
@@ -97,16 +99,13 @@ const OptionContainer: FC = () => {
   return useMemo(() => {
     return (
       <div className='optionContainer'>
-        {options.map(op => (
-          <Header className='panelHeader' key={op.name}>
-            <span>{op.name}: </span>
-            <Dropdown
-              name={op.name}
-              options={op.value}
-              onChange={handleChangeEvent}
-              value={op.value[1].value}
-            />
-          </Header>
+        {options.map(({ name, value }) => (
+          <Dropdown
+            name={name}
+            options={value}
+            onChange={handleChangeEvent}
+            value={value[1].value}
+          />
         ))}
       </div>
     )

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { Bar } from '@/utils'
 
@@ -8,10 +8,30 @@ interface IProps {
 }
 
 const BarContainer: FC<IProps> = ({ step }: IProps) => {
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(true)
+
+  useEffect(() => {
+    const resizeCallback = () => {
+      const isMobile = window.innerWidth < 768
+      setIsMobileScreen(isMobile)
+    }
+
+    resizeCallback()
+    window.addEventListener('resize', resizeCallback)
+    return () => {
+      window.removeEventListener('resize', resizeCallback)
+    }
+  }, [])
+
   return (
     <div className='barContainer'>
       {step.map(a => (
-        <BarComponent key={a.value} value={a.value} status={a.status} />
+        <BarComponent
+          key={a.value}
+          value={a.value}
+          status={a.status}
+          isMobileScreen={isMobileScreen}
+        />
       ))}
     </div>
   )

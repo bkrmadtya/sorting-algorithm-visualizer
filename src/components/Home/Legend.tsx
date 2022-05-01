@@ -7,13 +7,9 @@ const Legend: FC<{ type: BarStatus }> = ({ type }) => {
     <div className='legend'>
       <div
         className='legend__color'
-        style={{
-          backgroundColor: `var(--${type})`
-        }}
-      ></div>
-      <div className='legend__text'>
-        <strong>{type}</strong>
-      </div>
+        style={{ backgroundColor: `var(--${type})` }}
+      />
+      <strong>{type}</strong>
     </div>
   )
 }
