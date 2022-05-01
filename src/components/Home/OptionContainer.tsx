@@ -1,10 +1,6 @@
-import React, { ReactEventHandler, useCallback, useMemo, useRef } from 'react'
+import React, { ReactEventHandler, useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-// components
-import { Header, Dropdown } from '../shared'
-
-// js
 import {
   changeAlgorithm,
   changeAnimationSpeed,
@@ -12,6 +8,8 @@ import {
   changeColorMode
 } from '../../store/slice/sorting'
 import { RootState } from '../../store'
+
+import { Header, Dropdown } from '../shared'
 
 const SizeOption = 'Size'
 const AlgorithmOption = 'Algorithm'
@@ -93,7 +91,6 @@ const OptionContainer: React.FC = () => {
     },
     [dispatch]
   )
-  // const rerender = useRef(0)
 
   const options = useMemo(() => {
     return getMenuOptions(allAlgorithms)
@@ -113,7 +110,6 @@ const OptionContainer: React.FC = () => {
             />
           </Header>
         ))}
-        {/* {rerender.current++} */}
       </div>
     )
   }, [handleChangeEvent, options])

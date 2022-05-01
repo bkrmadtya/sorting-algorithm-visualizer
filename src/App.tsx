@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
-// style
 import './styles/app.scss'
 
-// components
 import { NavBar } from './components/shared'
 import { Home, Algorithms, About } from './pages'
 

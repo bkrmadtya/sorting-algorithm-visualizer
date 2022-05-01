@@ -1,14 +1,11 @@
-import React, { useMemo, useRef } from 'react'
+import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 
-// components
-import Legend from './Legend'
-import { Header } from '../shared'
-
-// utils
 import { BarStatus } from '../../utils'
 import { getColorMode } from '../../store/slice/sorting'
 
+import Legend from './Legend'
+import { Header } from '../shared'
 
 const getLegends = (colorMode: boolean) => {
   if (colorMode) {

@@ -1,15 +1,13 @@
 import React from 'react'
 
-// components
-import { Header } from '../shared'
-
-// utils
 import { ITableOfContent } from '../../utils'
+
+import { Header } from '../shared'
 
 interface IProps {
   tableOfContent: ITableOfContent[]
   selected: string
-  onClick: (name: string) => any
+  onClick: (name: string) => void
 }
 
 const AlgorithmsTabs: React.FC<IProps> = ({
