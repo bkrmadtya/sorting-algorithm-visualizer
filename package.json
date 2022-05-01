@@ -12,7 +12,7 @@
     "lint:fix": "eslint --fix --ext .ts,.tsx src/",
     "prettier": "prettier \"**/*.+(js|jsx|json|ts|tsx|css|scss|md|mdx|graphql)\" --write",
     "deploy:draft": "rm -rf build && npm run build && netlify deploy -d build",
-    "deploy:prod": "rm -rf build && npm run build && netlify deploy -d build --prod"
+      "deploy:prod": "rm -rf build && npm run build && netlify deploy -d build --prod"
   },
   "husky": {
     "hooks": {
@@ -20,7 +20,7 @@
     }
   },
   "lint-staged": {
-        "**/*.{js,jsx,json,ts,tsx,css,scss,md,mdx,graphql}": "prettier --write"
+      "./**/*.{js,jsx,json,ts,tsx,css,scss,md,mdx,graphql}": "pnpm prettier:ts -- --write"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
@@ -42,7 +42,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
-       "sass": "^1.51.0",
+    "sass": "^1.51.0",
     "typescript": "^4.6.4",
     "vite": "^2.9.6"
   }
