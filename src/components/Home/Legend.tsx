@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BarStatus } from 'src/utils'
+import { BarStatus } from '@/utils'
 
 const Legend: React.FC<{ type: BarStatus }> = ({ type }) => {
   return (

@@ -1,4 +1,4 @@
-import { Bar, BarStatus } from './'
+import { Bar, BarStatus } from '@/utils'
 
 const generateRandomSetOfNumbers = (sizeOfArray: number): Set<number> => {
   const set = new Set<number>()

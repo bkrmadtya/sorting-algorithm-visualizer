@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BottomPanel, MainPanel } from '../../components/Home'
+import { BottomPanel, MainPanel } from '@/components/Home'
 
 const Home: React.FC = () => {
   return (

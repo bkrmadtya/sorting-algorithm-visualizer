@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BarStatus } from '../../utils'
+import { BarStatus } from '@/utils'
 
 interface IProps {
   value: number

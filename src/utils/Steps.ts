@@ -1,4 +1,4 @@
-import { Bar } from './'
+import { Bar } from '@/utils'
 
 export default class Steps {
   private steps: Bar[][]

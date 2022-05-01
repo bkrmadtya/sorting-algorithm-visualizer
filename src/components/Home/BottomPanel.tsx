@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { getInfoForBottomPanel } from '../../store/slice/sorting'
+import { getInfoForBottomPanel } from '@/store/slice/sorting'
 
 interface IRowData {
   key: string

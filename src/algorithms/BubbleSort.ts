@@ -4,7 +4,7 @@ import {
   swapElements,
   Bar,
   BarStatus
-} from '../utils'
+} from '@/utils'
 
 const { ACTIVE, SORTED, UNSORTED } = BarStatus
 

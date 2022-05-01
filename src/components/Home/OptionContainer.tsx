@@ -6,10 +6,10 @@ import {
   changeAnimationSpeed,
   changeArraySize,
   changeColorMode
-} from '../../store/slice/sorting'
-import { RootState } from '../../store'
+} from '@/store/slice/sorting'
+import { RootState } from '@/store'
 
-import { Header, Dropdown } from '../shared'
+import { Header, Dropdown } from '@/components/shared'
 
 const SizeOption = 'Size'
 const AlgorithmOption = 'Algorithm'

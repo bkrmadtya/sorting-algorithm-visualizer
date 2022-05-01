@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { ITableOfContent } from '../../utils'
+import { ITableOfContent } from '@/utils'
 
 import {
   Algorithm,

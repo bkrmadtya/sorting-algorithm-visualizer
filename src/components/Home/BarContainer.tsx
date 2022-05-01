@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Bar } from '../../utils'
+import { Bar } from '@/utils'
 
 import BarComponent from './Bar'
 interface IProps {

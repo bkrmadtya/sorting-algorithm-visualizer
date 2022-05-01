@@ -1,6 +1,6 @@
 import React from 'react'
 
-import useSort from '../../hooks/useSort'
+import useSort from '@/hooks/useSort'
 
 import BarContainer from './BarContainer'
 import Controls from './Controls'

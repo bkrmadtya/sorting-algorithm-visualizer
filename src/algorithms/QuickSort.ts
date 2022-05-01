@@ -5,7 +5,7 @@ import {
   Bar,
   BarStatus,
   Steps
-} from '../utils'
+} from '@/utils'
 
 const { ACTIVE, SORTED, UNSORTED, PIVOT } = BarStatus
 

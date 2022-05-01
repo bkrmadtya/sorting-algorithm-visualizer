@@ -6,7 +6,7 @@ import {
   BarStatus,
   ISortingAlgorithm,
   randomArrayGenerator
-} from '../../utils'
+} from '@/utils'
 import { BubbleSort, MergeSort, QuickSort } from '../../algorithms'
 
 const Algorithm: Record<string, ISortingAlgorithm> = {

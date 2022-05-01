@@ -2,7 +2,7 @@ import React from 'react'
 
 import Section from './Section'
 
-import { ITableOfContent } from '../../utils'
+import { ITableOfContent } from '@/utils'
 
 interface IProps {
   tableOfContent: ITableOfContent[]

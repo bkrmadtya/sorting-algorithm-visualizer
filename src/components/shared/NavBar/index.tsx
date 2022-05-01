@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { Header } from '..'
+import { Header } from '@/components/shared'
 
 interface IProps {
   children?: React.ReactNode
