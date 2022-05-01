@@ -10,13 +10,13 @@ const Modal: FC = () => {
       const localStorageValue = localStorage.getItem(localStorageKey)
       if (!localStorageValue) {
         setShow(true)
-        localStorage.setItem(localStorageKey, 'true')
       }
     }
   }, []);
 
   const handleModalClose = (): void => {
     setShow(false)
+    localStorage.setItem(localStorageKey, 'true')
   }
 
   if (!show) {
