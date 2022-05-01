@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import './styles/app.scss'
 
-import { NavBar } from './components/shared'
+import { NavBar, Modal } from './components/shared'
 import { Home, Algorithms, About } from './pages'
-import Modal from './components/shared/Modal'
 
 const App: React.FC = () => {
   return (
