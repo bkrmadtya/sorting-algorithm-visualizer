@@ -4,14 +4,14 @@
   color: hsl(0, 2%, 91%);
 
   .panelHeader {
-    font-size: 2rem;
-    padding: 4rem 2rem 0 4rem;
+    font-size: 20px;
+    padding: 40px 20px 0 40px;
   }
 
   .contentLink {
-    font-size: 2rem;
-    padding: 2rem 4rem;
-    border-bottom: 0.1rem solid var(--mainPanelBg);
+    font-size: 20px;
+    padding: 20px 40px;
+    border-bottom: 0.1px solid var(--mainPanelBg);
 
     &:hover {
       cursor: pointer;

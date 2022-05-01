@@ -11,10 +11,10 @@
     border-collapse: collapse;
 
     & .rowData {
-      font-size: 1.4rem;
+      font-size: 14px;
 
       & td {
-        padding: 1.5rem 5rem;
+        padding: 15px 50px;
       }
 
       &:nth-child(odd) {
@@ -22,7 +22,7 @@
       }
 
       &__key {
-        width: 20rem;
+        width: 200px;
         font-weight: bold;
       }
     }

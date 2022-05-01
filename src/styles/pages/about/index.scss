@@ -1,25 +1,25 @@
 .aboutPage {
   width: 70%;
   margin: 0 auto;
-  padding: 4rem;
-  font-size: 1.8rem;
+  padding: 40px;
+  font-size: 18px;
 
   @media (max-width: 600px) {
     width: 80%;
   }
 
   .header {
-    font-size: 4rem;
+    font-size: 40px;
     font-weight: 300;
-    padding: 2rem 0;
+    padding: 20px 0;
     text-transform: uppercase;
   }
 
   .description {
-    font-size: 2rem;
+    font-size: 20px;
     font-weight: 300;
     text-align: justify;
-    padding-bottom: 2rem;
+    padding-bottom: 20px;
   }
 
   .details-table {
@@ -27,10 +27,10 @@
     border-collapse: collapse;
 
     td {
-      padding: 1rem;
+      padding: 10px;
       li {
         list-style: none;
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.2px;
       }
     }
 
@@ -39,7 +39,7 @@
       white-space: nowrap;
       text-align: left;
       vertical-align: top;
-      font-size: 2rem;
+      font-size: 20px;
     }
 
     td:nth-child(2) {
@@ -48,7 +48,7 @@
   }
 
   .link {
-    margin: 2rem 0;
+    margin: 20px 0;
     text-decoration: underline;
     color: blue;
   }

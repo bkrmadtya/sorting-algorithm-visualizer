@@ -1,10 +1,8 @@
 .dropdown {
-  width: 20rem;
-  padding: 0.8rem 1.5rem;
-  margin: 0 0.5rem;
+  padding: 5px;
+  margin: 0 5px;
   background: hsl(0, 0%, 77%);
-  font-size: 1.5rem;
-  letter-spacing: 0.01rem;
+  font-size: 12px;
 
   &:hover {
     cursor: pointer;
@@ -15,6 +13,6 @@
   }
 
   & option {
-    font-size: 1.7rem;
+    font-size: 1rem;
   }
 }
