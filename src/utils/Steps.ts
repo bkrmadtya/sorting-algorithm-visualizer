@@ -1,4 +1,3 @@
-// utils
 import { Bar } from './'
 
 export default class Steps {

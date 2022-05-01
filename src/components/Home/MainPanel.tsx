@@ -1,9 +1,7 @@
 import React from 'react'
 
-// hooks'
 import useSort from '../../hooks/useSort'
 
-// components
 import BarContainer from './BarContainer'
 import Controls from './Controls'
 import LegendContainer from './LegendContainer'

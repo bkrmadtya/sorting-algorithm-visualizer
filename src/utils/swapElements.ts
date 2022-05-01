@@ -1,4 +1,3 @@
-// utils
 import { Bar } from './'
 
 const getIndexOfElement = (arr: Bar[], ele: Bar): number =>

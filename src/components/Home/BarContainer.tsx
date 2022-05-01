@@ -1,11 +1,8 @@
 import React from 'react'
 
-// components
-import BarComponent from './Bar'
-
-// utils
 import { Bar } from '../../utils'
 
+import BarComponent from './Bar'
 interface IProps {
   step: Bar[]
 }

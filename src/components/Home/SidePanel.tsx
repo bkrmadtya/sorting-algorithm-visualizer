@@ -1,9 +1,10 @@
 import React, { ReactEventHandler, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-
 import { changeAlgorithm } from '../../store/slice/sorting'
 import { Header, Dropdown } from '../shared'
+
+// WIP
 
 const bubbleSortCode = `
 let bubbleSort = (inputArr) => {
