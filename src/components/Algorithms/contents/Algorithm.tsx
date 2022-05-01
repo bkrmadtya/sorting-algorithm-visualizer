@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-const Algorithm: React.FC = () => {
+const Algorithm: FC = () => {
   return (
     <>
       <p>

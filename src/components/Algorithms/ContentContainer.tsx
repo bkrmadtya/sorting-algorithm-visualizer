@@ -8,7 +8,7 @@ interface IProps {
   tableOfContent: ITableOfContent[]
 }
 
-const ContentContainer: React.FC<IProps> = ({ tableOfContent }) => {
+const ContentContainer: FC<IProps> = ({ tableOfContent }) => {
   return (
     <div className='contentContainer'>
       <article>

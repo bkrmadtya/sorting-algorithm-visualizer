@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-const Algorithm: React.FC = () => {
+const SortingAlgorithm: FC = () => {
   return (
     <>
       <p>
@@ -116,4 +116,4 @@ const Algorithm: React.FC = () => {
   )
 }
 
-export default Algorithm
+export default SortingAlgorithm

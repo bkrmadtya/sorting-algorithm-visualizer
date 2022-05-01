@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { memo, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 
 import { BarStatus } from '@/utils'
@@ -29,4 +29,4 @@ const LegendContainer = () => {
   )
 }
 
-export default React.memo(LegendContainer)
+export default memo(LegendContainer)

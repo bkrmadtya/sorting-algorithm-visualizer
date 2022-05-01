@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 import '@/styles/app.scss'
@@ -6,7 +6,7 @@ import '@/styles/app.scss'
 import { NavBar, Modal } from '@/components/shared'
 import { Home, Algorithms, About } from '@/pages'
 
-const App: React.FC = () => (
+const App: FC = () => (
   <div className='app'>
     <Router>
       <NavBar>

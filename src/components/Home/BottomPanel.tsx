@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import { useSelector } from 'react-redux'
 
 import { getInfoForBottomPanel } from '@/store/slice/sorting'
@@ -44,7 +44,7 @@ const tableData = (
   ]
 })
 
-const BottomPanel: React.FC = () => {
+const BottomPanel: FC = () => {
   const { activeElement, arraySize, initialArray, currentArray, status } =
     useSelector(getInfoForBottomPanel)
   return (

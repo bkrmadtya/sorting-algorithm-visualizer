@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-const About: React.FC = () => {
+const About: FC = () => {
   const url = 'https://github.com/bkrmadtya/sorting-algorithm-visualizer'
   return (
     <div className='aboutPage'>

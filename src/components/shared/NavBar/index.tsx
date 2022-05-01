@@ -7,7 +7,7 @@ interface IProps {
   children?: React.ReactNode
 }
 
-const NavBar: React.FC<IProps> = ({ children }) => {
+const NavBar: FC<IProps> = ({ children }) => {
   return (
     <div className='navbar'>
       <Header className='navbar__header'>

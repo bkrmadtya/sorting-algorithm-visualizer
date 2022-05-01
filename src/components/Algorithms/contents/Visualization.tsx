@@ -1,11 +1,11 @@
-import React from 'react'
+import { FC } from 'react'
 
 const image = {
   src: 'https://i.guim.co.uk/img/media/5189fb1648c5880a5414e65b1b8163374d268cc4/0_260_5472_3282/master/5472.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=6e362f5df1911e15624838f51054def5',
   alt: 'The painting at Leang Tedongnge in Sulawesi, Indonesia. Photograph: Maxime Aubert/Griffith University/AFP/Getty Images'
 }
 
-const Visualization: React.FC = () => {
+const Visualization: FC = () => {
   return (
     <>
       <p>

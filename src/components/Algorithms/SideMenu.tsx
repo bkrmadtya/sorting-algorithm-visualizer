@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 
 import { ITableOfContent } from '@/utils'
 
@@ -10,11 +10,7 @@ interface IProps {
   onClick: (name: string) => void
 }
 
-const AlgorithmsTabs: React.FC<IProps> = ({
-  onClick,
-  selected,
-  tableOfContent
-}) => {
+const AlgorithmsTabs: FC<IProps> = ({ onClick, selected, tableOfContent }) => {
   return (
     <div className='sideMenu'>
       <a href='#algorithm'>

@@ -10,7 +10,7 @@ type IProps = {
   value?: string
 }
 
-const Dropdown: React.FC<IProps> = ({ name, options, onChange, value }) => {
+const Dropdown: FC<IProps> = ({ name, options, onChange, value }) => {
   return (
     <select
       name={name}

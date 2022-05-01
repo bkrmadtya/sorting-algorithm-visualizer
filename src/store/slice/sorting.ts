@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { RootState } from '../'
+import { RootState } from '@/store'
 import {
   Bar,
   BarStatus,
   ISortingAlgorithm,
   randomArrayGenerator
 } from '@/utils'
-import { BubbleSort, MergeSort, QuickSort } from '../../algorithms'
+import { BubbleSort, MergeSort, QuickSort } from '@/algorithms'
 
 const Algorithm: Record<string, ISortingAlgorithm> = {
   'Bubble Sort': BubbleSort,

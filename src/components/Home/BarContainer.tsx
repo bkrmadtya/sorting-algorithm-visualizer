@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 
 import { Bar } from '@/utils'
 
@@ -7,7 +7,7 @@ interface IProps {
   step: Bar[]
 }
 
-const BarContainer: React.FC<IProps> = ({ step }: IProps) => {
+const BarContainer: FC<IProps> = ({ step }: IProps) => {
   return (
     <div className='barContainer'>
       {step.map(a => (

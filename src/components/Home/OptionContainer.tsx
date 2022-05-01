@@ -1,4 +1,4 @@
-import React, { ReactEventHandler, useCallback, useMemo } from 'react'
+import { FC, ReactEventHandler, useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
@@ -69,7 +69,7 @@ const getMenuOptions = (allAlgorithms: string[]) => [
   }
 ]
 
-const OptionContainer: React.FC = () => {
+const OptionContainer: FC = () => {
   const { allAlgorithms } = useSelector((state: RootState) => state.sorting)
   const dispatch = useDispatch()
 

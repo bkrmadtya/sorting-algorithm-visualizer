@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Bar } from '@/utils'
 
 export interface IAlgorithm {

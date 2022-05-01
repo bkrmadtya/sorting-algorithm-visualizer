@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 
 interface IProps {
   sort: () => void
@@ -8,7 +8,7 @@ interface IProps {
   nextStep: () => void
 }
 
-const Controls: React.FC<IProps> = ({
+const Controls: FC<IProps> = ({
   sort,
   pause,
   reset,
