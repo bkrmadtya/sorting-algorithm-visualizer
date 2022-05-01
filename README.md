@@ -21,8 +21,7 @@ This project was part of my thesis work. It is a visualizer application made wit
 - Redux
 - React-Router
 - SASS
-- Babel
-- Webpack
+- Vite
 - Eslint
 
 ### To run the project locally, clone the project and run:
