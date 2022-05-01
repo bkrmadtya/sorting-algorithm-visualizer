@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 
 interface IProps {
   children: React.ReactNode
