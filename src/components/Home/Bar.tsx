@@ -5,11 +5,12 @@ import { BarStatus } from '@/utils'
 interface IProps {
   value: number
   status: BarStatus
+  isMobileScreen: boolean
 }
 
-const Bar: FC<IProps> = ({ value, status }: IProps) => {
+const Bar: FC<IProps> = ({ value, status, isMobileScreen }: IProps) => {
   const barStyle = {
-    height: value * 2,
+    height: value * (isMobileScreen ? 1.5 : 2),
     backgroundColor: `var(--${status})`
   }
   return <div className='bar' style={barStyle} />

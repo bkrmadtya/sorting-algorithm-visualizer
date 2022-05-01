@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { Bar } from '@/utils/Bar'
 import { RootState } from '@/store'
-import sorting, {
+import {
   goToNextStep,
   goToPreviousStep,
   resetSorting,
