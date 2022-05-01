@@ -41,8 +41,18 @@
         margin-top: 2rem;
         padding: 0.5rem 1rem;
         color: white;
-        background-color: orange;
-        cursor: pointer;        
+        background-color: rgb(215, 98, 98);
+        border: 1px solid rgb(195, 87, 87);
+        border-radius: 0.5rem;
+        cursor: pointer;
+
+        &:hover{
+          opacity: 0.9;
+        }
+        
+        &:active {
+          opacity: 0.7;
+        }
       }
     }
   }

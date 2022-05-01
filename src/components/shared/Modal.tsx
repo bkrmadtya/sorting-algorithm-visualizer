@@ -30,7 +30,7 @@ const Modal: FC = () => {
       </div>
       <div className='modal__content__content'>
         <p>The application shows flashing colors.</p>
-        <p>Please, keep the color mode &quot;off&quot;, if you are affected by it.</p>
+        <p>Please, keep the color mode option <strong>&quot;off&quot;</strong> if you are affected by it.</p>
       </div>
       <div className='modal__content__footer'>
         <button type="button" onClick={handleModalClose}>Close</button>
