@@ -2,16 +2,16 @@
   grid-area: side;
   background-color: var(--sidePanelBg);
   color: hsl(0, 2%, 91%);
+  font-size: 16px;
 
   .panelHeader {
-    font-size: 20px;
+    font-weight: bolder;
     padding: 40px 20px 0 40px;
   }
 
   .contentLink {
-    font-size: 20px;
     padding: 20px 40px;
-    border-bottom: 0.1px solid var(--mainPanelBg);
+    border-bottom: 1px solid var(--mainPanelBg);
 
     &:hover {
       cursor: pointer;
@@ -23,5 +23,9 @@
   .selectedTab {
     background-color: var(--mainPanelBg);
     color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 }
