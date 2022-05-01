@@ -30,4 +30,11 @@
       margin-left: 25px;
     }
   }
+
+  @media screen and (max-width: 768px) {
+    padding: 10px 20px;
+    & * {
+      font-size: 10px;
+    }
+  }
 }
